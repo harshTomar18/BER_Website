@@ -67,6 +67,7 @@ app.get('/sitemap.xml', getSitemapXml);
 // 4. Mount API Routes
 app.use('/api/v1', apiRouter);
 app.use('/api', apiRouter);
+app.use('/v1', apiRouter);
 
 // Root greeting
 app.get('/', (req, res) => {
