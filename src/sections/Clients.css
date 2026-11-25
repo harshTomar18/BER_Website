@@ -1,0 +1,166 @@
+/* =====================================================
+   OUR CLIENTS SECTION - SMOOTH LOGO MARQUEE
+   Clean, clear presentation with pause on hover
+   ===================================================== */
+
+.clients-section {
+  position: relative;
+  background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 50%, #fafdff 100%);
+  padding: 44px 0 48px;
+  overflow: hidden;
+}
+
+/* Background Atmosphere Glows */
+.cl-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.cl-bg-glow--left {
+  width: 500px;
+  height: 450px;
+  top: 10%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(19, 133, 172, 0.08) 0%, transparent 65%);
+}
+
+.cl-bg-glow--right {
+  width: 500px;
+  height: 450px;
+  bottom: 5%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(22, 161, 206, 0.07) 0%, transparent 65%);
+}
+
+/* Heading Container */
+.cl-heading-wrap {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+/* Marquee Outer Wrapper with smooth gradient edge masks */
+.cl-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0 20px;
+  z-index: 2;
+  mask-image: linear-gradient(to right,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 8%,
+      rgba(0, 0, 0, 1) 92%,
+      transparent 100%);
+  -webkit-mask-image: linear-gradient(to right,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 8%,
+      rgba(0, 0, 0, 1) 92%,
+      transparent 100%);
+}
+
+/* Continuously moving track */
+.cl-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: clientsScroll 36s linear infinite;
+  will-change: transform;
+}
+
+.cl-marquee-wrapper:hover .cl-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes clientsScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Individual Logo Card */
+.cl-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 84px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(215, 232, 255, 0.85);
+  border-radius: 18px;
+  box-shadow:
+    0 6px 20px rgba(11, 30, 74, 0.04),
+    0 1px 3px rgba(0, 102, 255, 0.02),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  flex-shrink: 0;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cl-logo-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: #ffffff;
+  border-color: #1385ac;
+  box-shadow:
+    0 12px 30px rgba(19, 133, 172, 0.16),
+    0 2px 6px rgba(19, 133, 172, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+/* Logo Image Styling */
+.cl-logo-img {
+  max-width: 100%;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: contrast(105%);
+  opacity: 0.92;
+  transition: all 0.25s ease;
+  display: block;
+}
+
+.cl-logo-card:hover .cl-logo-img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 34px 0 38px;
+  }
+
+  .cl-heading-wrap {
+    margin-bottom: 32px;
+  }
+
+  .cl-marquee-track {
+    gap: 16px;
+    animation-duration: 28s;
+  }
+
+  .cl-logo-card {
+    width: 145px;
+    height: 72px;
+    padding: 10px 16px;
+    border-radius: 14px;
+  }
+
+  .cl-logo-img {
+    max-height: 38px;
+  }
+}

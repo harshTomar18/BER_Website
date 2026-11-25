@@ -1,0 +1,572 @@
+/* =====================================================
+   ADMIN SHOWCASE & CLIENTS MANAGER STYLESHEET
+   Brand: BER Services (#20285b Navy, #16a1ce Electric Blue)
+   ===================================================== */
+
+.ash-page {
+  padding: 32px 36px 60px 36px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header Bar */
+.ash-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.ash-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.ash-breadcrumb a {
+  color: #16a1ce;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ash-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.ash-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.ash-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0;
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.ash-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ash-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.ash-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.ash-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #20285b 0%, #16a1ce 100%);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(22, 161, 206, 0.28);
+}
+
+.ash-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(22, 161, 206, 0.4);
+}
+
+.ash-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Alert Message */
+.ash-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  margin-bottom: 24px;
+}
+
+.ash-alert--success {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+
+.ash-alert--error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+/* Section Sub-Tabs Bar */
+.ash-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.ash-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ash-tab-btn:hover {
+  background: #f1f5f9;
+  color: #20285b;
+}
+
+.ash-tab-btn.is-active {
+  background: #20285b;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(32, 40, 91, 0.2);
+}
+
+.ash-tab-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  background: rgba(22, 161, 206, 0.15);
+  color: #16a1ce;
+}
+
+.ash-tab-btn.is-active .ash-tab-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Main Form Card */
+.ash-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+}
+
+.ash-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ash-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ash-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(22, 161, 206, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1385ac;
+}
+
+.ash-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.ash-card-subtitle {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+/* Form Controls */
+.ash-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.ash-form-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ash-form-full {
+  grid-column: 1 / -1;
+}
+
+.ash-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ash-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ash-input,
+.ash-select,
+.ash-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  color: #0f172a;
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ash-input:focus,
+.ash-select:focus,
+.ash-textarea:focus {
+  outline: none;
+  border-color: #16a1ce;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(22, 161, 206, 0.15);
+}
+
+.ash-textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Toggle Switch */
+.ash-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ash-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ash-toggle-slider {
+  width: 44px;
+  height: 24px;
+  border-radius: 50px;
+  background: #cbd5e1;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.ash-toggle-slider::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ash-toggle-input:checked + .ash-toggle-slider {
+  background: #16a1ce;
+}
+
+.ash-toggle-input:checked + .ash-toggle-slider::after {
+  transform: translateX(20px);
+}
+
+.ash-toggle-label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Item List Cards (Techs, Clients, Testimonials) */
+.ash-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.ash-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.ash-item-card:hover {
+  border-color: rgba(22, 161, 206, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.ash-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ash-item-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ash-item-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ash-item-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.ash-item-thumb-img--avatar {
+  object-fit: cover;
+  padding: 0;
+}
+
+.ash-item-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ash-item-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(22, 161, 206, 0.1);
+  color: #1385ac;
+  letter-spacing: 0.5px;
+}
+
+.ash-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ash-btn-icon-del {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ash-btn-icon-del:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+}
+
+/* Direct Drag & Drop Image Uploader Component */
+.ash-uploader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.ash-uploader:hover {
+  border-color: #16a1ce;
+  background: #f0f9ff;
+}
+
+.ash-uploader-preview {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ash-uploader-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.ash-uploader-content {
+  flex: 1;
+}
+
+.ash-uploader-text {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 4px 0;
+}
+
+.ash-uploader-sub {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ash-uploader-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1385ac;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ash-uploader-btn:hover {
+  border-color: #16a1ce;
+  background: rgba(22, 161, 206, 0.05);
+}
+
+.ash-uploader-file-input {
+  display: none;
+}
+
+/* Button to Add New Item */
+.ash-btn-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  color: #1385ac;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.ash-btn-add:hover {
+  background: #f0f9ff;
+  border-color: #16a1ce;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .ash-page {
+    padding: 24px 16px;
+  }
+  .ash-form-grid,
+  .ash-form-grid--3 {
+    grid-template-columns: 1fr;
+  }
+  .ash-card {
+    padding: 20px;
+  }
+}

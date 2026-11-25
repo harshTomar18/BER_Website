@@ -1,0 +1,500 @@
+/* =====================================================
+   HEADER - ANIMATED SMART REVEAL & NEO-GLASS STYLING
+   Smooth Slide-Down on Scroll-Up, Hide on Scroll-Down
+   Theme: Navy #20285b | Ocean Teal #1385ac | Cyan Accent #16a1ce
+   ===================================================== */
+
+/* Invisible top sentinel for IntersectionObserver */
+.hd-sentinel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 20px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* Master Fixed Header Container */
+.hd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  background-image: url('/images/Background.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 14px rgba(32, 40, 91, 0.05);
+  transition:
+    transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+/* Slide UP to HIDE when user scrolls down */
+.hd.hd--hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+/* Slide DOWN to REVEAL when user scrolls up */
+.hd.hd--visible {
+  transform: translateY(0);
+}
+
+/* Scrolled State: Premium Frosted Glassmorphism with Branded Texture */
+.hd.hd--scrolled {
+  background-color: rgba(255, 255, 255, 0.92);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84)),
+    url('/images/Background.png');
+  background-size: cover;
+  background-position: center top;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(32, 40, 91, 0.08);
+  box-shadow: 0 10px 30px rgba(32, 40, 91, 0.08);
+}
+
+/* =====================================================
+   1. TOP ANNOUNCEMENT & SOCIAL BAR
+   ===================================================== */
+.hd__top {
+  background: #20285b;
+  color: #b0c0dc;
+  font-size: 0.84rem;
+  max-height: 40px;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s ease,
+    padding 0.35s ease;
+}
+
+/* Collapse smoothly when scrolled down */
+.hd.hd--scrolled .hd__top {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.hd__top-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.hd__social,
+.hd__contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hd__social a,
+.hd__contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #b0c0dc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.hd__social a:hover,
+.hd__contact a:hover {
+  color: #16a1ce;
+}
+
+.hd__contact-icon {
+  color: #1385ac;
+  transition: transform 0.25s ease;
+}
+
+.hd__contact a:hover .hd__contact-icon {
+  transform: scale(1.15);
+  color: #16a1ce;
+}
+
+/* =====================================================
+   2. MAIN NAVIGATION BAR
+   ===================================================== */
+.hd__main-in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82px;
+  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Compact height when scrolled for clean viewport headroom */
+.hd.hd--scrolled .hd__main-in {
+  height: 72px;
+}
+
+/* Logo */
+.hd__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.hd__logo:hover {
+  transform: scale(1.02);
+}
+
+.hd__logo img {
+  height: 52px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hd.hd--scrolled .hd__logo img {
+  height: 46px;
+}
+
+/* Navigation Links */
+.hd__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.hd__nav>ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hd__nav li {
+  position: relative;
+}
+
+.hd__nav>ul>li>a {
+  position: relative;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #20285b;
+  padding: 24px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+/* Animated expanding bottom underline */
+.hd__nav>ul>li>a::after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: #1385ac;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hd.hd--scrolled .hd__nav>ul>li>a {
+  padding: 20px 0;
+}
+
+.hd.hd--scrolled .hd__nav>ul>li>a::after {
+  bottom: 14px;
+}
+
+.hd__nav>ul>li>a:hover::after,
+.hd__nav>ul>li>a.active::after {
+  transform: scaleX(1);
+}
+
+.hd__nav>ul>li>a:hover,
+.hd__nav>ul>li>a.active {
+  color: #1385ac;
+}
+
+/* Dropdown chevron animation */
+.hd__dd-chevron {
+  color: #64748b;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.has-dd:hover .hd__dd-chevron {
+  transform: rotate(180deg);
+  color: #1385ac;
+}
+
+/* =====================================================
+   3. SERVICES DROPDOWN MENU
+   ===================================================== */
+.hd__dd {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(19, 133, 172, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(32, 40, 91, 0.12);
+  padding: 10px 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.97);
+  transform-origin: top left;
+  transition:
+    opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.26s;
+  pointer-events: none;
+  list-style: none;
+  z-index: 1000;
+}
+
+/* Invisible bridge so mouse hover never drops across spacing */
+.hd__dd::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.has-dd:hover .hd__dd {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.hd__dd li {
+  margin: 0;
+}
+
+.hd__dd a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.hd__dd a:hover {
+  background: rgba(19, 133, 172, 0.08);
+  color: #1385ac;
+  transform: translateX(4px);
+}
+
+.hd__dd-item-text {
+  display: block;
+}
+
+/* =====================================================
+   4. CTA BUTTON
+   ===================================================== */
+.hd__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1385ac 0%, #16a1ce 100%);
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(19, 133, 172, 0.32);
+  transition: all 0.28s ease;
+  white-space: nowrap;
+}
+
+.hd__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(19, 133, 172, 0.45);
+  background: linear-gradient(135deg, #0e6e8e 0%, #1385ac 100%);
+}
+
+/* =====================================================
+   5. MOBILE BURGER BUTTON
+   ===================================================== */
+.hd__burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid rgba(32, 40, 91, 0.12);
+  border-radius: 12px;
+  padding: 10px 9px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.hd__burger:hover {
+  border-color: #1385ac;
+  background: rgba(19, 133, 172, 0.06);
+}
+
+.hd__burger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #20285b;
+  border-radius: 2px;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hd__burger.is-open .hd__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hd__burger.is-open .hd__burger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hd__burger.is-open .hd__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =====================================================
+   6. HEADER SPACER (Guarantees zero content jump)
+   ===================================================== */
+.hd-spacer {
+  height: 118px;
+  transition: height 0.35s ease;
+}
+
+.hd-spacer.hd-spacer--compact {
+  height: 118px;
+  /* keeps document flow rock-solid without causing layout jump */
+}
+
+/* =====================================================
+   7. RESPONSIVE BREAKPOINTS
+   ===================================================== */
+@media (max-width: 992px) {
+  .hd__burger {
+    display: flex;
+  }
+
+  .hd__top {
+    display: none !important;
+  }
+
+  .hd-spacer {
+    height: 82px;
+  }
+
+  .hd__nav {
+    position: absolute;
+    top: 82px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.96);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+      url('/images/Background.png');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 24px 34px;
+    display: none;
+    box-shadow: 0 20px 45px rgba(32, 40, 91, 0.12);
+    border-bottom: 1px solid rgba(32, 40, 91, 0.08);
+    max-height: calc(100vh - 82px);
+    overflow-y: auto;
+    gap: 20px;
+  }
+
+  .hd__nav.is-open {
+    display: flex;
+    animation: drawerSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes drawerSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hd__nav>ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+
+  .hd__nav>ul>li {
+    width: 100%;
+    border-bottom: 1px solid rgba(32, 40, 91, 0.05);
+  }
+
+  .hd__nav>ul>li>a {
+    padding: 14px 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hd__nav>ul>li>a::after {
+    display: none;
+  }
+
+  .hd__dd {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: #f8faff;
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    margin: 4px 0 14px 10px;
+    min-width: 0;
+    pointer-events: auto;
+  }
+
+  .hd__cta {
+    width: 100%;
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,271 @@
+/* =====================================================
+   SERVICES SECTION (HOME & SERVICES PAGE)
+   3D Swiper Coverflow Carousel (Skiper49 Carousel_003 Layout)
+   Smooth Continuous Auto-Motion, 3D Rotation, Slide Shadows
+   No Pagination Dots, No Navigation Arrows
+   ===================================================== */
+
+.svc-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 85px;
+  padding-bottom: 90px;
+  background-color: #f4f8fd;
+  background-image: url('/images/Background.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(19, 133, 172, 0.12);
+  border-bottom: 1px solid rgba(19, 133, 172, 0.12);
+}
+
+.svc-section .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+}
+
+/* Subtle top and bottom blend fades for seamless section transitions */
+.svc-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.svc-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header */
+.svc-header-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.svc-header-wrap .sh {
+  margin-bottom: 8px;
+  max-width: 840px;
+}
+
+.svc-header-wrap .sh__eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  color: #1385ac;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.svc-header-wrap .sh__title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: #20285b;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.svc-header-wrap .sh__text {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: #435472;
+  max-width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -----------------------------------------------------
+   3D COVERFLOW SWIPER CONTAINER (Carousal_003)
+   Continuous Smooth Auto-Move Linear Animation
+   ----------------------------------------------------- */
+.svc-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 15px auto 0;
+  padding: 10px 0 10px 0;
+  overflow: visible;
+}
+
+.Carousal_003 {
+  width: 100%;
+  height: auto;
+  min-height: 330px;
+  padding-top: 15px;
+  padding-bottom: 15px !important;
+  overflow: visible;
+}
+
+.Carousal_003 .swiper-wrapper {
+  align-items: center;
+  transition-timing-function: linear !important;
+}
+
+.Carousal_003 .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 310px !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* Individual Card Structure */
+.svc-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  width: 100%;
+}
+
+.svc-card-img-box {
+  width: 100%;
+  height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 16px 36px rgba(32, 40, 91, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: #0b132b;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-card-inner:hover .svc-card-img-box {
+  border-color: #16a1ce;
+  box-shadow: 0 22px 48px rgba(22, 161, 206, 0.28);
+}
+
+.svc-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-card-inner:hover .svc-card-img {
+  transform: scale(1.06);
+}
+
+.svc-card-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.svc-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(32, 40, 91, 0) 50%, rgba(32, 40, 91, 0.32) 100%);
+  pointer-events: none;
+}
+
+.svc-card-label {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #20285b;
+  margin: 16px 0 0 0;
+  text-align: center;
+  letter-spacing: -0.2px;
+  transition: color 0.25s ease;
+  line-height: 1.35;
+}
+
+.svc-card-inner:hover .svc-card-label {
+  color: #1385ac;
+}
+
+/* Completely remove pagination dots and arrows */
+.swiper-pagination,
+.swiper-pagination-bullet,
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+/* Swiper 3D slide shadow enhancements */
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  border-radius: 22px;
+}
+
+/* Bottom Explore Button */
+.svc__btn {
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+  z-index: 3;
+}
+
+.svc__btn .btn {
+  font-size: 1.05rem;
+  padding: 14px 34px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ----------------------------------------------------- */
+@media (max-width: 992px) {
+  .svc-section {
+    padding-top: 70px;
+    padding-bottom: 75px;
+  }
+
+  .Carousal_003 .swiper-slide {
+    width: 275px !important;
+  }
+
+  .svc-card-img-box {
+    height: 195px;
+    border-radius: 18px;
+  }
+
+  .svc-card-label {
+    font-size: 1rem;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .svc-section {
+    padding-top: 55px;
+    padding-bottom: 60px;
+  }
+
+  .Carousal_003 .swiper-slide {
+    width: 250px !important;
+  }
+
+  .svc-card-img-box {
+    height: 175px;
+    border-radius: 16px;
+  }
+
+  .svc-card-label {
+    font-size: 0.95rem;
+    margin-top: 12px;
+  }
+}

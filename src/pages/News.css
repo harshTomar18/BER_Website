@@ -1,0 +1,662 @@
+/* =====================================================
+   BLOG LISTING PAGE STYLESHEET
+   Brand: BER Services (#20285b Navy, #16a1ce Electric Blue)
+   Matches Layout from media_1795594700485_7f1717f4.jpg & media_1795594711498_28ff209b.jpg
+   ===================================================== */
+
+.nws-page {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  color: #1e293b;
+}
+
+.nws-section {
+  padding-top: 36px;
+  padding-bottom: 60px;
+}
+
+.nws-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =====================================================
+   TOP CONTROLS BAR: Article count (Left) & Search (Right)
+   Matches media_1795594700485_7f1717f4.jpg
+   ===================================================== */
+.nws-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nws-count-indicator {
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nws-count-number {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.nws-active-filter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.nws-filter-clear-btn {
+  background: transparent;
+  border: none;
+  color: #0284c7;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.nws-filter-clear-btn:hover {
+  color: #0369a1;
+}
+
+/* Search Input on Right */
+.nws-search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.nws-search-input {
+  width: 240px;
+  padding: 9px 14px;
+  border: 1px solid #cbd5e1;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  font-size: 0.86rem;
+  color: #1e293b;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.2s ease;
+}
+
+.nws-search-input:focus {
+  border-color: #0284c7;
+}
+
+.nws-search-btn {
+  padding: 9px 20px;
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.86rem;
+  border: 1px solid #0284c7;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nws-search-btn:hover {
+  background: #0369a1;
+  border-color: #0369a1;
+}
+
+/* =====================================================
+   MAIN TWO-COLUMN LAYOUT
+   Left: 2-Card Articles Grid
+   Right: Sidebar with Recent, Categories, Top Articles, Help
+   ===================================================== */
+.nws-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ----------------- LEFT MAIN CONTENT ----------------- */
+.nws-main-col {
+  min-width: 0;
+}
+
+/* 2-Card Grid matching Screenshot 1 */
+.nws-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* Article Card */
+.nws-article-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.nws-article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(32, 40, 91, 0.08);
+  border-color: #cbd5e1;
+}
+
+.nws-card-img-link {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  display: block;
+  background: #f8fafc;
+}
+
+.nws-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.nws-article-card:hover .nws-card-img {
+  transform: scale(1.04);
+}
+
+.nws-card-body {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Category Underlined Label */
+.nws-card-cat-wrap {
+  margin-bottom: 8px;
+}
+
+.nws-card-category {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #20285b;
+  text-decoration: none;
+  border-bottom: 2px solid #20285b;
+  padding-bottom: 2px;
+  text-transform: uppercase;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nws-card-category:hover {
+  color: #16a1ce;
+  border-color: #16a1ce;
+}
+
+/* Main Card Title */
+.nws-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.38;
+  color: #0f172a;
+  margin: 8px 0 6px 0;
+}
+
+.nws-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nws-card-title a:hover {
+  color: #0284c7;
+}
+
+/* Author & Meta Row */
+.nws-card-meta {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nws-card-meta-dot {
+  font-style: normal;
+  color: #94a3b8;
+}
+
+/* Excerpt */
+.nws-card-excerpt {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0 0 20px 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Read More Button (Green Pill matching screenshot) */
+.nws-card-btn-wrap {
+  margin-top: auto;
+}
+
+.nws-btn-read-more {
+  display: inline-block;
+  padding: 7px 20px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+  transition: all 0.2s ease;
+}
+
+.nws-btn-read-more:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.35);
+}
+
+/* =====================================================
+   PAGINATION BAR
+   Matches media_1795594711498_28ff209b.jpg
+   ===================================================== */
+.nws-pagination-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 48px;
+  padding-top: 24px;
+}
+
+.nws-pagi-numbers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nws-pagi-btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nws-pagi-btn:hover:not(:disabled) {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: #f8fafc;
+}
+
+.nws-pagi-num.is-active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+.nws-pagi-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: #f8fafc;
+}
+
+/* ----------------- RIGHT SIDEBAR ----------------- */
+.nws-sidebar-col {
+  position: sticky;
+  top: 90px;
+}
+
+/* Common Widget Card */
+.nws-widget-box {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  padding: 22px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.nws-widget-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.2px;
+}
+
+/* 1. Recent Posts List */
+.nws-recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nws-recent-item {
+  line-height: 1.45;
+}
+
+.nws-recent-link {
+  font-size: 0.88rem;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+  display: block;
+}
+
+.nws-recent-link:hover {
+  color: #0284c7;
+}
+
+/* 2. Categories List */
+.nws-categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nws-cat-item {
+  width: 100%;
+}
+
+.nws-cat-filter-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  font-size: 0.86rem;
+  color: #475569;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nws-bullet-dot {
+  color: #64748b;
+  margin-right: 8px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.nws-cat-btn-name {
+  flex: 1;
+}
+
+.nws-cat-btn-count {
+  color: #0284c7;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.nws-cat-filter-btn:hover {
+  color: #0284c7;
+}
+
+.nws-cat-filter-btn.is-active {
+  color: #20285b;
+  font-weight: 700;
+}
+
+.nws-cat-filter-btn.is-active .nws-bullet-dot {
+  color: #0284c7;
+}
+
+/* 3. Top Article List */
+.nws-top-articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nws-top-article-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.nws-top-article-card:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.nws-top-article-thumb-wrap {
+  width: 70px;
+  height: 55px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #f1f5f9;
+}
+
+.nws-top-article-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nws-top-article-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nws-top-article-cat {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0284c7;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+
+.nws-top-article-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 4. Need Help Support Box (Matches Screenshot 2) */
+.nws-help-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 22px 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.nws-help-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #166534;
+  margin: 0 0 6px 0;
+}
+
+.nws-help-subtitle {
+  font-size: 0.82rem;
+  color: #475569;
+  margin: 0 0 16px 0;
+}
+
+.nws-help-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
+  transition: background 0.2s ease;
+}
+
+.nws-help-btn:hover {
+  background: #15803d;
+}
+
+/* Loading & Empty States */
+.nws-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  color: #64748b;
+}
+
+.nws-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #0284c7;
+  border-radius: 50%;
+  animation: nwsSpin 0.7s linear infinite;
+}
+
+@keyframes nwsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nws-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.nws-empty-icon {
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.nws-empty h3 {
+  font-size: 1.2rem;
+  color: #20285b;
+  margin: 0 0 8px 0;
+}
+
+.nws-empty p {
+  color: #64748b;
+  font-size: 0.88rem;
+  margin: 0 0 16px 0;
+}
+
+.nws-btn-reset-filters {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #20285b;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nws-btn-reset-filters:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS
+   ===================================================== */
+@media (max-width: 992px) {
+  .nws-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .nws-sidebar-col {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .nws-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nws-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nws-search-bar {
+    width: 100%;
+  }
+
+  .nws-search-input {
+    width: 100%;
+  }
+
+  .nws-pagination-row {
+    flex-wrap: wrap;
+  }
+}

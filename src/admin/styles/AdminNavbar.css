@@ -1,0 +1,245 @@
+/* =====================================================
+   ADMIN NAVBAR STYLESHEET
+   Brand: BER Services (Navy #20285b, Electric Blue #16a1ce)
+   Dedicated CSS for AdminNavbar.jsx
+   ===================================================== */
+
+.anb-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(32, 40, 91, 0.04);
+  height: 64px;
+}
+
+.anb-container {
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Left Section */
+.anb-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.anb-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #20285b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.anb-toggle-btn:hover {
+  background: #edf2f7;
+  color: #16a1ce;
+  border-color: #cbd5e1;
+}
+
+.anb-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.anb-breadcrumb__root {
+  color: #64748b;
+}
+
+.anb-breadcrumb__sep {
+  color: #94a3b8;
+}
+
+.anb-breadcrumb__current {
+  color: #20285b;
+  font-weight: 700;
+}
+
+/* Center Section */
+.anb-center {
+  display: flex;
+  align-items: center;
+}
+
+.anb-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.anb-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: anb-pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes anb-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.anb-status-icon {
+  color: #059669;
+}
+
+.anb-status-label {
+  color: #047857;
+  font-weight: 700;
+}
+
+.anb-status-tag {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* Right Section */
+.anb-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.anb-site-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #20285b;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.anb-site-link:hover {
+  background: #20285b;
+  color: #ffffff;
+  border-color: #20285b;
+}
+
+.anb-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 12px 5px 6px;
+  border-radius: 50px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.anb-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #20285b 0%, #16a1ce 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 6px rgba(22, 161, 206, 0.25);
+}
+
+.anb-user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.anb-user-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #20285b;
+  line-height: 1.2;
+}
+
+.anb-user-role {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #16a1ce;
+  letter-spacing: 0.4px;
+}
+
+.anb-btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.anb-btn-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .anb-container {
+    padding: 0 14px;
+  }
+  .anb-center,
+  .anb-breadcrumb {
+    display: none;
+  }
+  .anb-site-link__text,
+  .anb-btn-logout__text,
+  .anb-user-details {
+    display: none;
+  }
+  .anb-user-pill {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+}

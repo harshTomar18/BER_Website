@@ -1,0 +1,455 @@
+/* =====================================================
+   ABOUT SECTION - BER SERVICES NEO-GLASS TECH ORBIT
+   Recreated exactly from reference design
+   ===================================================== */
+
+.ab-section {
+  position: relative;
+  background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 55%, #fafdff 100%);
+  padding: 48px 0 42px;
+  overflow: hidden;
+}
+
+/* Atmospheric Soft Blue Waves & Radial Accents */
+.ab-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.ab-bg-glow--top {
+  width: 600px;
+  height: 500px;
+  top: -15%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, rgba(31, 111, 235, 0.03) 50%, transparent 70%);
+}
+
+.ab-bg-glow--right {
+  width: 550px;
+  height: 550px;
+  top: 15%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(0, 150, 255, 0.07) 0%, transparent 65%);
+}
+
+.ab-bg-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 75% 35%, rgba(210, 232, 255, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 15% 70%, rgba(225, 240, 255, 0.35) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container */
+.ab-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Two-Column Grid */
+.ab-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* -----------------------------------------------------
+   LEFT COLUMN - CONTENT
+   ----------------------------------------------------- */
+.ab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Small Pill-shaped Label */
+.ab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 18px;
+  background: #ffffff;
+  border: 1px solid #d8e6fa;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0b1e4a;
+  box-shadow: 0 4px 14px rgba(11, 30, 74, 0.04);
+  margin-bottom: 22px;
+}
+
+.ab-badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #1385ac;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(19, 133, 172, 0.5);
+  animation: badge-pulse 2.2s infinite;
+}
+
+@keyframes badge-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+    box-shadow: 0 0 4px rgba(19, 133, 172, 0.4);
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(19, 133, 172, 0.8);
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+    box-shadow: 0 0 4px rgba(19, 133, 172, 0.4);
+  }
+}
+
+/* Main Heading */
+.ab-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #20285b;
+  letter-spacing: -0.015em;
+  margin: 0 0 22px 0;
+}
+
+.ab-title-block {
+  display: block;
+  color: #20285b;
+}
+
+.ab-title-accent {
+  display: block;
+  color: #1385ac;
+  font-weight: 700;
+}
+
+/* Description */
+.ab-description {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #50617e;
+  max-width: 530px;
+  margin: 0 0 34px 0;
+}
+
+/* Action Buttons */
+.ab-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Primary Button: Let's Build Together */
+.ab-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #1385ac 0%, #20285b 100%);
+  border-radius: 50px;
+  box-shadow: 0 10px 26px rgba(19, 133, 172, 0.38);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.ab-btn-primary:hover {
+  background: linear-gradient(135deg, #16a1ce 0%, #141a3d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 98, 255, 0.5);
+}
+
+.ab-btn-icon {
+  transition: transform 0.25s ease;
+}
+
+.ab-btn-primary:hover .ab-btn-icon {
+  transform: translateX(4px);
+}
+
+/* Secondary Button: Our Vision */
+.ab-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #0b1e4a;
+  transition: all 0.25s ease;
+}
+
+.ab-play-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #d4e3f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(11, 30, 74, 0.06);
+  transition: all 0.25s ease;
+}
+
+.ab-play-icon {
+  margin-left: 2px;
+  color: #1385ac;
+  transition: transform 0.25s ease;
+}
+
+.ab-btn-secondary:hover .ab-play-circle {
+  background: #f0f8fb;
+  border-color: #1385ac;
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(19, 133, 172, 0.18);
+}
+
+.ab-btn-secondary:hover {
+  color: #1385ac;
+}
+
+/* -----------------------------------------------------
+   RIGHT COLUMN - 3D ARTWORK CONTAINER
+   ----------------------------------------------------- */
+.ab-artwork-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom Uploaded Artwork Showcase */
+.ab-custom-artwork-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(11, 30, 74, 0.12), 0 4px 12px rgba(19, 133, 172, 0.08);
+  border: 1px solid rgba(215, 232, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ab-custom-artwork-img {
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ab-custom-artwork-wrap:hover .ab-custom-artwork-img {
+  transform: scale(1.02);
+}
+
+.ab-custom-artwork-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(22, 161, 206, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* -----------------------------------------------------
+   BOTTOM STATISTICS STRIP - GLASS CONTAINER
+   ----------------------------------------------------- */
+.ab-stats-glass-strip {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(215, 232, 255, 0.9);
+  border-radius: 22px;
+  box-shadow:
+    0 16px 45px rgba(11, 30, 74, 0.05),
+    0 2px 6px rgba(19, 133, 172, 0.03);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 26px 36px;
+  box-sizing: border-box;
+}
+
+.ab-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 20px;
+  position: relative;
+}
+
+/* Vertical divider between stat columns */
+.ab-stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(215, 230, 255, 0.2) 0%, rgba(200, 222, 252, 0.85) 50%, rgba(215, 230, 255, 0.2) 100%);
+}
+
+/* Icon Box matching reference (soft blue tile) */
+.ab-stat-icon-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f0f8fb 0%, #e0f2f7 100%);
+  border: 1px solid rgba(19, 133, 172, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1385ac;
+  box-shadow:
+    0 4px 12px rgba(19, 133, 172, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+}
+
+.ab-stat-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.ab-stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0b1e4a;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ab-stat-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #617293;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE DESIGN
+   ----------------------------------------------------- */
+@media (max-width: 900px) {
+  .ab-section {
+    padding: 40px 0 36px;
+  }
+
+  .ab-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .ab-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ab-description {
+    max-width: 600px;
+  }
+
+  .ab-actions {
+    justify-content: center;
+  }
+
+  .ab-stats-glass-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 0;
+    padding: 24px 20px;
+  }
+
+  .ab-stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .ab-stat-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .ab-section {
+    padding: 34px 0 28px;
+  }
+
+  .ab-title {
+    font-size: 2.15rem;
+  }
+
+  .ab-description {
+    font-size: 0.98rem;
+    margin-bottom: 26px;
+  }
+
+  .ab-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .ab-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ab-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ab-stats-glass-strip {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .ab-stat-item::after {
+    display: none !important;
+  }
+
+  .ab-stat-item {
+    justify-content: flex-start;
+    padding: 4px 10px;
+  }
+}

@@ -1,0 +1,437 @@
+/* =====================================================
+   SERVICES WE PROVIDE - DYNAMIC TABBED SHOWCASE
+   Brand: BER Services (#20285b Navy, #16a1ce Electric Blue)
+   Dedicated CSS for Services.jsx
+   ===================================================== */
+
+.services-page-wrap {
+  position: relative;
+  background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 60%, #f8fbff 100%);
+  padding: 60px 0 80px;
+  overflow: hidden;
+}
+
+/* Atmospheric Ambient Glows */
+.services-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 0;
+}
+
+.services-bg-glow--top {
+  width: 650px;
+  height: 550px;
+  top: -10%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(22, 161, 206, 0.08) 0%, transparent 70%);
+}
+
+.services-bg-glow--bottom {
+  width: 600px;
+  height: 600px;
+  bottom: 5%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(32, 40, 91, 0.06) 0%, transparent 65%);
+}
+
+.services-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Header Section */
+.services-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 10px;
+}
+
+.services-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #ffffff;
+  border: 1px solid #d8e6fa;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1385ac;
+  box-shadow: 0 4px 14px rgba(11, 30, 74, 0.04);
+  margin-bottom: 16px;
+}
+
+.services-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: #20285b;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+}
+
+.services-heading-accent {
+  color: #16a1ce;
+}
+
+.services-intro-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #50617e;
+  margin: 0;
+}
+
+/* =====================================================
+   HORIZONTAL SERVICE NAVIGATION TABS
+   ===================================================== */
+.services-nav-tabs-wrapper {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(215, 232, 255, 0.9);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(11, 30, 74, 0.04);
+}
+
+.services-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+
+.services-nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.services-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.services-tab-btn:hover {
+  background: #f1f7fe;
+  color: #20285b;
+}
+
+.services-tab-btn.is-active {
+  background: #20285b;
+  color: #ffffff;
+  border-color: #20285b;
+  box-shadow: 0 6px 18px rgba(32, 40, 91, 0.22);
+}
+
+.services-tab-btn.is-active svg {
+  color: #16a1ce;
+}
+
+/* =====================================================
+   ACTIVE SERVICE SHOWCASE PRESENTATION CARD
+   ===================================================== */
+.service-showcase-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(215, 232, 255, 0.9);
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow:
+    0 24px 60px rgba(11, 30, 74, 0.06),
+    0 2px 8px rgba(22, 161, 206, 0.04);
+}
+
+.service-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left Column: Narrative & Features */
+.service-showcase-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-showcase-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-showcase-badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #16a1ce;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.service-showcase-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 800;
+  color: #20285b;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.service-showcase-tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1385ac;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.service-showcase-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #50617e;
+  margin: 0;
+}
+
+/* Capability Points List */
+.service-showcase-caps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.service-showcase-cap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f8fbff;
+  border: 1px solid #e0effe;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.service-showcase-cap-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #16a1ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.service-showcase-cap-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+/* Tech Stack Pills */
+.service-showcase-tech {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.service-showcase-tech-lbl {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.service-showcase-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.service-showcase-tech-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Actions Row */
+.service-showcase-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.service-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #20285b;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(32, 40, 91, 0.25);
+}
+
+.service-btn-primary:hover {
+  background: #141a3d;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(32, 40, 91, 0.35);
+  color: #ffffff;
+}
+
+.service-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  background: #ffffff;
+  color: #20285b;
+  border: 1.5px solid #d4e3f8;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(11, 30, 74, 0.05);
+}
+
+.service-btn-secondary:hover {
+  background: #f0f8fb;
+  border-color: #16a1ce;
+  color: #1385ac;
+  transform: translateY(-1px);
+}
+
+/* Right Column: Visual Artwork Frame */
+.service-showcase-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.service-showcase-frame {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(215, 232, 255, 0.9);
+  background: #ffffff;
+  box-shadow:
+    0 20px 50px rgba(11, 30, 74, 0.12),
+    0 4px 14px rgba(19, 133, 172, 0.06);
+  padding: 10px;
+}
+
+.service-showcase-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.service-showcase-frame:hover .service-showcase-img {
+  transform: scale(1.02);
+}
+
+/* Bottom Metric Mini-Grid */
+.service-showcase-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.service-showcase-metric-box {
+  background: #ffffff;
+  border: 1px solid #d8e6fa;
+  border-radius: 14px;
+  padding: 14px 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(11, 30, 74, 0.03);
+}
+
+.service-showcase-metric-val {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #20285b;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.service-showcase-metric-lbl {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Loading & Empty State */
+.services-loading-state {
+  padding: 80px 20px;
+  text-align: center;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .service-showcase-card {
+    padding: 32px 24px;
+  }
+  .service-showcase-caps {
+    grid-template-columns: 1fr;
+  }
+}

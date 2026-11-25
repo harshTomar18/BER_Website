@@ -1,0 +1,332 @@
+/* =====================================================
+   ADMIN LOGIN STYLESHEET
+   Brand: BER Services (Navy #20285b, Electric Blue #16a1ce)
+   ===================================================== */
+
+.adl-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at 50% 30%, #151d3b 0%, #0c1126 60%, #070a18 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Ambient glow orbs & subtle grid */
+.adl-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.adl-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.28;
+}
+
+.adl-orb--top {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #16a1ce 0%, rgba(22, 161, 206, 0) 70%);
+  top: -120px;
+  left: 20%;
+}
+
+.adl-orb--bottom {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #20285b 0%, rgba(32, 40, 91, 0) 70%);
+  bottom: -150px;
+  right: 15%;
+}
+
+.adl-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+/* Container */
+.adl-card-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Brand header above card */
+.adl-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.adl-brand__icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(22, 161, 206, 0.25), rgba(32, 40, 91, 0.5));
+  border: 1px solid rgba(22, 161, 206, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a1ce;
+  box-shadow: 0 10px 25px rgba(22, 161, 206, 0.2);
+}
+
+.adl-brand__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.adl-brand__pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #16a1ce;
+  background: rgba(22, 161, 206, 0.12);
+  border: 1px solid rgba(22, 161, 206, 0.3);
+  padding: 3px 12px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+
+/* Main Card */
+.adl-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(22, 161, 206, 0.25);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+}
+
+.adl-card__header {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.adl-card__title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #20285b;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.3px;
+}
+
+.adl-card__subtitle {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Error Banner */
+.adl-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.adl-alert--error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.adl-alert__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Form Fields */
+.adl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.adl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adl-field__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adl-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.2px;
+}
+
+.adl-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.adl-input-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.adl-input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 0.92rem;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.adl-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #16a1ce;
+  box-shadow: 0 0 0 3px rgba(22, 161, 206, 0.18);
+}
+
+.adl-input:focus + .adl-input-icon,
+.adl-input-wrap:focus-within .adl-input-icon {
+  color: #16a1ce;
+}
+
+.adl-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.adl-toggle-btn:hover {
+  color: #20285b;
+}
+
+/* Session Notice */
+.adl-session-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.74rem;
+  color: #64748b;
+  margin-top: -4px;
+}
+
+.adl-session-icon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Submit Button */
+.adl-btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #20285b 0%, #1385ac 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(32, 40, 91, 0.28);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 6px;
+}
+
+.adl-btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(19, 133, 172, 0.38);
+  background: linear-gradient(135deg, #18204b 0%, #16a1ce 100%);
+}
+
+.adl-btn-submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.adl-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: adlSpin 0.8s linear infinite;
+}
+
+@keyframes adlSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer Back Link */
+.adl-footer-links {
+  text-align: center;
+}
+
+.adl-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.adl-back-link:hover {
+  color: #16a1ce;
+  transform: translateX(-2px);
+}

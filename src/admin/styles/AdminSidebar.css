@@ -1,0 +1,355 @@
+/* =====================================================
+   ADMIN SIDEBAR STYLESHEET
+   Brand: BER Services (Navy #20285b, Electric Blue #16a1ce)
+   Dedicated CSS for AdminSidebar.jsx
+   ===================================================== */
+
+/* Mobile Backdrop */
+.asb-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 90;
+  display: none;
+}
+
+/* Sidebar Container */
+.asb-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 270px;
+  background: #20285b;
+  border-right: 1px solid rgba(22, 161, 206, 0.2);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+/* Brand Header */
+.asb-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.asb-brand__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.asb-brand__icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1385ac 0%, #16a1ce 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(22, 161, 206, 0.4);
+}
+
+.asb-brand__text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.asb-brand__name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.1px;
+  line-height: 1.2;
+}
+
+.asb-brand__tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #16a1ce;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.asb-close-btn {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.asb-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Nav Section */
+.asb-nav-section {
+  padding: 24px 16px 16px 16px;
+  flex: 1;
+}
+
+.asb-nav-heading {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  padding: 0 10px;
+}
+
+.asb-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asb-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.asb-nav__item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.asb-nav__item.is-active {
+  background: linear-gradient(135deg, rgba(22, 161, 206, 0.25) 0%, rgba(19, 133, 172, 0.18) 100%);
+  color: #ffffff;
+  border-color: rgba(22, 161, 206, 0.5);
+  box-shadow: 0 4px 15px rgba(22, 161, 206, 0.2);
+}
+
+.asb-nav__icon {
+  color: #16a1ce;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.asb-nav__item.is-active .asb-nav__icon {
+  color: #38bdf8;
+  transform: scale(1.1);
+}
+
+.asb-nav__label {
+  flex: 1;
+}
+
+/* Badges */
+.asb-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+}
+
+.asb-badge--cyan {
+  background: #16a1ce;
+  color: #ffffff;
+}
+
+.asb-badge--emerald {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.62rem;
+  letter-spacing: 0.5px;
+}
+
+.asb-badge--default {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Cloud Infrastructure Card */
+.asb-cloud-card {
+  margin: 0 16px 16px 16px;
+  padding: 14px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(22, 161, 206, 0.25);
+  border-radius: 12px;
+}
+
+.asb-cloud-card__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.asb-cloud-card__pulse-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.asb-cloud-card__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.asb-cloud-card__subtitle {
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.asb-cloud-card__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  margin-left: auto;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.asb-cloud-card__details {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.asb-cloud-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.asb-cloud-row strong {
+  color: #e2e8f0;
+}
+
+/* Bottom User Footer */
+.asb-footer {
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.asb-user-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.asb-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1385ac 0%, #16a1ce 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(22, 161, 206, 0.35);
+}
+
+.asb-user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.asb-user-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.asb-user-email {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.asb-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.asb-logout-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+/* Responsive Behavior */
+@media (max-width: 1024px) {
+  .asb-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .asb-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .asb-backdrop {
+    display: block;
+  }
+
+  .asb-close-btn {
+    display: flex;
+  }
+}

@@ -1,0 +1,639 @@
+/* =====================================================
+   ADMIN SERVICES MANAGER STYLESHEET
+   Brand: BER Services (#20285b Navy, #16a1ce Electric Blue)
+   Dedicated CSS for AdminServicesManager.jsx
+   ===================================================== */
+
+.asm-page {
+  padding: 32px 36px 60px 36px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header Bar */
+.asm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.asm-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.asm-breadcrumb a {
+  color: #16a1ce;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.asm-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.asm-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.asm-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0;
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.asm-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.asm-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.asm-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.asm-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: #20285b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(32, 40, 91, 0.2);
+}
+
+.asm-btn-primary:hover:not(:disabled) {
+  background: #141a3d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(32, 40, 91, 0.3);
+}
+
+.asm-btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.asm-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.asm-btn-danger:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+/* Alerts */
+.asm-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.asm-alert--success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.asm-alert--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* Service Selector Tabs Bar */
+.asm-service-tabs-wrap {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.asm-service-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.asm-service-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.asm-service-tab-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.asm-service-tab-btn.is-active {
+  background: #20285b;
+  color: #ffffff;
+  border-color: #20285b;
+  box-shadow: 0 3px 10px rgba(32, 40, 91, 0.2);
+}
+
+.asm-service-tab-btn.is-active svg {
+  color: #16a1ce;
+}
+
+.asm-service-tab-btn--new {
+  border: 1px dashed #cbd5e1;
+  background: transparent;
+  color: #16a1ce;
+}
+
+.asm-service-tab-btn--new:hover {
+  background: #f0f9ff;
+  border-color: #16a1ce;
+}
+
+.asm-service-tab-btn--new.is-active {
+  background: #16a1ce;
+  color: #ffffff;
+  border-color: #16a1ce;
+}
+
+/* Sub-Tab Navigation Bar */
+.asm-subtabs-wrap {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 6px;
+  margin-bottom: 20px;
+}
+
+.asm-subtabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.asm-subtab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.asm-subtab-btn:hover {
+  color: #20285b;
+  background: #f8fafc;
+}
+
+.asm-subtab-btn.is-active {
+  background: #f1f5f9;
+  color: #20285b;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.asm-subtab-btn.is-active svg {
+  color: #16a1ce;
+}
+
+/* Card Structure */
+.asm-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.asm-card-header {
+  padding: 22px 28px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asm-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.asm-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f0f9ff;
+  color: #16a1ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.asm-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.asm-card-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 4px 0 0 0;
+}
+
+.asm-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.asm-card-footer {
+  padding: 16px 28px;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Form Fields */
+.asm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asm-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asm-input {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.asm-input:focus {
+  outline: none;
+  border-color: #16a1ce;
+  box-shadow: 0 0 0 3px rgba(22, 161, 206, 0.15);
+}
+
+.asm-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 90px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.asm-textarea:focus {
+  outline: none;
+  border-color: #16a1ce;
+  box-shadow: 0 0 0 3px rgba(22, 161, 206, 0.15);
+}
+
+.asm-hint {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+/* Rows */
+.asm-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.asm-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+/* Sub-card & Item Lists */
+.asm-subcard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.asm-subcard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asm-subcard-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.asm-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.asm-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.asm-item-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.asm-item-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #16a1ce;
+  background: #f0f9ff;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.asm-item-btn-del {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.asm-item-btn-del:hover {
+  background: #fef2f2;
+}
+
+/* Image Upload & Dropzone */
+.asm-upload-zone {
+  border: 2px dashed #cbd5e1;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.asm-upload-zone:hover {
+  border-color: #16a1ce;
+  background: #f0f9ff;
+}
+
+.asm-upload-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #16a1ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.asm-upload-prompt {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Image Preview */
+.asm-preview-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.asm-preview-img-wrap {
+  width: 140px;
+  height: 95px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.asm-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.asm-preview-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asm-preview-path {
+  font-size: 0.78rem;
+  color: #64748b;
+  word-break: break-all;
+  font-family: monospace;
+  background: #f8fafc;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.asm-btn-del-img {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.asm-btn-del-img:hover {
+  background: #fee2e2;
+}
+
+/* Spinner */
+.asm-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: asm-spin 0.6s linear infinite;
+}
+
+.asm-spinner--lg {
+  width: 42px;
+  height: 42px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #20285b;
+}
+
+@keyframes asm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.asm-loading-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 80px 24px;
+  text-align: center;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 992px) {
+  .asm-page {
+    padding: 24px 20px 48px;
+  }
+  .asm-row-2,
+  .asm-row-3 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,6 @@
+.faq { max-width: 860px; }
+.faq__item { border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+.faq__item.is-open { border-color: var(--color-accent); }
+.faq__q { width: 100%; display: flex; justify-content: space-between; text-align: left; padding: 18px 24px; font-weight: 600; font-size: 1rem; color: var(--color-heading); }
+.faq__q span { color: var(--color-accent); font-size: 1.4rem; line-height: 1; }
+.faq__a { padding: 0 24px 20px; color: var(--color-text-light); }

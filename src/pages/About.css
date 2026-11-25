@@ -1,0 +1,505 @@
+/* =====================================================
+   ABOUT PAGE STYLES — Aligned with BER Services Logo Theme
+   Primary Navy: #20285b, Ocean Teal: #1385ac, Cyan Accent: #16a1ce
+   ===================================================== */
+
+/* Reusable Pills & Headers */
+.ab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(19, 133, 172, 0.08);
+  border: 1px solid rgba(19, 133, 172, 0.22);
+  color: #1385ac;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 14px;
+}
+
+.ab-pill-icon {
+  color: #1385ac;
+}
+
+.ab-text-gradient {
+  background: linear-gradient(135deg, #1385ac 0%, #20285b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =====================================================
+   1. MISSION & VISION SPOTLIGHT
+   ===================================================== */
+.ab-mv {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f6fb 50%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0;
+}
+
+.ab-mv__header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 32px;
+}
+
+.ab-mv__title {
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 700;
+  color: #20285b;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.ab-mv__subtitle {
+  font-size: 1.05rem;
+  color: #55627a;
+  line-height: 1.65;
+}
+
+.ab-mv__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px;
+  position: relative;
+  z-index: 2;
+}
+
+.ab-mv__card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 44px 40px;
+  box-shadow: 0 14px 40px rgba(32, 40, 91, 0.07);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ab-mv__card--mission {
+  border: 1px solid rgba(19, 133, 172, 0.2);
+  border-top: 4px solid #1385ac;
+}
+
+.ab-mv__card--vision {
+  border: 1px solid rgba(22, 161, 206, 0.25);
+  border-top: 4px solid #16a1ce;
+}
+
+.ab-mv__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(32, 40, 91, 0.12);
+}
+
+.ab-mv__card--mission:hover {
+  border-color: rgba(19, 133, 172, 0.45);
+}
+
+.ab-mv__card--vision:hover {
+  border-color: rgba(22, 161, 206, 0.5);
+}
+
+.ab-mv__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.ab-mv__icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.ab-mv__card:hover .ab-mv__icon-box {
+  transform: scale(1.08);
+}
+
+.ab-mv__icon-box--blue {
+  background: rgba(19, 133, 172, 0.1);
+  color: #1385ac;
+  border: 1px solid rgba(19, 133, 172, 0.22);
+}
+
+.ab-mv__icon-box--orange {
+  background: rgba(22, 161, 206, 0.1);
+  color: #16a1ce;
+  border: 1px solid rgba(22, 161, 206, 0.25);
+}
+
+.ab-mv__badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 5px 14px;
+  border-radius: 50px;
+}
+
+.ab-mv__badge--blue {
+  background: #eaf5f9;
+  color: #1385ac;
+}
+
+.ab-mv__badge--orange {
+  background: #eef8fc;
+  color: #16a1ce;
+}
+
+.ab-mv__card-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #20285b;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.ab-mv__card-tagline {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1385ac;
+  margin-bottom: 16px;
+}
+
+.ab-mv__card--vision .ab-mv__card-tagline {
+  color: #16a1ce;
+}
+
+.ab-mv__card-desc {
+  font-size: 0.98rem;
+  color: #49546a;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+.ab-mv__pillars {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid #edf1f8;
+}
+
+.ab-mv__pillars-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #20285b;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.ab-mv__pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ab-mv__pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: #3b465b;
+  line-height: 1.5;
+}
+
+.ab-mv__check-circle {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.ab-mv__check-circle--blue {
+  background: #1385ac;
+  color: #ffffff;
+}
+
+.ab-mv__check-circle--orange {
+  background: #16a1ce;
+  color: #ffffff;
+}
+
+.ab-mv__pillar-text strong {
+  color: #20285b;
+}
+
+/* =====================================================
+   2. CORE VALUES SECTION
+   ===================================================== */
+.ab-values-section {
+  background: #f7fafe;
+  padding: 48px 0;
+  border-top: 1px solid #e5edf5;
+  border-bottom: 1px solid #e5edf5;
+}
+
+.ab-values__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+
+.ab-values__title {
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 700;
+  color: #20285b;
+  margin-bottom: 14px;
+}
+
+.ab-values__subtitle {
+  font-size: 1.05rem;
+  color: #55627a;
+  line-height: 1.65;
+}
+
+.ab-values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ab-value-card {
+  background: #ffffff;
+  border: 1px solid rgba(32, 40, 91, 0.08);
+  border-radius: 18px;
+  padding: 32px 26px;
+  box-shadow: 0 10px 30px rgba(32, 40, 91, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.ab-value-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(19, 133, 172, 0.35);
+  box-shadow: 0 18px 45px rgba(19, 133, 172, 0.12);
+}
+
+.ab-value-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.ab-value-card__num {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: rgba(32, 40, 91, 0.18);
+  font-family: monospace;
+}
+
+.ab-value-card__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(19, 133, 172, 0.08);
+  color: #1385ac;
+  border: 1px solid rgba(19, 133, 172, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.ab-value-card:hover .ab-value-card__icon {
+  background: #1385ac;
+  color: #ffffff;
+}
+
+.ab-value-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #20285b;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.ab-value-card__desc {
+  font-size: 0.92rem;
+  color: #55627a;
+  line-height: 1.65;
+}
+
+/* =====================================================
+   3. WHY INDUSTRY LEADERS CHOOSE BER SERVICES
+   ===================================================== */
+.ab-why-section {
+  padding: 48px 0;
+  background: #ffffff;
+}
+
+.ab-why__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+
+.ab-why__title {
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 700;
+  color: #20285b;
+  margin-bottom: 14px;
+}
+
+.ab-why__subtitle {
+  font-size: 1.05rem;
+  color: #55627a;
+  line-height: 1.65;
+}
+
+.ab-why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.ab-why-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 246, 252, 0.9));
+  border: 1px solid rgba(19, 133, 172, 0.14);
+  border-radius: 18px;
+  padding: 32px 26px;
+  box-shadow: 0 10px 30px rgba(32, 40, 91, 0.04);
+  transition: all 0.35s ease;
+}
+
+.ab-why-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(19, 133, 172, 0.35);
+  box-shadow: 0 18px 40px rgba(32, 40, 91, 0.08);
+}
+
+.ab-why-card__icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(19, 133, 172, 0.12), rgba(19, 133, 172, 0.04));
+  border: 1px solid rgba(19, 133, 172, 0.22);
+  color: #1385ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.ab-why-card:hover .ab-why-card__icon-wrapper {
+  background: #1385ac;
+  color: #ffffff;
+}
+
+.ab-why-card__title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #20285b;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.ab-why-card__desc {
+  font-size: 0.92rem;
+  color: #55627a;
+  line-height: 1.6;
+}
+
+/* Consultation CTA Strip inside About */
+.ab-cta-box {
+  background: linear-gradient(135deg, #20285b 0%, #141a3d 100%);
+  border-radius: 20px;
+  padding: 38px 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 0 18px 45px rgba(32, 40, 91, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ab-cta-box__title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.ab-cta-box__text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ab-cta-box__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #1385ac;
+  color: #ffffff;
+  padding: 16px 34px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(19, 133, 172, 0.38);
+  transition: all 0.3s ease;
+}
+
+.ab-cta-box__btn:hover {
+  background: #0e6e8e;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(19, 133, 172, 0.48);
+}
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS
+   ===================================================== */
+@media (max-width: 1080px) {
+
+  .ab-values__grid,
+  .ab-why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .ab-mv__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-cta-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 34px 24px;
+  }
+
+  .ab-cta-box__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .ab-values__grid,
+  .ab-why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-mv__card {
+    padding: 30px 20px;
+  }
+}

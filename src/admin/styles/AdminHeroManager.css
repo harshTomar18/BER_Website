@@ -1,0 +1,726 @@
+/* =====================================================
+   ADMIN HERO SECTION MANAGER STYLESHEET
+   Brand: BER Services (#20285b Navy, #16a1ce Electric Blue)
+   Dedicated CSS for AdminHeroManager.jsx
+   ===================================================== */
+
+.ahm-page {
+  padding: 32px 36px 60px 36px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header Bar */
+.ahm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.ahm-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.ahm-breadcrumb a {
+  color: #16a1ce;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ahm-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.ahm-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.ahm-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+.ahm-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ahm-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ahm-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.ahm-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: #20285b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(32, 40, 91, 0.2);
+}
+
+.ahm-btn-primary:hover:not(:disabled) {
+  background: #141a3d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(32, 40, 91, 0.3);
+}
+
+.ahm-btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.ahm-btn-primary--lg {
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+/* Alerts */
+.ahm-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.ahm-alert--success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.ahm-alert--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* Loading Card */
+.ahm-loading-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 80px 24px;
+  text-align: center;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ahm-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: ahm-spin 0.6s linear infinite;
+}
+
+.ahm-spinner--lg {
+  width: 42px;
+  height: 42px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #20285b;
+}
+
+@keyframes ahm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form Grid */
+.ahm-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Navigation Tabs Bar */
+.ahm-tabs-nav-wrap {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.ahm-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.ahm-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ahm-tab-btn:hover {
+  color: #20285b;
+  background: #f8fafc;
+}
+
+.ahm-tab-btn.is-active {
+  background: #20285b;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(32, 40, 91, 0.2);
+}
+
+.ahm-tab-btn.is-active svg {
+  color: #16a1ce;
+}
+
+/* Card Structure */
+.ahm-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.ahm-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ahm-card-icon {
+  color: #16a1ce;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.ahm-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.ahm-card-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.ahm-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Fields & Inputs */
+.ahm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ahm-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.ahm-label-sm {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.ahm-input,
+.ahm-select,
+.ahm-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #0f172a;
+  outline: none;
+  background: #ffffff;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ahm-input:focus,
+.ahm-select:focus,
+.ahm-textarea:focus {
+  border-color: #16a1ce;
+  box-shadow: 0 0 0 3px rgba(22, 161, 206, 0.15);
+}
+
+.ahm-textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.ahm-textarea--code {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: #03091a;
+  color: #67e8f9;
+  border-color: #1e293b;
+}
+
+.ahm-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* Sub-sections */
+.ahm-sub-section {
+  padding: 16px 18px;
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ahm-sub-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #20285b;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Dynamic Rotating Words */
+.ahm-words-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ahm-word-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+}
+
+.ahm-word-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ahm-word-hex {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.ahm-word-delete-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+
+.ahm-word-delete-btn:hover {
+  color: #ef4444;
+}
+
+.ahm-add-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.ahm-input--add {
+  flex: 1;
+}
+
+.ahm-color-picker {
+  width: 42px;
+  height: 40px;
+  padding: 2px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.ahm-btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ahm-btn-add:hover {
+  background: #bae6fd;
+  color: #0284c7;
+}
+
+/* Features List */
+.ahm-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ahm-feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.ahm-feat-check {
+  color: #10b981;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.ahm-feat-delete-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.ahm-feat-delete-btn:hover {
+  color: #ef4444;
+}
+
+/* Dropzone */
+.ahm-dropzone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ahm-dropzone:hover {
+  border-color: #16a1ce;
+  background: #f0f9ff;
+}
+
+.ahm-dropzone-icon {
+  color: #16a1ce;
+}
+
+.ahm-dropzone-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.ahm-dropzone-subtitle {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Image Preview Box */
+.ahm-image-preview-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.ahm-preview-img-wrap {
+  width: 140px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #061230;
+  border: 1px solid #cbd5e1;
+  flex-shrink: 0;
+}
+
+.ahm-preview-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ahm-preview-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ahm-preview-url {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-family: monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ahm-preview-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ahm-btn-replace {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ahm-btn-replace:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.ahm-btn-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ahm-btn-remove:hover {
+  background: #fecaca;
+}
+
+/* Stat Edit Box */
+.ahm-stat-edit-box {
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ahm-stat-box-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #20285b;
+}
+
+/* Tech Pills */
+.ahm-tech-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ahm-tech-pill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.ahm-pill-delete-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.ahm-pill-delete-btn:hover {
+  color: #ef4444;
+}
+
+/* Bottom Bar with Next/Prev navigation */
+.ahm-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 0 0;
+  border-top: 1px solid #e2e8f0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ahm-bottom-bar__left,
+.ahm-bottom-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ahm-btn-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.ahm-btn-nav:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.ahm-btn-nav--next {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
+.ahm-btn-nav--next:hover {
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+  color: #0369a1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ahm-page {
+    padding: 20px 16px;
+  }
+
+  .ahm-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .ahm-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

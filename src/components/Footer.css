@@ -1,0 +1,287 @@
+/* =====================================================
+   FOOTER - BER SERVICES CORPORATE ALIGNED DESIGN
+   Clean vertical baseline, unified headings & generous clearance
+   ===================================================== */
+
+.ft {
+  background: var(--color-primary);
+  color: var(--color-on-dark-muted);
+  font-size: var(--fs-small);
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ft__logo-link {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.ft__logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 175px;
+  object-fit: contain;
+  display: block;
+}
+
+/* 4-Column Grid Layout with proportional column widths */
+.ft__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr 1.55fr 1.3fr;
+  gap: 44px;
+  padding-top: 52px;
+  padding-bottom: 42px;
+  align-items: start;
+}
+
+/* Standardized Heading Wrap - exact same height across ALL 4 columns */
+.ft__heading-wrap {
+  min-height: 34px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* Accent Underline aligned on the exact same horizontal baseline */
+.ft__heading-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* Unified Heading across ALL 4 columns */
+.ft__heading {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Tagline */
+.ft__tagline {
+  color: #b9c4de;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 320px;
+  margin: 0 0 22px 0;
+}
+
+/* Social Icon Buttons - Clean single horizontal row */
+.ft__social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.ft__social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #c9d8fa;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.ft__social-icon-btn:hover {
+  background: #1385ac;
+  border-color: #1385ac;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(19, 133, 172, 0.35);
+}
+
+.ft__social-icon-btn--wa:hover {
+  background: #25d366;
+  border-color: #25d366;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+/* Column 2 & 3: Standard Navigation Links */
+.ft__links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ft__links li {
+  margin: 0;
+}
+
+.ft__links a {
+  color: #b9c4de;
+  font-size: 0.875rem;
+  transition: all 0.22s ease;
+  display: inline-block;
+  line-height: 1.45;
+}
+
+.ft__links a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Column 4: Reach Us Contact List */
+.ft__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ft__contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b9c4de;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.ft__contact-icon-tile {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.ft__contact-list li:hover .ft__contact-icon-tile {
+  background: rgba(19, 133, 172, 0.16);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.ft__contact-icon-tile--top {
+  margin-top: 2px;
+}
+
+.ft__contact-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ft__contact-meta small {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7d90b4;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.ft__contact-meta a {
+  color: #dbe7fc;
+  transition: color 0.2s ease;
+  line-height: 1.4;
+}
+
+.ft__contact-meta a:hover {
+  color: var(--color-accent);
+}
+
+/* =====================================================
+   BOTTOM COPYRIGHT & LEGAL STRIP
+   ===================================================== */
+.ft__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px 0;
+}
+
+.ft__bottom-in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  /* Extra generous right clearance for floating WhatsApp button */
+  padding-right: 95px;
+  box-sizing: border-box;
+}
+
+.ft__copyright {
+  font-size: 0.85rem;
+  color: #9cb0d6;
+}
+
+.ft__copyright a {
+  color: #dbe7fc;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.ft__copyright a:hover {
+  color: var(--color-accent);
+}
+
+.ft__legal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.85rem;
+}
+
+.ft__legal a {
+  color: #9cb0d6;
+  transition: color 0.2s ease;
+}
+
+.ft__legal a:hover {
+  color: var(--color-accent);
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE DESIGN
+   ----------------------------------------------------- */
+@media (max-width: 1024px) {
+  .ft__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding-top: 55px;
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ft__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 45px;
+    padding-bottom: 35px;
+  }
+
+  .ft__bottom-in {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 0;
+    gap: 14px;
+    padding-bottom: 65px; /* Mobile WhatsApp button clearance */
+  }
+
+  .ft__legal {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}

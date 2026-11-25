@@ -1,0 +1,40 @@
+.sh {
+    max-width: 760px;
+    margin-bottom: 34px;
+}
+
+.sh--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.sh--left {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.sh__eyebrow {
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sh__title {
+    margin-bottom: 14px;
+}
+
+.sh__text {
+    color: var(--color-text-light);
+}
+
+.sh--light .sh__title {
+    color: var(--color-on-dark);
+}
+
+.sh--light .sh__text {
+    color: var(--color-on-dark-muted);
+}

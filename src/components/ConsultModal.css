@@ -1,0 +1,6 @@
+.cm { position: fixed; inset: 0; background: rgba(11,30,74,.7); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+.cm__box { position: relative; background: var(--color-white); border-radius: var(--radius); padding: 40px; width: 100%; max-width: 620px; box-shadow: var(--shadow-hover); }
+.cm__close { position: absolute; top: 14px; right: 18px; font-size: 1.2rem; color: var(--color-text-light); }
+.cm__close:hover { color: var(--color-accent); }
+.cm__title { font-size: 1.6rem; margin-bottom: 8px; }
+.cm__text { color: var(--color-text-light); margin-bottom: 22px; }

@@ -1,0 +1,47 @@
+.cf {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cf__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.cf input,
+.cf select,
+.cf textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-white);
+    outline: none;
+    transition: var(--transition);
+}
+
+.cf input:focus,
+.cf select:focus,
+.cf textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(242, 107, 33, .15);
+}
+
+.cf .btn {
+    align-self: flex-start;
+}
+
+.cf__ok {
+    color: #059669;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .cf__row {
+        grid-template-columns: 1fr;
+    }
+}
