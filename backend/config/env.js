@@ -21,6 +21,5 @@ export const config = {
 };
 
 if (!config.mongoUri) {
-  console.error('❌ FATAL: MONGODB_URI environment variable is missing in .env!');
-  process.exit(1);
+  console.warn('⚠️ [MongoDB Warning]: MONGODB_URI is not set. Ensure it is added in Vercel Environment Variables.');
 }

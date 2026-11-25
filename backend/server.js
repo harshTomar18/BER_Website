@@ -21,18 +21,37 @@ const uploadsDir = path.join(__dirname, '../uploads');
 
 const app = express();
 
-// 1. Establish Database Connection & Seed Admin
-await connectDB();
-await seedDefaultAdmin();
-await seedDefaultHero();
-await seedDefaultAbout();
-await seedDefaultServices();
-await seedDefaultShowcase();
+// 1. Establish Database Connection & Seed Initial Content
+if (config.mongoUri) {
+  try {
+    await connectDB();
+    await seedDefaultAdmin();
+    await seedDefaultHero();
+    await seedDefaultAbout();
+    await seedDefaultServices();
+    await seedDefaultShowcase();
+  } catch (err) {
+    console.error('Initial DB connect/seed warning:', err.message);
+  }
+}
 
 // 2. Global Middlewares
 app.use(
   cors({
-    origin: [config.clientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, or same-origin)
+      if (!origin) return callback(null, true);
+      // Allow vercel preview and production domains, localhost, or configured clientUrl
+      if (
+        origin.endsWith('.vercel.app') ||
+        origin.includes('localhost') ||
+        origin.includes('127.0.0.1') ||
+        origin === config.clientUrl
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
   })
@@ -63,28 +82,30 @@ app.get('/', (req, res) => {
 app.use(notFoundHandler);
 app.use(globalErrorHandler);
 
-// 6. Server Listener
-const server = app.listen(config.port, () => {
-  console.log(` [Server Ready] Running on http://localhost:${config.port} (${config.env})`);
-});
-
-// 7. Graceful Shutdown Handlers
-const handleShutdown = async (signal) => {
-  console.log(`\n [${signal}] Signal received. Closing server gracefully...`);
-  server.close(async () => {
-    console.log(' HTTP server closed.');
-    try {
-      await mongoose.connection.close(false);
-      console.log(' MongoDB connection terminated cleanly.');
-      process.exit(0);
-    } catch (err) {
-      console.error(' Error during shutdown:', err);
-      process.exit(1);
-    }
+// 6. Server Listener (Only in non-serverless standalone mode)
+if (!process.env.VERCEL) {
+  const server = app.listen(config.port, () => {
+    console.log(`🚀 [Server Ready] Running on http://localhost:${config.port} (${config.env})`);
   });
-};
 
-process.on('SIGINT', () => handleShutdown('SIGINT'));
-process.on('SIGTERM', () => handleShutdown('SIGTERM'));
+  // 7. Graceful Shutdown Handlers
+  const handleShutdown = async (signal) => {
+    console.log(`\n🛑 [${signal}] Signal received. Closing server gracefully...`);
+    server.close(async () => {
+      console.log('🔒 HTTP server closed.');
+      try {
+        await mongoose.connection.close(false);
+        console.log('💾 MongoDB connection terminated cleanly.');
+        process.exit(0);
+      } catch (err) {
+        console.error('❌ Error during shutdown:', err);
+        process.exit(1);
+      }
+    });
+  };
+
+  process.on('SIGINT', () => handleShutdown('SIGINT'));
+  process.on('SIGTERM', () => handleShutdown('SIGTERM'));
+}
 
 export default app;
