@@ -2,6 +2,10 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/api",
+      "destination": "/api/index.js"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/index.js"
     },
@@ -14,7 +18,7 @@
       "destination": "/api/index.js"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api|uploads|sitemap.xml).*)",
       "destination": "/index.html"
     }
   ]

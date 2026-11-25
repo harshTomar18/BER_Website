@@ -21,25 +21,49 @@ const uploadsDir = path.join(__dirname, '../uploads');
 
 const app = express();
 
-// 1. Establish Database Connection & Seed Initial Content
-if (config.mongoUri) {
+// Track seeding state to run seeds only once per process lifecycle
+let isSeeding = false;
+let isSeeded = false;
+
+export const runInitialSeeds = async () => {
+  if (isSeeded || isSeeding) return;
+  isSeeding = true;
   try {
-    await connectDB();
     await seedDefaultAdmin();
     await seedDefaultHero();
     await seedDefaultAbout();
     await seedDefaultServices();
     await seedDefaultShowcase();
+    isSeeded = true;
+    console.log('🌱 [Seeder] Default content and admin initialized.');
   } catch (err) {
-    console.error('Initial DB connect/seed warning:', err.message);
+    console.warn('Initial seeding notice:', err.message);
+  } finally {
+    isSeeding = false;
   }
-}
+};
+
+// 1. Connection middleware: Ensure MongoDB is connected before handling incoming requests
+app.use(async (req, res, next) => {
+  if (config.mongoUri && mongoose.connection.readyState !== 1) {
+    try {
+      const conn = await connectDB();
+      if (conn && !isSeeded) {
+        // Run seed asynchronously in background without delaying HTTP response
+        runInitialSeeds().catch((e) => console.warn('Background seed warning:', e?.message));
+      }
+    } catch (err) {
+      console.warn('DB connect middleware notice:', err?.message || err);
+    }
+  }
+  next();
+});
 
 // 2. Global Middlewares
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, or same-origin)
+      // Allow requests with no origin (mobile apps, curl, or same-origin)
       if (!origin) return callback(null, true);
       // Allow vercel preview and production domains, localhost, or configured clientUrl
       if (
@@ -83,8 +107,14 @@ app.get('/', (req, res) => {
 app.use(notFoundHandler);
 app.use(globalErrorHandler);
 
-// 6. Server Listener (Only in non-serverless standalone mode)
+// 6. Server Listener (Only in standalone / non-serverless mode)
 if (!process.env.VERCEL) {
+  if (config.mongoUri) {
+    connectDB()
+      .then(() => runInitialSeeds())
+      .catch((err) => console.warn('Initial DB connect/seed warning:', err.message));
+  }
+
   const server = app.listen(config.port, () => {
     console.log(`🚀 [Server Ready] Running on http://localhost:${config.port} (${config.env})`);
   });
@@ -99,14 +129,14 @@ if (!process.env.VERCEL) {
         console.log('💾 MongoDB connection terminated cleanly.');
         process.exit(0);
       } catch (err) {
-        console.error('❌ Error during shutdown:', err);
+        console.error('Error closing MongoDB connection:', err);
         process.exit(1);
       }
     });
   };
 
-  process.on('SIGINT', () => handleShutdown('SIGINT'));
   process.on('SIGTERM', () => handleShutdown('SIGTERM'));
+  process.on('SIGINT', () => handleShutdown('SIGINT'));
 }
 
 export default app;

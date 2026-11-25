@@ -1,24 +1,32 @@
 import mongoose from 'mongoose';
 import { config } from './env.js';
 
-let cachedConnection = null;
+let cachedConn = null;
+let cachedPromise = null;
 
 export const connectDB = async () => {
-  // If already connected or connecting, return active connection
-  if (mongoose.connection.readyState >= 1) {
+  // If already connected, return active connection
+  if (mongoose.connection.readyState === 1) {
     return mongoose.connection;
   }
 
-  if (cachedConnection) {
-    return cachedConnection;
+  if (!config.mongoUri) {
+    console.warn('⚠️ [MongoDB Warning]: MONGODB_URI is not set. In Vercel, add MONGODB_URI in Project Settings > Environment Variables.');
+    return null;
+  }
+
+  if (cachedPromise) {
+    return cachedPromise;
   }
 
   try {
-    const conn = await mongoose.connect(config.mongoUri, {
+    cachedPromise = mongoose.connect(config.mongoUri, {
       serverSelectionTimeoutMS: 5000,
+      bufferCommands: false, // Prevents queries from hanging/buffering when offline
     });
 
-    cachedConnection = conn;
+    const conn = await cachedPromise;
+    cachedConn = conn;
     console.log(`✅ [MongoDB Atlas] Connected: ${conn.connection.host}`);
     console.log(`📂 [Database] Active: ${conn.connection.name}`);
 
@@ -28,14 +36,13 @@ export const connectDB = async () => {
     });
 
     mongoose.connection.on('disconnected', () => {
-      console.warn('⚠️ [MongoDB Warning]: Connection disconnected. Attempting reconnect...');
+      console.warn('⚠️ [MongoDB Warning]: Connection disconnected.');
     });
 
     return conn;
   } catch (error) {
+    cachedPromise = null;
     console.error(`❌ [MongoDB Fatal]: Failed to connect to MongoDB Atlas: ${error.message}`);
-    if (!process.env.VERCEL) {
-      process.exit(1);
-    }
+    return null;
   }
 };
