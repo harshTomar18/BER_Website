@@ -1,5 +1,5 @@
 .nw__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.nw__card { background: var(--color-white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+.nw__card { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(19, 133, 172, 0.12); border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 30px rgba(19, 133, 172, 0.08); transition: var(--transition); }
 .nw__card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
 .nw__img { display: block; overflow: hidden; aspect-ratio: 16/10; }
 .nw__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }

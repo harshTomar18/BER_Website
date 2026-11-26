@@ -6,7 +6,11 @@
 
 .services-page-wrap {
   position: relative;
-  background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 60%, #f8fbff 100%);
+  background-color: #f4f8fd;
+  background-image: url('/images/Background.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   padding: 60px 0 80px;
   overflow: hidden;
 }

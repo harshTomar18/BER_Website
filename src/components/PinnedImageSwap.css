@@ -7,7 +7,11 @@
   position: relative;
   width: 100%;
   padding: 90px 0 110px;
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 40%, #f1f7fc 100%);
+  /* background-color: #f4f8fd;
+  background-image: url('/images/Background.png'); */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .pis-section-header {
@@ -157,7 +161,7 @@
   width: 100%;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 24px 60px rgba(32, 40, 91, 0.14),
     0 4px 20px rgba(22, 161, 206, 0.12);
   border: 1.5px solid rgba(22, 161, 206, 0.3);
@@ -246,8 +250,17 @@
 }
 
 @keyframes pisPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.6; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
 }
 
 .pis-hud-status {
@@ -365,7 +378,7 @@
 
 .pis-text-block.is-active .pis-block-card {
   border-color: #16a1ce;
-  box-shadow: 
+  box-shadow:
     0 20px 48px rgba(32, 40, 91, 0.1),
     0 0 0 1.5px rgba(22, 161, 206, 0.35);
   transform: translateY(-3px);

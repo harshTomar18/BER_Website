@@ -5,10 +5,15 @@
 
 .tech-marquee-section {
   position: relative;
-  background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 55%, #fafdff 100%);
+  /* background-color: #f4f8fd;
+  background-image: url('/images/Background.png'); */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   padding: 48px 0 56px;
   overflow: visible;
   z-index: 5;
+  border-bottom: 1px solid rgba(19, 133, 172, 0.1);
 }
 
 /* Background decor wrapper - strictly clips ambient glow and orbital lines */

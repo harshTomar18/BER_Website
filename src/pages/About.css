@@ -33,10 +33,14 @@
    1. MISSION & VISION SPOTLIGHT
    ===================================================== */
 .ab-mv {
-  background: linear-gradient(180deg, #ffffff 0%, #f0f6fb 50%, #ffffff 100%);
   position: relative;
   overflow: hidden;
   padding: 48px 0;
+  background-color: #f4f8fd;
+  background-image: url('/images/Background.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 .ab-mv__header {
@@ -240,10 +244,15 @@
    2. CORE VALUES SECTION
    ===================================================== */
 .ab-values-section {
-  background: #f7fafe;
+  position: relative;
+  /* background-color: #f4f8fd;
+  background-image: url('/images/Background.png'); */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 48px 0;
-  border-top: 1px solid #e5edf5;
-  border-bottom: 1px solid #e5edf5;
+  border-top: 1px solid rgba(19, 133, 172, 0.1);
+  border-bottom: 1px solid rgba(19, 133, 172, 0.1);
 }
 
 .ab-values__header {
@@ -338,8 +347,13 @@
    3. WHY INDUSTRY LEADERS CHOOSE BER SERVICES
    ===================================================== */
 .ab-why-section {
+  position: relative;
   padding: 48px 0;
-  background: #ffffff;
+  /* background-color: #f4f8fd;
+  background-image: url('/images/Background.png'); */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
 
 .ab-why__header {

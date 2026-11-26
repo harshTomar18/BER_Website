@@ -5,10 +5,13 @@
 }
 
 .tm__card {
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(19, 133, 172, 0.12);
   border-radius: var(--radius);
   padding: 32px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px rgba(19, 133, 172, 0.08);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
