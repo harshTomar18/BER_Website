@@ -6,7 +6,7 @@
 .tech-marquee-section {
   position: relative;
   background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 55%, #fafdff 100%);
-  padding: 48px 0 245px;
+  padding: 48px 0 56px;
   overflow: visible;
   z-index: 5;
 }
