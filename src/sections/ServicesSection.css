@@ -15,8 +15,8 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  border-top: 1px solid rgba(19, 133, 172, 0.12);
-  border-bottom: 1px solid rgba(19, 133, 172, 0.12);
+  border-top: none;
+  border-bottom: none;
 }
 
 .svc-section .container {

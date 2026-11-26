@@ -4,17 +4,21 @@
    ===================================================== */
 :root {
   /* Brand colors directly from the BER Services logo */
-  --color-primary: #20285b;        /* authentic logo royal navy */
+  --color-primary: #20285b;
+  /* authentic logo royal navy */
   --color-primary-light: #2c377c;
   --color-primary-dark: #141a3d;
-  --color-accent: #1385ac;         /* authentic logo ocean teal/cyan */
+  --color-accent: #1385ac;
+  /* authentic logo ocean teal/cyan */
   --color-accent-hover: #0e6e8e;
-  --color-secondary: #16a1ce;      /* bright cyan highlight from logo "R" */
+  --color-secondary: #16a1ce;
+  /* bright cyan highlight from logo "R" */
   --color-secondary-light: #38bdf8;
 
   /* Neutrals */
   --color-bg: #f4f8fd;
-  --color-bg-alt: #eaf2fa;         /* soft cool ice-blue */
+  --color-bg-alt: #eaf2fa;
+  /* soft cool ice-blue */
   --color-text: #37435e;
   --color-text-light: #64748b;
   --color-heading: #20285b;
