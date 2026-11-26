@@ -245,8 +245,8 @@
    ===================================================== */
 .ab-values-section {
   position: relative;
-  /* background-color: #f4f8fd;
-  background-image: url('/images/Background.png'); */
+  background-color: #f4f8fd;
+  background-image: url('/images/Background.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -349,8 +349,8 @@
 .ab-why-section {
   position: relative;
   padding: 48px 0;
-  /* background-color: #f4f8fd;
-  background-image: url('/images/Background.png'); */
+  background-color: #f4f8fd;
+  background-image: url('/images/Background.png');
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
