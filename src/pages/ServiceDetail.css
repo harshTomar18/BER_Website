@@ -1414,3 +1414,62 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .sd-page-wrapper {
+    padding: 24px 0 45px;
+  }
+
+  .sd-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+  }
+
+  .sd-tagline {
+    font-size: 0.95rem;
+  }
+
+  .sd-hero-media {
+    max-height: 240px;
+    border-radius: 14px;
+  }
+
+  .sd-side-tabs-card,
+  .sd-quick-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .sd-quick-contacts {
+    gap: 8px;
+  }
+
+  .sd-quick-item {
+    padding: 8px 10px;
+  }
+
+  .sd-quick-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sd-btn-consult,
+  .sd-btn-wa {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sd-techs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .sd-tech-card {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sd-techs-grid {
+    grid-template-columns: 1fr;
+  }
+}

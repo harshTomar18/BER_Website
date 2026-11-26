@@ -1,3 +1,38 @@
-.ng { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); }
-.ng__in { max-width: 960px; text-align: center; }
-.ng__p { color: var(--color-on-dark-muted); margin-bottom: 18px; }
+.ng {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  padding: 60px 0;
+}
+
+.ng__in {
+  max-width: 960px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ng__p {
+  color: var(--color-on-dark-muted);
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .ng {
+    padding: 45px 0;
+  }
+
+  .ng__p {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 480px) {
+  .ng {
+    padding: 36px 0;
+  }
+
+  .ng__p {
+    font-size: 0.92rem;
+  }
+}

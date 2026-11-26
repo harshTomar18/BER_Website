@@ -1,13 +1,117 @@
-.tm__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.tm__card { background: var(--color-white); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); position: relative; }
-.tm__quote { font-size: 4rem; line-height: .6; color: var(--color-accent); font-family: Georgia, serif; margin-bottom: 14px; }
-.tm__card p { font-style: italic; margin-bottom: 22px; }
-.tm__who { display: flex; align-items: center; gap: 14px; }
-.tm__who strong { display: block; color: var(--color-heading); }
-.tm__who span { font-size: var(--fs-small); color: var(--color-text-light); }
-.tm__avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--color-primary); color: var(--color-on-dark); display: flex; align-items: center; justify-content: center; font-weight: 600; overflow: hidden; }
-.tm__avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
-.tm__dots { display: flex; justify-content: center; gap: 10px; margin-top: 34px; }
-.tm__dots button { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); }
-.tm__dots button.on { background: var(--color-accent); width: 30px; border-radius: 10px; }
-@media (max-width: 992px) { .tm__grid { grid-template-columns: 1fr; } }
+.tm__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.tm__card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tm__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.tm__quote {
+  font-size: 4rem;
+  line-height: 0.6;
+  color: var(--color-accent);
+  font-family: Georgia, serif;
+  margin-bottom: 14px;
+}
+
+.tm__card p {
+  font-style: italic;
+  margin-bottom: 22px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.tm__who {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tm__who strong {
+  display: block;
+  color: var(--color-heading);
+}
+
+.tm__who span {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+}
+
+.tm__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tm__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.tm__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.tm__dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: all 0.25s ease;
+}
+
+.tm__dots button.on {
+  background: var(--color-accent);
+  width: 30px;
+  border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+  .tm__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tm__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tm__card {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tm__card {
+    padding: 20px 16px;
+  }
+}

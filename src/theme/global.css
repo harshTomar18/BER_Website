@@ -12,6 +12,8 @@
 html {
   scroll-behavior: smooth;
   max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -22,16 +24,23 @@ body {
   line-height: 1.7;
   max-width: 100%;
   width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 #root,
 main {
   max-width: 100%;
   width: 100%;
+  overflow-x: clip;
 }
 
-img {
+img,
+video,
+canvas,
+svg {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -60,6 +69,7 @@ h6 {
   font-family: var(--font-heading);
   color: var(--color-heading);
   line-height: 1.25;
+  word-break: break-word;
 }
 
 h1 {
@@ -74,11 +84,31 @@ h3 {
   font-size: var(--fs-h3);
 }
 
+/* Fluid responsive container */
 .container {
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
 
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 12px;
+  }
 }
 
 .section {
@@ -97,6 +127,7 @@ h3 {
   color: var(--color-white);
   font-weight: 500;
   transition: var(--transition);
+  text-align: center;
 }
 
 .btn:hover {
@@ -117,32 +148,21 @@ h3 {
 
 @media (max-width: 768px) {
   :root {
-    --section-pad: 60px;
+    --section-pad: 45px;
   }
 }
 
-/* =====================================================
-   LENIS SMOOTH INERTIA SCROLLING
-   ===================================================== */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 38px;
+  }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
+  /* Prevent iOS automatic page zoom on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* =====================================================

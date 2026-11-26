@@ -43,5 +43,11 @@
 @media (max-width: 600px) {
     .cf__row {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .cf .btn {
+        width: 100%;
+        text-align: center;
     }
 }

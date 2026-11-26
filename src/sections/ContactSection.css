@@ -769,3 +769,18 @@
         font-size: 1.35rem;
     }
 }
+
+@media (max-width: 380px) {
+    .contact-heading {
+        font-size: 1.8rem;
+    }
+
+    .contact-form-card {
+        padding: 20px 14px;
+        border-radius: 16px;
+    }
+
+    .contact-card {
+        padding: 16px 14px;
+    }
+}

@@ -251,21 +251,47 @@
 
 @media (max-width: 640px) {
   .svc-section {
-    padding-top: 55px;
-    padding-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 55px;
   }
 
   .Carousal_003 .swiper-slide {
-    width: 250px !important;
+    width: 240px !important;
   }
 
   .svc-card-img-box {
-    height: 175px;
+    height: 165px;
     border-radius: 16px;
   }
 
   .svc-card-label {
     font-size: 0.95rem;
     margin-top: 12px;
+  }
+
+  .svc__btn .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 380px) {
+  .svc-section {
+    padding-top: 40px;
+    padding-bottom: 45px;
+  }
+
+  .Carousal_003 .swiper-slide {
+    width: 210px !important;
+  }
+
+  .svc-card-img-box {
+    height: 145px;
+    border-radius: 14px;
+  }
+
+  .svc-card-label {
+    font-size: 0.9rem;
+    margin-top: 10px;
   }
 }

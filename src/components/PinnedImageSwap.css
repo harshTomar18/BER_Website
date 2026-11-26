@@ -650,3 +650,26 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 380px) {
+  .pis-section {
+    padding: 40px 0 60px;
+  }
+
+  .pis-sticky-box {
+    height: 230px;
+    border-radius: 14px;
+  }
+
+  .pis-block-card {
+    padding: 18px 14px;
+  }
+
+  .pis-specs-box {
+    padding: 14px 12px;
+  }
+
+  .pis-spec-item {
+    font-size: 0.82rem;
+  }
+}

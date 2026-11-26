@@ -164,3 +164,24 @@
     max-height: 38px;
   }
 }
+
+@media (max-width: 480px) {
+  .clients-section {
+    padding: 28px 0 32px;
+  }
+
+  .cl-marquee-track {
+    gap: 12px;
+  }
+
+  .cl-logo-card {
+    width: 125px;
+    height: 62px;
+    padding: 8px 12px;
+    border-radius: 12px;
+  }
+
+  .cl-logo-img {
+    max-height: 32px;
+  }
+}

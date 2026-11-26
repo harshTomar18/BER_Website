@@ -789,33 +789,62 @@
     padding: 6px 18px;
     gap: 10px;
   }
+}
 
-  .tm-detail-card-wrap {
-    width: calc(100% - 32px);
-    left: 16px !important;
+@media (max-width: 640px) {
+  .tech-marquee-section {
+    padding: 34px 0 38px;
   }
 
-  .tm-detail-caret {
-    display: none;
+  .tm-track-capsule {
+    height: 64px;
+    border-radius: 9999px;
   }
 
-  .tm-detail-card {
-    flex-direction: column;
-    padding: 18px;
-    gap: 14px;
-    text-align: center;
+  .tm-item {
+    padding: 6px 14px;
+    gap: 8px;
+    height: 50px;
   }
 
-  .tm-card-podium-col {
-    height: 100px;
+  .tm-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
   }
 
-  .tm-card-top-row {
-    justify-content: center;
+  .tm-item-supplier-img {
+    width: 20px;
+    height: 20px;
   }
 
-  .tm-card-tech-row {
-    justify-content: center;
+  .tm-item-label {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .tech-marquee-section {
+    padding: 28px 0 32px;
+  }
+
+  .tm-track-capsule {
+    height: 56px;
+  }
+
+  .tm-item {
+    padding: 4px 10px;
+    gap: 6px;
+    height: 44px;
+  }
+
+  .tm-item-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tm-item-label {
+    font-size: 0.8rem;
   }
 }
 
