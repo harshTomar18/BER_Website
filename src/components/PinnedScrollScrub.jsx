@@ -75,37 +75,37 @@ export default function PinnedScrollScrub({
     showcase?.items && showcase.items.length > 0
       ? showcase.items
       : [
-          {
-            num: '01',
-            tag: 'Core Performance',
-            title: 'Sub-Second Global Edge Delivery',
-            desc: 'Engineered with micro-frontend hydration, automated asset compression, and edge CDN routing achieving sub-400ms TTFB worldwide.',
-            metric: 'Sub-400ms TTFB • 99/100 Lighthouse',
-            hudBadge: 'EDGE PERFORMANCE ENGINE',
-            icon: 'Zap',
-            image: (images && images[0]) || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85',
-          },
-          {
-            num: '02',
-            tag: 'Cyber Defense',
-            title: 'Zero-Trust Bank-Grade Security',
-            desc: 'End-to-end TLS 1.3 encryption, automated DDoS shielding, continuous dependency vulnerability audits, and sanitized input validation.',
-            metric: 'A+ SSL Rating • 100% OWASP Compliance',
-            hudBadge: 'ZERO-TRUST CYBER SHIELD',
-            icon: 'ShieldCheck',
-            image: (images && images[1]) || 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=85',
-          },
-          {
-            num: '03',
-            tag: 'Cloud Integration',
-            title: 'Modular Headless Integration Mesh',
-            desc: 'Bi-directional webhooks and resilient event-driven pipelines seamlessly connecting ERP, CRM, marketing automation, and custom admin portals.',
-            metric: 'Sub-50ms REST & GraphQL Gateways',
-            hudBadge: 'ENTERPRISE INTEGRATION MESH',
-            icon: 'Cpu',
-            image: (images && images[2]) || assetImage || '/images/ber_capabilities_mockup.jpg',
-          },
-        ];
+        {
+          num: '01',
+          tag: 'Core Performance',
+          title: 'Sub-Second Global Edge Delivery',
+          desc: 'Engineered with micro-frontend hydration, automated asset compression, and edge CDN routing achieving sub-400ms TTFB worldwide.',
+          metric: 'Sub-400ms TTFB • 99/100 Lighthouse',
+          hudBadge: 'EDGE PERFORMANCE ENGINE',
+          icon: 'Zap',
+          image: (images && images[0]) || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85',
+        },
+        {
+          num: '02',
+          tag: 'Cyber Defense',
+          title: 'Zero-Trust Bank-Grade Security',
+          desc: 'End-to-end TLS 1.3 encryption, automated DDoS shielding, continuous dependency vulnerability audits, and sanitized input validation.',
+          metric: 'A+ SSL Rating • 100% OWASP Compliance',
+          hudBadge: 'ZERO-TRUST CYBER SHIELD',
+          icon: 'ShieldCheck',
+          image: (images && images[1]) || 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=85',
+        },
+        {
+          num: '03',
+          tag: 'Cloud Integration',
+          title: 'Modular Headless Integration Mesh',
+          desc: 'Bi-directional webhooks and resilient event-driven pipelines seamlessly connecting ERP, CRM, marketing automation, and custom admin portals.',
+          metric: 'Sub-50ms REST & GraphQL Gateways',
+          hudBadge: 'ENTERPRISE INTEGRATION MESH',
+          icon: 'Cpu',
+          image: (images && images[2]) || assetImage || '/images/ber_capabilities_mockup.jpg',
+        },
+      ];
 
   useGSAP(
     () => {

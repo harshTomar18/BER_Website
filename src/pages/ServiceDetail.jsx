@@ -28,7 +28,6 @@ import {
 } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 import CtaBand from '../sections/CtaBand';
-import PinnedScrollScrub from '../components/PinnedScrollScrub';
 import PinnedImageSwap from '../components/PinnedImageSwap';
 import { company } from '../config/siteConfig';
 import { useConsult } from '../context/ConsultContext';
@@ -299,17 +298,6 @@ export default function ServiceDetail() {
           </section>
         </div>
 
-        {/* =====================================================
-            FEATURE 1: THE PINNED SCROLL-SCRUB SHOWCASE
-            ===================================================== */}
-        {s.architectureShowcase?.items && s.architectureShowcase.items.length > 0 && (
-          <PinnedScrollScrub
-            showcase={s.architectureShowcase}
-            serviceTitle={s.title || ''}
-            tagline={s.tagline || ''}
-            assetImage={s.heroImage || s.image || s.galleryImage || '/images/ber_capabilities_mockup.jpg'}
-          />
-        )}
 
         {/* =====================================================
             FEATURE 2: THE PINNED IMAGE SWAP (DELIVERABLES)
