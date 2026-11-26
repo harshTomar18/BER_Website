@@ -24,12 +24,17 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #ffffff;
-  background-image: url('/images/Background.png');
+  background-color: rgba(255, 255, 255, 0.88);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
+    url('/images/Background.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  box-shadow: 0 2px 14px rgba(32, 40, 91, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(19, 133, 172, 0.12);
+  box-shadow: 0 4px 20px rgba(32, 40, 91, 0.05);
   transition:
     transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
     background 0.3s ease,

@@ -1,2 +1,25 @@
-.legal { max-width: 860px; }
-.legal ol { padding-left: 22px; display: grid; gap: 14px; }
+.legal {
+  max-width: 860px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px 48px;
+  box-shadow: 0 16px 40px -10px rgba(32, 40, 91, 0.07), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.legal ol {
+  padding-left: 22px;
+  display: grid;
+  gap: 16px;
+  color: #334155;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .legal {
+    padding: 24px 20px;
+  }
+}

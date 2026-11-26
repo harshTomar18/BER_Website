@@ -34,13 +34,8 @@
    ===================================================== */
 .ab-mv {
   position: relative;
-  overflow: hidden;
   padding: 48px 0;
-  background-color: #f4f8fd;
-  background-image: url('/images/Background.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  background: transparent;
 }
 
 .ab-mv__header {
@@ -73,11 +68,14 @@
 
 .ab-mv__card {
   position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-radius: 20px;
   padding: 44px 40px;
-  box-shadow: 0 14px 40px rgba(32, 40, 91, 0.07);
+  box-shadow: 
+    0 20px 48px -12px rgba(32, 40, 91, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   display: flex;
@@ -245,14 +243,10 @@
    ===================================================== */
 .ab-values-section {
   position: relative;
-  background-color: #f4f8fd;
-  background-image: url('/images/Background.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: transparent;
   padding: 48px 0;
-  border-top: 1px solid rgba(19, 133, 172, 0.1);
-  border-bottom: 1px solid rgba(19, 133, 172, 0.1);
+  border-top: 1px solid rgba(19, 133, 172, 0.08);
+  border-bottom: 1px solid rgba(19, 133, 172, 0.08);
 }
 
 .ab-values__header {
@@ -281,11 +275,16 @@
 }
 
 .ab-value-card {
-  background: #ffffff;
-  border: 1px solid rgba(32, 40, 91, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 18px;
   padding: 32px 26px;
-  box-shadow: 0 10px 30px rgba(32, 40, 91, 0.05);
+  box-shadow: 
+    0 16px 40px -10px rgba(32, 40, 91, 0.07),
+    0 2px 6px rgba(19, 133, 172, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
@@ -293,8 +292,8 @@
 
 .ab-value-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(19, 133, 172, 0.35);
-  box-shadow: 0 18px 45px rgba(19, 133, 172, 0.12);
+  border-color: rgba(19, 133, 172, 0.4);
+  box-shadow: 0 24px 50px rgba(19, 133, 172, 0.15);
 }
 
 .ab-value-card__top {
@@ -349,11 +348,7 @@
 .ab-why-section {
   position: relative;
   padding: 48px 0;
-  background-color: #f4f8fd;
-  background-image: url('/images/Background.png');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  background: transparent;
 }
 
 .ab-why__header {
@@ -383,18 +378,23 @@
 }
 
 .ab-why-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 246, 252, 0.9));
-  border: 1px solid rgba(19, 133, 172, 0.14);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 18px;
   padding: 32px 26px;
-  box-shadow: 0 10px 30px rgba(32, 40, 91, 0.04);
+  box-shadow: 
+    0 16px 40px -10px rgba(32, 40, 91, 0.07),
+    0 2px 6px rgba(19, 133, 172, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
   transition: all 0.35s ease;
 }
 
 .ab-why-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(19, 133, 172, 0.35);
-  box-shadow: 0 18px 40px rgba(32, 40, 91, 0.08);
+  border-color: rgba(19, 133, 172, 0.4);
+  box-shadow: 0 24px 50px rgba(19, 133, 172, 0.15);
 }
 
 .ab-why-card__icon-wrapper {
