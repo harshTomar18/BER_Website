@@ -239,7 +239,7 @@ export default function PinnedImageSwap({ deliverablesData, items, onInquire }) 
                       className={`pis-image-layer ${isActive ? 'is-active' : ''}`}
                     >
                       <img
-                        src={item.image || '/images/ber_capabilities_mockup.jpg'}
+                        src={item.image || '/images/ber_capabilities_mockup.webp'}
                         alt={item.title || ''}
                         className="pis-layer-img"
                       />

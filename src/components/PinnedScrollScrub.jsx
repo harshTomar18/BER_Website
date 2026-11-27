@@ -29,7 +29,7 @@ export default function PinnedScrollScrub({
   showcase,
   serviceTitle = '',
   tagline = '',
-  assetImage = '/images/ber_capabilities_mockup.jpg',
+  assetImage = '/images/ber_capabilities_mockup.webp',
   images = [],
 }) {
   const containerRef = useRef(null);
@@ -103,7 +103,7 @@ export default function PinnedScrollScrub({
           metric: 'Sub-50ms REST & GraphQL Gateways',
           hudBadge: 'ENTERPRISE INTEGRATION MESH',
           icon: 'Cpu',
-          image: (images && images[2]) || assetImage || '/images/ber_capabilities_mockup.jpg',
+          image: (images && images[2]) || assetImage || '/images/ber_capabilities_mockup.webp',
         },
       ];
 
@@ -169,7 +169,7 @@ export default function PinnedScrollScrub({
                   className={`pss-image-layer ${activeTab === idx ? 'is-active' : ''}`}
                 >
                   <img
-                    src={card.image || assetImage || '/images/ber_capabilities_mockup.jpg'}
+                    src={card.image || assetImage || '/images/ber_capabilities_mockup.webp'}
                     alt={card.title || ''}
                     className="pss-large-img"
                   />

@@ -80,12 +80,12 @@ export default function Ber3DArtwork() {
         {/* Main 3D Artwork Render (Transparent Neo-Glass Orbit) */}
         <div className="neo-artwork-render-box">
           <img
-            src="/images/BER Services Neo-Glass Tech Orbit.jpeg"
+            src="/images/BER Services Neo-Glass Tech Orbit.webp"
             alt="BER Services Neo-Glass Tech Orbit 3D Centerpiece"
             className="neo-artwork-img"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             onError={(e) => {
-              // Fallback to original if clean image fails
               e.currentTarget.src = '/images/BER Services Neo-Glass Tech Orbit.jpeg';
             }}
           />

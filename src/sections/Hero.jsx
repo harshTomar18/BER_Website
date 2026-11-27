@@ -31,7 +31,7 @@ const defaultHeroConfig = {
   heroImage: '',
   heroImageAlt: 'BER Services Enterprise Architecture Platform',
   heroVideo: '/images/This is what we will be.mp4',
-  heroVideoPoster: '',
+  heroVideoPoster: '/images/hero-poster.webp',
   heroMediaType: 'video',
   heroVideoAutoplay: true,
   heroVideoLoop: true,
@@ -293,6 +293,7 @@ export default function Hero() {
                       <video
                         ref={videoRef}
                         src={encodeURI(hero.heroVideo || '/images/This is what we will be.mp4')}
+                        poster={hero.heroVideoPoster || '/images/hero-poster.webp'}
                         autoPlay={hero.heroVideoAutoplay !== false}
                         loop={hero.heroVideoLoop !== false}
                         muted={isMuted}

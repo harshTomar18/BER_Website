@@ -162,7 +162,7 @@ export default function ServiceDetail() {
               <div className="sd-overview-main">
                 <div className="sd-hero-media">
                   <img
-                    src={s.heroImage || s.galleryImage || s.image || '/images/ber_capabilities_mockup.jpg'}
+                    src={s.heroImage || s.galleryImage || s.image || '/images/ber_capabilities_mockup.webp'}
                     alt={s.title || ''}
                     className="sd-hero-img"
                   />

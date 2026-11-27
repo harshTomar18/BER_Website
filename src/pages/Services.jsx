@@ -239,7 +239,7 @@ export default function Services() {
                               activeService.heroImage ||
                               activeService.galleryImage ||
                               activeService.image ||
-                              '/images/ber_capabilities_mockup.jpg'
+                              '/images/ber_capabilities_mockup.webp'
                             }
                             alt={activeService.title || ''}
                             className="service-showcase-img"

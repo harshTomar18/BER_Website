@@ -263,9 +263,8 @@ export default function FaqSection({
               return (
                 <div
                   key={faq.id || idx}
-                  className={`faq-sec__item ${isOpen ? 'is-open' : ''} ${
-                    isLanding ? 'faq-sec__item--landing' : ''
-                  }`}
+                  className={`faq-sec__item ${isOpen ? 'is-open' : ''} ${isLanding ? 'faq-sec__item--landing' : ''
+                    }`}
                 >
                   <button
                     type="button"
@@ -298,20 +297,16 @@ export default function FaqSection({
                     <div className="faq-sec__answer-content">
                       <p>{faq.answer}</p>
 
-                      {isLanding && (
+                      {/* {isLanding && (
                         <div className="faq-sec__landing-footer">
-                          <div className="faq-sec__features-strip">
-                            <span><CheckCircle2 size={14} /> Tailored Architecture</span>
-                            <span><CheckCircle2 size={14} /> Full IP Ownership</span>
-                            <span><CheckCircle2 size={14} /> SLA Support</span>
-                          </div>
+
 
                           <Link to="/faq" className="faq-sec__view-all-link">
                             <span>Explore all questions</span>
                             <ArrowRight size={15} />
                           </Link>
                         </div>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
