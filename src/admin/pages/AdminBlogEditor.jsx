@@ -128,6 +128,22 @@ export default function AdminBlogEditor() {
     }
   };
 
+  // Remove handler for Featured Image
+  const handleRemoveFeaturedImage = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setFormData((prev) => ({
+      ...prev,
+      featuredImage: '',
+      featuredImageAlt: '',
+    }));
+    if (featuredFileInputRef.current) {
+      featuredFileInputRef.current.value = '';
+    }
+  };
+
   // Upload handler for Author Profile Image
   const handleAuthorImageUpload = async (file) => {
     if (!file) return;
@@ -570,6 +586,19 @@ export default function AdminBlogEditor() {
             <div className="abe-field">
               <label className="abe-label">Featured Image (Upload from Computer or enter URL)</label>
 
+              {/* Hidden file input always in DOM for reliable Replace and Upload actions */}
+              <input
+                type="file"
+                ref={featuredFileInputRef}
+                style={{ display: 'none' }}
+                accept="image/*"
+                onChange={(e) => {
+                  if (e.target.files && e.target.files[0]) {
+                    handleFeaturedImageUpload(e.target.files[0]);
+                  }
+                }}
+              />
+
               <div className="abe-featured-upload-box">
                 {formData.featuredImage ? (
                   <div className="abe-featured-preview-card">
@@ -596,7 +625,7 @@ export default function AdminBlogEditor() {
                           <button
                             type="button"
                             className="abe-btn-remove-img"
-                            onClick={() => setFormData((prev) => ({ ...prev, featuredImage: '' }))}
+                            onClick={handleRemoveFeaturedImage}
                           >
                             <Trash2 size={14} />
                             <span>Remove</span>
@@ -628,17 +657,6 @@ export default function AdminBlogEditor() {
                       }
                     }}
                   >
-                    <input
-                      type="file"
-                      ref={featuredFileInputRef}
-                      style={{ display: 'none' }}
-                      accept="image/*"
-                      onChange={(e) => {
-                        if (e.target.files && e.target.files[0]) {
-                          handleFeaturedImageUpload(e.target.files[0]);
-                        }
-                      }}
-                    />
                     <div className="abe-dropzone-content">
                       <div className="abe-dropzone-icon-circle">
                         {uploadingFeatured ? (
