@@ -1,31 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Search,
-  ArrowRight,
-  ExternalLink,
-  CheckCircle2,
-  X,
-  ShieldCheck,
-  TrendingUp,
-  Briefcase,
-  Quote,
-  SlidersHorizontal
-} from 'lucide-react';
+import { Search, X, SlidersHorizontal } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 import FaqSection from '../sections/FaqSection';
 import CtaBand from '../sections/CtaBand';
-import { useConsult } from '../context/ConsultContext';
-import {
-  portfolioCategories,
-  portfolioProjects
-} from '../data/portfolioData';
+import { portfolioCategories, portfolioProjects } from '../data/portfolioData';
 import './Portfolio.css';
 
 export default function Portfolio() {
-  const { openModal } = useConsult();
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeModalProject, setActiveModalProject] = useState(null);
 
   // Filter projects by active category and search query
   const filteredProjects = useMemo(() => {
@@ -44,16 +27,6 @@ export default function Portfolio() {
     });
   }, [activeCategory, searchQuery]);
 
-  const openCaseStudyModal = (project) => {
-    setActiveModalProject(project);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeCaseStudyModal = () => {
-    setActiveModalProject(null);
-    document.body.style.overflow = '';
-  };
-
   return (
     <>
       <PageBanner
@@ -70,7 +43,7 @@ export default function Portfolio() {
         <div className="portfolio-bg-glow portfolio-bg-glow--bottom"></div>
 
         <div className="container portfolio-container">
-          {/* Clean Showcase Heading (No heavy paragraphs, no stat boxes) */}
+          {/* Clean Showcase Heading */}
           <div className="portfolio-header">
             <h1 className="portfolio-heading">
               Work <span className="portfolio-heading-accent">Showcase</span>
@@ -147,8 +120,8 @@ export default function Portfolio() {
           )}
 
           {/* =====================================================
-              SIGNATURE SHOWCASE GRID (CLEAN VISUAL-FIRST)
-              Zero Text Over Image, Clean Heading & Category Below
+              CLEAN VISUAL-FIRST SHOWCASE GRID
+              Pure Artwork, Zero Badges, No Arrows, No Popups
               ===================================================== */}
           {filteredProjects.length === 0 ? (
             <div className="portfolio-empty-state">
@@ -173,12 +146,8 @@ export default function Portfolio() {
           ) : (
             <div className="portfolio-showcase-grid">
               {filteredProjects.map((project) => (
-                <div
-                  key={project.id}
-                  className="portfolio-showcase-card"
-                  onClick={() => openCaseStudyModal(project)}
-                >
-                  {/* Clean Artwork Image Box (NO badges or text on image!) */}
+                <div key={project.id} className="portfolio-showcase-card">
+                  {/* Clean Artwork Image Box (100% Unobstructed, No overlay, No arrow) */}
                   <div className="portfolio-card-artwork">
                     <img
                       src={project.image}
@@ -187,16 +156,9 @@ export default function Portfolio() {
                       loading="lazy"
                       decoding="async"
                     />
-
-                    {/* Subtle Hover Action Circle */}
-                    <div className="portfolio-card-hover-overlay">
-                      <span className="portfolio-hover-circle" title="View Case Study">
-                        <ArrowRight size={18} />
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Clean Card Information: Only Client Brand, Category, & Title */}
+                  {/* Clean Card Information: Client Brand, Category, & Title */}
                   <div className="portfolio-card-info">
                     <div className="portfolio-card-meta-line">
                       <span className="portfolio-card-client-brand">{project.client}</span>
@@ -213,148 +175,6 @@ export default function Portfolio() {
           )}
         </div>
       </div>
-
-      {/* =====================================================
-          INTERACTIVE CASE STUDY DEEP-DIVE MODAL
-          ===================================================== */}
-      {activeModalProject && (
-        <div className="portfolio-modal-overlay" onClick={closeCaseStudyModal}>
-          <div
-            className="portfolio-modal-container"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-          >
-            {/* Modal Close Button */}
-            <button
-              type="button"
-              className="portfolio-modal-close"
-              onClick={closeCaseStudyModal}
-              aria-label="Close Case Study"
-            >
-              <X size={20} />
-            </button>
-
-            {/* Modal Header */}
-            <div className="portfolio-modal-header">
-              <div className="portfolio-modal-pills">
-                <span className="portfolio-modal-pill">{activeModalProject.categoryLabel}</span>
-                <span className="portfolio-modal-pill portfolio-modal-pill--ind">
-                  {activeModalProject.industry}
-                </span>
-                <span className="portfolio-modal-client">Client: {activeModalProject.client}</span>
-              </div>
-              <h2 className="portfolio-modal-title">{activeModalProject.title}</h2>
-              <p className="portfolio-modal-tagline">{activeModalProject.tagline}</p>
-            </div>
-
-            {/* Modal Media Showcase */}
-            <div className="portfolio-modal-media">
-              <img
-                src={activeModalProject.image}
-                alt={activeModalProject.title}
-                className="portfolio-modal-img"
-              />
-            </div>
-
-            {/* Modal Grid: Challenge vs Engineering Solution */}
-            <div className="portfolio-modal-comparison">
-              <div className="portfolio-modal-comp-box portfolio-modal-comp-box--challenge">
-                <div className="portfolio-modal-comp-badge">
-                  <Briefcase size={14} />
-                  <span>The Commercial Challenge</span>
-                </div>
-                <p>{activeModalProject.challenge}</p>
-              </div>
-
-              <div className="portfolio-modal-comp-box portfolio-modal-comp-box--solution">
-                <div className="portfolio-modal-comp-badge">
-                  <ShieldCheck size={14} />
-                  <span>BER Engineering Solution</span>
-                </div>
-                <p>{activeModalProject.solution}</p>
-              </div>
-            </div>
-
-            {/* Key Deliverables & Tech Specs */}
-            <div className="portfolio-modal-details-grid">
-              {/* Deliverables Checklist */}
-              <div className="portfolio-modal-section">
-                <h4 className="portfolio-modal-sec-title">What We Architected & Shipped:</h4>
-                <ul className="portfolio-modal-del-list">
-                  {activeModalProject.deliverables.map((del, idx) => (
-                    <li key={idx} className="portfolio-modal-del-item">
-                      <CheckCircle2 size={16} className="portfolio-modal-del-check" />
-                      <span>{del}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Technologies Applied */}
-              <div className="portfolio-modal-section">
-                <h4 className="portfolio-modal-sec-title">Technology & Infrastructure Stack:</h4>
-                <div className="portfolio-modal-tech-grid">
-                  {activeModalProject.techStack.map((tech, idx) => (
-                    <div key={idx} className="portfolio-modal-tech-card">
-                      <span
-                        className="portfolio-modal-tech-dot"
-                        style={{ backgroundColor: tech.color || '#16a1ce' }}
-                      ></span>
-                      <span className="portfolio-modal-tech-name">{tech.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Measurable ROI Metrics Banner */}
-            <div className="portfolio-modal-metrics-banner">
-              <div className="portfolio-modal-mb-title">
-                <TrendingUp size={18} />
-                <span>Verified Commercial Impact & Benchmarks:</span>
-              </div>
-              <div className="portfolio-modal-mb-grid">
-                {activeModalProject.metrics.map((m, idx) => (
-                  <div key={idx} className="portfolio-modal-mb-box">
-                    <div className="portfolio-modal-mb-val">{m.value}</div>
-                    <div className="portfolio-modal-mb-lbl">{m.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Client Testimonial Quote */}
-            {activeModalProject.testimonial && (
-              <div className="portfolio-modal-quote-box">
-                <Quote size={28} className="portfolio-modal-quote-icon" />
-                <p className="portfolio-modal-quote-text">
-                  "{activeModalProject.testimonial.quote}"
-                </p>
-                <div className="portfolio-modal-quote-meta">
-                  <strong>{activeModalProject.testimonial.author}</strong>
-                  <span> — {activeModalProject.testimonial.role}</span>
-                </div>
-              </div>
-            )}
-
-            {/* Modal Bottom Call To Action */}
-            <div className="portfolio-modal-actions">
-              <button
-                type="button"
-                className="portfolio-modal-btn-cta"
-                onClick={() => {
-                  closeCaseStudyModal();
-                  openModal();
-                }}
-              >
-                <span>Architect a Similar Solution for Your Business</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Frequently Asked Questions */}
       <FaqSection title="Frequently Asked Questions About Our Projects & Delivery" />

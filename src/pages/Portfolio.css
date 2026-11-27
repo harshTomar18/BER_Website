@@ -281,8 +281,8 @@
 }
 
 /* =====================================================
-   3. CLEAN VISUAL-FIRST SHOWCASE GRID (DIGISTREET STYLE)
-   Clean Artwork Image (No Floating Badges) + Bold Heading
+   3. CLEAN VISUAL-FIRST SHOWCASE GRID
+   Pure Clean Artwork (No badges, No overlay arrow, No popup)
    ===================================================== */
 .portfolio-showcase-grid {
   display: grid;
@@ -300,20 +300,19 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 24px rgba(32, 40, 91, 0.05);
-  cursor: pointer;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.38s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
 }
 
 .portfolio-showcase-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(22, 161, 206, 0.4);
-  box-shadow: 0 18px 45px rgba(32, 40, 91, 0.1),
-              0 0 25px rgba(22, 161, 206, 0.08);
+  box-shadow: 0 16px 40px rgba(32, 40, 91, 0.1),
+              0 0 20px rgba(22, 161, 206, 0.08);
 }
 
-/* Clean Artwork Image Box (NO floating badges, 100% clean!) */
+/* 100% Clean Artwork Image Box */
 .portfolio-card-artwork {
   position: relative;
   width: 100%;
@@ -331,46 +330,7 @@
 }
 
 .portfolio-showcase-card:hover .portfolio-card-img {
-  transform: scale(1.06);
-}
-
-/* Subtle Hover Overlay with Glowing Action Circle */
-.portfolio-card-hover-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(32, 40, 91, 0.25) 0%, rgba(8, 17, 40, 0.65) 100%);
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  transition: opacity 0.3s ease;
-}
-
-.portfolio-showcase-card:hover .portfolio-card-hover-overlay {
-  opacity: 1;
-}
-
-.portfolio-hover-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #16a1ce;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(22, 161, 206, 0.5);
-  transform: scale(0.8);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
-}
-
-.portfolio-showcase-card:hover .portfolio-hover-circle {
-  transform: scale(1);
-}
-
-.portfolio-hover-circle:hover {
-  background: #20285b;
+  transform: scale(1.05);
 }
 
 /* Card Information Body (Clean: Only Client Brand, Category, & Heading) */
@@ -421,364 +381,7 @@
 }
 
 /* =====================================================
-   4. INTERACTIVE CASE STUDY DEEP-DIVE MODAL
-   ===================================================== */
-.portfolio-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 14, 32, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  animation: pfModalFadeIn 0.28s ease-out;
-}
-
-@keyframes pfModalFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.portfolio-modal-container {
-  position: relative;
-  background: #ffffff;
-  border-radius: 24px;
-  width: 100%;
-  max-width: 900px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-  padding: 38px;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-  animation: pfModalSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes pfModalSlideUp {
-  from {
-    transform: translateY(30px) scale(0.97);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-.portfolio-modal-close {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #f1f5f9;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #475569;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 10;
-}
-
-.portfolio-modal-close:hover {
-  background: #20285b;
-  color: #ffffff;
-  transform: rotate(90deg);
-}
-
-/* Modal Header */
-.portfolio-modal-pills {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.portfolio-modal-pill {
-  padding: 4px 12px;
-  background: rgba(19, 133, 172, 0.1);
-  border-radius: 9999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #1385ac;
-}
-
-.portfolio-modal-pill--ind {
-  background: #f1f5f9;
-  color: #475569;
-}
-
-.portfolio-modal-client {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #20285b;
-}
-
-.portfolio-modal-title {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #20285b;
-  line-height: 1.25;
-  margin: 0 0 6px 0;
-}
-
-.portfolio-modal-tagline {
-  font-size: 1rem;
-  color: #64748b;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Modal Media */
-.portfolio-modal-media {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0b132b;
-  aspect-ratio: 16 / 9;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-modal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Modal Challenge vs Solution Comparison */
-.portfolio-modal-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.portfolio-modal-comp-box {
-  padding: 20px;
-  border-radius: 14px;
-  border: 1px solid transparent;
-}
-
-.portfolio-modal-comp-box--challenge {
-  background: #fef8f8;
-  border-color: #fee2e2;
-}
-
-.portfolio-modal-comp-box--solution {
-  background: #f0f9ff;
-  border-color: #bae6fd;
-}
-
-.portfolio-modal-comp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
-}
-
-.portfolio-modal-comp-box--challenge .portfolio-modal-comp-badge {
-  color: #dc2626;
-}
-
-.portfolio-modal-comp-box--solution .portfolio-modal-comp-badge {
-  color: #0284c7;
-}
-
-.portfolio-modal-comp-box p {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: #334155;
-  margin: 0;
-}
-
-/* Deliverables & Tech Specs Grid */
-.portfolio-modal-details-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-}
-
-.portfolio-modal-sec-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #20285b;
-  margin: 0 0 12px 0;
-}
-
-.portfolio-modal-del-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.portfolio-modal-del-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.5;
-}
-
-.portfolio-modal-del-check {
-  color: #1385ac;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.portfolio-modal-tech-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.portfolio-modal-tech-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #334155;
-}
-
-.portfolio-modal-tech-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-}
-
-/* Verified Metrics Banner */
-.portfolio-modal-metrics-banner {
-  background: linear-gradient(135deg, #20285b 0%, #172b5c 60%, #1385ac 100%);
-  border-radius: 16px;
-  padding: 22px 26px;
-  color: #ffffff;
-}
-
-.portfolio-modal-mb-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #38bdf8;
-  margin-bottom: 14px;
-}
-
-.portfolio-modal-mb-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.portfolio-modal-mb-box {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 12px 14px;
-  text-align: center;
-}
-
-.portfolio-modal-mb-val {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 2px;
-}
-
-.portfolio-modal-mb-lbl {
-  font-size: 0.76rem;
-  color: #c9e0ff;
-}
-
-/* Testimonial Quote Box */
-.portfolio-modal-quote-box {
-  background: #f8fafc;
-  border-left: 4px solid #16a1ce;
-  border-radius: 0 14px 14px 0;
-  padding: 20px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.portfolio-modal-quote-icon {
-  color: #16a1ce;
-  opacity: 0.45;
-}
-
-.portfolio-modal-quote-text {
-  font-size: 0.92rem;
-  font-style: italic;
-  color: #334155;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.portfolio-modal-quote-meta {
-  font-size: 0.82rem;
-  color: #64748b;
-}
-
-.portfolio-modal-quote-meta strong {
-  color: #20285b;
-}
-
-/* Modal Actions CTA */
-.portfolio-modal-actions {
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-}
-
-.portfolio-modal-btn-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 30px;
-  background: linear-gradient(135deg, #1385ac 0%, #20285b 100%);
-  color: #ffffff;
-  border: none;
-  border-radius: 9999px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 22px rgba(32, 40, 91, 0.22);
-  transition: all 0.25s ease;
-}
-
-.portfolio-modal-btn-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(19, 133, 172, 0.32);
-}
-
-/* =====================================================
-   5. RESPONSIVE MEDIA QUERIES
+   4. RESPONSIVE MEDIA QUERIES
    ===================================================== */
 @media (max-width: 1100px) {
   .portfolio-showcase-grid {
@@ -795,20 +398,6 @@
   .portfolio-showcase-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .portfolio-modal-container {
-    padding: 22px 18px;
-  }
-
-  .portfolio-modal-comparison,
-  .portfolio-modal-details-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio-modal-mb-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
   }
 
   .portfolio-filter-bar {
