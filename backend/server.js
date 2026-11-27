@@ -11,6 +11,7 @@ import { seedDefaultHero } from './controllers/hero.controller.js';
 import { seedDefaultAbout } from './controllers/about.controller.js';
 import { seedDefaultServices } from './controllers/service.controller.js';
 import { seedDefaultShowcase } from './controllers/showcase.controller.js';
+import { seedDefaultFaqs } from './controllers/faq.controller.js';
 import mongoose from 'mongoose';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -34,6 +35,7 @@ export const runInitialSeeds = async () => {
     await seedDefaultAbout();
     await seedDefaultServices();
     await seedDefaultShowcase();
+    await seedDefaultFaqs();
     isSeeded = true;
     console.log('🌱 [Seeder] Default content and admin initialized.');
   } catch (err) {

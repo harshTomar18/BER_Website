@@ -10,6 +10,8 @@ const ROUTE_TITLES = {
   '/': 'Digital Solutions & Web Development Company | BER Services',
   '/about-us': 'About Us | BER Services PVT. LTD.',
   '/services-we-provide': 'Services We Provide | BER Services',
+  '/portfolio': 'Portfolio & Case Studies | BER Services',
+  '/case-studies': 'Portfolio & Case Studies | BER Services',
   '/contact-us': 'Contact Us | BER Services',
   '/news-and-article': 'News and Articles | BER Services',
   '/blog': 'News and Articles | BER Services',

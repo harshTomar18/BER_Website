@@ -7,6 +7,7 @@ import heroRoutes from './hero.routes.js';
 import aboutRoutes from './about.routes.js';
 import serviceRoutes from './service.routes.js';
 import showcaseRoutes from './showcase.routes.js';
+import faqRoutes from './faq.routes.js';
 
 const apiRouter = Router();
 
@@ -19,5 +20,6 @@ apiRouter.use('/hero', heroRoutes);
 apiRouter.use('/about', aboutRoutes);
 apiRouter.use('/services', serviceRoutes);
 apiRouter.use('/showcase', showcaseRoutes);
+apiRouter.use('/faqs', faqRoutes);
 
 export default apiRouter;

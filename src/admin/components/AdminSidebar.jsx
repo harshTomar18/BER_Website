@@ -15,7 +15,8 @@ import {
   Info,
   Award,
   ChevronDown,
-  Globe
+  Globe,
+  HelpCircle
 } from 'lucide-react';
 
 import { useAdminAuth } from '../context/AdminAuthContext';
@@ -36,7 +37,8 @@ export default function AdminSidebar({
     location.pathname.startsWith('/admin/hero') ||
     location.pathname.startsWith('/admin/about') ||
     location.pathname.startsWith('/admin/services') ||
-    location.pathname.startsWith('/admin/showcase')
+    location.pathname.startsWith('/admin/showcase') ||
+    location.pathname.startsWith('/admin/faqs')
   );
 
   const handleLogout = () => {
@@ -80,6 +82,12 @@ export default function AdminSidebar({
       label: 'Taxonomy & Categories',
       icon: Layers,
       path: '/admin/categories',
+    },
+    {
+      id: 'faqs',
+      label: 'FAQ Manager',
+      icon: HelpCircle,
+      path: '/admin/faqs',
     },
   ];
 

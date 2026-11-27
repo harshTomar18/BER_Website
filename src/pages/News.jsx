@@ -14,6 +14,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import FaqSection from '../sections/FaqSection';
 import { blogApi } from '../api';
 import './News.css';
 
@@ -445,6 +446,9 @@ export default function News() {
           </div>
         </div>
       </section>
+
+      {/* Frequently Asked Questions */}
+      <FaqSection title="Knowledge & Insights FAQ" />
     </div>
   );
 }

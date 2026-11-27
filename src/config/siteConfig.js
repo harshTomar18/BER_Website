@@ -55,6 +55,7 @@ export const nav = [
   { label: 'Home', to: '/' },
   { label: 'About BER', to: '/about-us' },
   { label: 'Services We Provide', to: '/services-we-provide', dropdown: true },
+  { label: 'Portfolio', to: '/portfolio' },
   { label: 'News and Article', to: '/news-and-article' },
   { label: 'Contact Us', to: '/contact-us' },
 ];

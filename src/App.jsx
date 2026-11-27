@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
+import Portfolio from './pages/Portfolio';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import Contact from './pages/Contact';
@@ -31,6 +32,7 @@ import AdminHeroManager from './admin/pages/AdminHeroManager';
 import AdminAboutManager from './admin/pages/AdminAboutManager';
 import AdminServicesManager from './admin/pages/AdminServicesManager';
 import AdminShowcaseManager from './admin/pages/AdminShowcaseManager';
+import AdminFaqManager from './admin/pages/AdminFaqManager';
 
 export default function App() {
   const location = useLocation();
@@ -50,6 +52,8 @@ export default function App() {
           <Route path="/about-us" element={<About />} />
           <Route path="/services-we-provide" element={<Services />} />
           <Route path="/services-we-provide/:slug" element={<ServiceDetail />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/case-studies" element={<Portfolio />} />
           
           {/* Universal Dynamic Blog Routes (Both /news-and-article and /blog supported) */}
           <Route path="/news-and-article" element={<News />} />
@@ -152,6 +156,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <AdminShowcaseManager />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/faqs"
+            element={
+              <ProtectedRoute>
+                <AdminFaqManager />
               </ProtectedRoute>
             }
           />

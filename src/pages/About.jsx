@@ -17,6 +17,7 @@ import AboutSection from '../sections/AboutSection';
 import NextGen from '../sections/NextGen';
 import TechSlider from '../sections/TechSlider';
 import Testimonials from '../sections/Testimonials';
+import FaqSection from '../sections/FaqSection';
 import CtaBand from '../sections/CtaBand';
 import { useConsult } from '../context/ConsultContext';
 import { aboutApi } from '../api';
@@ -311,6 +312,9 @@ export default function About() {
 
       {/* Testimonials */}
       <Testimonials />
+
+      {/* Frequently Asked Questions */}
+      <FaqSection title="Frequently Asked Questions About BER Services" />
 
       {/* Final Call to Action */}
       <CtaBand />

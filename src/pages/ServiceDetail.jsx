@@ -27,6 +27,7 @@ import {
   Award,
 } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import FaqSection from '../sections/FaqSection';
 import CtaBand from '../sections/CtaBand';
 import PinnedImageSwap from '../components/PinnedImageSwap';
 import { company } from '../config/siteConfig';
@@ -479,6 +480,8 @@ export default function ServiceDetail() {
           </div>
         </div>
       </div>
+
+      <FaqSection title="Frequently Asked Questions" />
 
       <CtaBand />
     </>

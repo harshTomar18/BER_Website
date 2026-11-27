@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 import ServicesSection from '../sections/ServicesSection';
+import FaqSection from '../sections/FaqSection';
 import CtaBand from '../sections/CtaBand';
 import { useConsult } from '../context/ConsultContext';
 import { serviceApi } from '../api';
@@ -273,6 +274,9 @@ export default function Services() {
 
       {/* 3D Circular Orbit Gallery */}
       <ServicesSection showHeading={true} showButton={false} />
+
+      {/* Frequently Asked Questions */}
+      <FaqSection title="Frequently Asked Questions About Our Services" />
 
       {/* Final Call to Action Band */}
       <CtaBand />
