@@ -117,7 +117,7 @@ export default function ConsultModal() {
           <div className="cm-header-decor" aria-hidden="true"></div>
           <div className="cm-header-left">
             <div className="cm-header-badge">
-              <Headphones size={17} className="cm-header-icon" />
+              <Headphones size={15} className="cm-header-icon" />
             </div>
             <div className="cm-header-text">
               <h3 className="cm-header-title">Connect with BER Solutions Architecture</h3>
@@ -130,7 +130,7 @@ export default function ConsultModal() {
             onClick={closeModal}
             aria-label="Close modal"
           >
-            <X size={16} />
+            <X size={15} />
           </button>
         </div>
 
@@ -146,7 +146,7 @@ export default function ConsultModal() {
           {sent ? (
             <div className="cm-success-state">
               <div className="cm-success-icon-wrap">
-                <CheckCircle2 size={40} className="cm-success-icon" />
+                <CheckCircle2 size={36} className="cm-success-icon" />
               </div>
               <h4 className="cm-success-title">Consultation Request Received!</h4>
               <p className="cm-success-desc">
@@ -165,7 +165,7 @@ export default function ConsultModal() {
                     Full Name <span className="cm-req">*</span>
                   </label>
                   <div className="cm-input-wrapper">
-                    <User size={14} className="cm-field-icon" />
+                    <User size={13} className="cm-field-icon" />
                     <input
                       type="text"
                       name="name"
@@ -183,7 +183,7 @@ export default function ConsultModal() {
                     Phone No <span className="cm-req">*</span>
                   </label>
                   <div className="cm-input-wrapper">
-                    <Phone size={14} className="cm-field-icon" />
+                    <Phone size={13} className="cm-field-icon" />
                     <input
                       type="tel"
                       name="phone"
@@ -204,7 +204,7 @@ export default function ConsultModal() {
                     Email Id <span className="cm-req">*</span>
                   </label>
                   <div className="cm-input-wrapper">
-                    <Mail size={14} className="cm-field-icon" />
+                    <Mail size={13} className="cm-field-icon" />
                     <input
                       type="email"
                       name="email"
@@ -220,7 +220,7 @@ export default function ConsultModal() {
                 <div className="cm-field-group">
                   <label className="cm-label">Company Name</label>
                   <div className="cm-input-wrapper">
-                    <Building2 size={14} className="cm-field-icon" />
+                    <Building2 size={13} className="cm-field-icon" />
                     <input
                       type="text"
                       name="company"
@@ -240,7 +240,7 @@ export default function ConsultModal() {
                     Interested Service <span className="cm-req">*</span>
                   </label>
                   <div className="cm-input-wrapper">
-                    <Layers size={14} className="cm-field-icon" />
+                    <Layers size={13} className="cm-field-icon" />
                     <select
                       name="service"
                       className="cm-input cm-select"
@@ -254,7 +254,7 @@ export default function ConsultModal() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown size={14} className="cm-select-arrow" />
+                    <ChevronDown size={13} className="cm-select-arrow" />
                   </div>
                 </div>
 
@@ -285,7 +285,7 @@ export default function ConsultModal() {
               <div className="cm-field-group">
                 <label className="cm-label">Project Scope & Requirements (Optional)</label>
                 <div className="cm-input-wrapper cm-textarea-wrapper">
-                  <MessageSquare size={14} className="cm-field-icon cm-field-icon--top" />
+                  <MessageSquare size={13} className="cm-field-icon cm-field-icon--top" />
                   <textarea
                     name="message"
                     rows="2"
@@ -309,7 +309,7 @@ export default function ConsultModal() {
                   </>
                 ) : (
                   <>
-                    <Send size={15} />
+                    <Send size={14} />
                     <span>Request Free Consultation</span>
                   </>
                 )}
@@ -317,8 +317,8 @@ export default function ConsultModal() {
 
               {/* Trust Footer Badges (Matching Reference Bottom Strip) */}
               <div className="cm-trust-footer">
-                <ShieldCheck size={13} className="cm-trust-icon" />
-                <span>100% NDA Protection • Sub-24h Response • Free Architecture Consultation</span>
+                <ShieldCheck size={12} className="cm-trust-icon" />
+                <span>100% NDA Protection • Sub-24h Direct Architect Response • Free Consultation</span>
               </div>
             </form>
           )}
