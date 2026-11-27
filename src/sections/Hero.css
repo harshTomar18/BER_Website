@@ -362,7 +362,106 @@
   gap: 16px;
 }
 
-/* Uploaded Hero Image Showcase in Platform Window */
+/* Uploaded Hero Image / Video Showcase in Platform Window */
+.hero__window-media-showcase {
+  width: 100%;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 210, 255, 0.35);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(0, 210, 255, 0.15);
+  background: #030a1e;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero__window-media-showcase:hover {
+  border-color: rgba(0, 210, 255, 0.55);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 35px rgba(0, 210, 255, 0.25);
+}
+
+.hero__video-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: #020714;
+}
+
+.hero__showcase-video {
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__video-overlay-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 18, 48, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.hero__video-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #38bdf8;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.hero__video-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d2ff;
+  box-shadow: 0 0 10px #00d2ff;
+  animation: hero-video-pulse 1.8s infinite;
+}
+
+@keyframes hero-video-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.hero__video-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero__video-ctrl-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.hero__video-ctrl-btn:hover {
+  background: rgba(0, 210, 255, 0.3);
+  border-color: rgba(0, 210, 255, 0.6);
+  transform: scale(1.06);
+}
+
 .hero__window-image-showcase {
   width: 100%;
   border-radius: 12px;

@@ -17,7 +17,9 @@ import {
   ExternalLink,
   HelpCircle,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Video,
+  Film
 } from 'lucide-react';
 import AdminLayout from '../components/AdminLayout';
 import { heroApi } from '../../api';
@@ -28,10 +30,12 @@ export default function AdminHeroManager() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadingVideo, setUploadingVideo] = useState(false);
   const [notice, setNotice] = useState(null);
   const [error, setError] = useState(null);
 
   const fileInputRef = useRef(null);
+  const videoFileInputRef = useRef(null);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -52,6 +56,12 @@ export default function AdminHeroManager() {
     features: [],
     heroImage: '',
     heroImageAlt: '',
+    heroVideo: '/images/This is what we will be.mp4',
+    heroVideoPoster: '',
+    heroMediaType: 'video',
+    heroVideoAutoplay: true,
+    heroVideoLoop: true,
+    heroVideoMuted: true,
     windowBadge: '',
     windowLiveStatus: '',
     stats: [],
@@ -96,6 +106,12 @@ export default function AdminHeroManager() {
           features: Array.isArray(h.features) ? h.features : [],
           heroImage: h.heroImage || '',
           heroImageAlt: h.heroImageAlt || '',
+          heroVideo: h.heroVideo || '/images/This is what we will be.mp4',
+          heroVideoPoster: h.heroVideoPoster || '',
+          heroMediaType: h.heroMediaType || (h.heroVideo ? 'video' : (h.heroImage ? 'image' : 'video')),
+          heroVideoAutoplay: h.heroVideoAutoplay ?? true,
+          heroVideoLoop: h.heroVideoLoop ?? true,
+          heroVideoMuted: h.heroVideoMuted ?? true,
           windowBadge: h.windowBadge || '',
           windowLiveStatus: h.windowLiveStatus || '',
           stats: Array.isArray(h.stats) ? h.stats : [],
@@ -149,6 +165,33 @@ export default function AdminHeroManager() {
       setError(err.message || 'Image upload failed. Ensure it is a valid JPG, PNG, or WebP image under 10MB.');
     } finally {
       setUploadingImage(false);
+    }
+  };
+
+  // Video Upload handler
+  const handleVideoUpload = async (file) => {
+    if (!file) return;
+    setUploadingVideo(true);
+    setError(null);
+    try {
+      const fd = new FormData();
+      fd.append('file', file);
+      const res = await heroApi.uploadMedia(fd);
+      if (res?.success && res?.data?.url) {
+        setFormData((prev) => ({
+          ...prev,
+          heroVideo: res.data.url,
+          heroMediaType: 'video',
+        }));
+        showNotification('Hero video uploaded and set live successfully!');
+      } else {
+        throw new Error(res?.message || 'Video upload failed');
+      }
+    } catch (err) {
+      console.error('Hero video upload failed:', err);
+      setError(err.message || 'Video upload failed. Please ensure file is MP4, WebM, or MOV under 100MB.');
+    } finally {
+      setUploadingVideo(false);
     }
   };
 
@@ -322,8 +365,8 @@ export default function AdminHeroManager() {
                   className={`ahm-tab-btn ${activeTab === 'visual' ? 'is-active' : ''}`}
                   onClick={() => setActiveTab('visual')}
                 >
-                  <ImageIcon size={16} />
-                  <span>3. Hero Image & Upload</span>
+                  <Video size={16} />
+                  <span>3. Media Showcase (Video / Image)</span>
                 </button>
                 <button
                   type="button"
@@ -592,99 +635,313 @@ export default function AdminHeroManager() {
             )}
 
             {/* =========================================================
-                CARD 3: HERO IMAGE UPLOADER & VISUAL INTEGRATION
+                CARD 3: HERO MEDIA (VIDEO / IMAGE) UPLOADER & SHOWCASE
                 ========================================================= */}
             {activeTab === 'visual' && (
             <div className="ahm-card">
               <div className="ahm-card-header">
-                <ImageIcon size={18} className="ahm-card-icon" />
+                <Video size={18} className="ahm-card-icon" />
                 <div>
-                  <h3 className="ahm-card-title">Visual Showcase & Image Upload</h3>
-                  <p className="ahm-card-desc">Upload a custom hero image directly from your computer or enter an image URL.</p>
+                  <h3 className="ahm-card-title">Platform Window Media Showcase (Video / Image)</h3>
+                  <p className="ahm-card-desc">Display an interactive video reel or featured image inside the Hero platform window matching our tech aesthetic.</p>
                 </div>
               </div>
 
               <div className="ahm-card-body">
-                {/* Upload Dropzone */}
+                {/* Media Type Segmented Selector */}
                 <div className="ahm-field">
-                  <label className="ahm-label">Upload Hero Image from Computer</label>
-                  <input
-                    type="file"
-                    ref={fileInputRef}
-                    style={{ display: 'none' }}
-                    accept="image/*"
-                    onChange={(e) => {
-                      if (e.target.files && e.target.files[0]) {
-                        handleFileUpload(e.target.files[0]);
-                      }
-                    }}
-                  />
-
-                  {formData.heroImage ? (
-                    <div className="ahm-image-preview-box">
-                      <div className="ahm-preview-img-wrap">
-                        <img src={formData.heroImage} alt={formData.heroImageAlt || 'Hero visual preview'} />
+                  <label className="ahm-label">Showcase Display Format</label>
+                  <div className="ahm-media-format-selector">
+                    <button
+                      type="button"
+                      className={`ahm-format-btn ${formData.heroMediaType === 'video' ? 'is-active' : ''}`}
+                      onClick={() => setFormData({ ...formData, heroMediaType: 'video' })}
+                    >
+                      <Video size={16} />
+                      <div>
+                        <strong>Video Reel Showcase</strong>
+                        <span>Autoplay animated system reel (Recommended)</span>
                       </div>
-                      <div className="ahm-preview-controls">
-                        <span className="ahm-preview-url">{formData.heroImage}</span>
-                        <div className="ahm-preview-btn-row">
-                          <button
-                            type="button"
-                            className="ahm-btn-replace"
-                            onClick={() => fileInputRef.current && fileInputRef.current.click()}
-                            disabled={uploadingImage}
-                          >
-                            <UploadCloud size={14} />
-                            <span>Replace Image</span>
-                          </button>
-                          <button
-                            type="button"
-                            className="ahm-btn-remove"
-                            onClick={() => setFormData({ ...formData, heroImage: '' })}
-                          >
-                            <Trash2 size={14} />
-                            <span>Remove Image</span>
-                          </button>
+                    </button>
+                    <button
+                      type="button"
+                      className={`ahm-format-btn ${formData.heroMediaType === 'image' ? 'is-active' : ''}`}
+                      onClick={() => setFormData({ ...formData, heroMediaType: 'image' })}
+                    >
+                      <ImageIcon size={16} />
+                      <div>
+                        <strong>Static Image Showcase</strong>
+                        <span>Display a custom screenshot or graphic</span>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      className={`ahm-format-btn ${formData.heroMediaType === 'code' ? 'is-active' : ''}`}
+                      onClick={() => setFormData({ ...formData, heroMediaType: 'code' })}
+                    >
+                      <Code size={16} />
+                      <div>
+                        <strong>Code & Stats Only</strong>
+                        <span>Hide top media banner and display code card</span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                {/* ================= VIDEO SETTINGS PANEL ================= */}
+                {formData.heroMediaType === 'video' && (
+                  <div className="ahm-sub-section">
+                    <h4 className="ahm-sub-title">Hero Video Reel Configuration</h4>
+
+                    {/* Hidden Video Input */}
+                    <input
+                      type="file"
+                      ref={videoFileInputRef}
+                      style={{ display: 'none' }}
+                      accept="video/mp4,video/webm,video/ogg,video/quicktime"
+                      onChange={(e) => {
+                        if (e.target.files && e.target.files[0]) {
+                          handleVideoUpload(e.target.files[0]);
+                        }
+                      }}
+                    />
+
+                    {/* Video Preview or Dropzone */}
+                    {formData.heroVideo ? (
+                      <div className="ahm-video-preview-box">
+                        <div className="ahm-preview-video-wrap">
+                          <video
+                            src={encodeURI(formData.heroVideo)}
+                            controls
+                            muted
+                            playsInline
+                            className="ahm-preview-video-player"
+                          />
+                        </div>
+                        <div className="ahm-preview-controls">
+                          <div className="ahm-preview-badge-row">
+                            <span className="ahm-status-pill ahm-status-pill--active">Active Hero Video</span>
+                            <span className="ahm-preview-url" title={formData.heroVideo}>{formData.heroVideo}</span>
+                          </div>
+                          <div className="ahm-preview-btn-row">
+                            <button
+                              type="button"
+                              className="ahm-btn-replace"
+                              onClick={() => videoFileInputRef.current && videoFileInputRef.current.click()}
+                              disabled={uploadingVideo}
+                            >
+                              <UploadCloud size={14} />
+                              <span>{uploadingVideo ? 'Uploading...' : 'Upload & Replace Video'}</span>
+                            </button>
+                            <button
+                              type="button"
+                              className="ahm-btn-default-video"
+                              onClick={() =>
+                                setFormData({
+                                  ...formData,
+                                  heroVideo: '/images/This is what we will be.mp4',
+                                })
+                              }
+                              title="Reset to /images/This is what we will be.mp4"
+                            >
+                              <RotateCcw size={14} />
+                              <span>Set Default Video</span>
+                            </button>
+                            <button
+                              type="button"
+                              className="ahm-btn-remove"
+                              onClick={() => setFormData({ ...formData, heroVideo: '' })}
+                            >
+                              <Trash2 size={14} />
+                              <span>Remove</span>
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ) : (
-                    <div
-                      className="ahm-dropzone"
-                      onClick={() => fileInputRef.current && fileInputRef.current.click()}
-                    >
-                      <UploadCloud size={32} className="ahm-dropzone-icon" />
-                      <p className="ahm-dropzone-title">
-                        {uploadingImage ? 'Uploading Image to Server...' : 'Click to Upload Hero Image from Computer'}
-                      </p>
-                      <p className="ahm-dropzone-subtitle">Supports WebP, PNG, JPG, or SVG up to 10MB</p>
-                    </div>
-                  )}
-                </div>
+                    ) : (
+                      <div
+                        className="ahm-dropzone"
+                        onClick={() => videoFileInputRef.current && videoFileInputRef.current.click()}
+                      >
+                        <Video size={36} className="ahm-dropzone-icon" />
+                        <p className="ahm-dropzone-title">
+                          {uploadingVideo ? 'Uploading Video to Server...' : 'Click to Upload Video Reel from Computer'}
+                        </p>
+                        <p className="ahm-dropzone-subtitle">Supports MP4, WebM, or MOV up to 100MB</p>
+                      </div>
+                    )}
 
-                {/* Direct Image URL input */}
-                <div className="ahm-grid-2">
-                  <div className="ahm-field">
-                    <label className="ahm-label">Or Image URL</label>
-                    <input
-                      type="text"
-                      className="ahm-input"
-                      placeholder="https://... or /uploads/hero/..."
-                      value={formData.heroImage}
-                      onChange={(e) => setFormData({ ...formData, heroImage: e.target.value })}
-                    />
+                    {/* Video URL Path Input */}
+                    <div className="ahm-field ahm-mt-16">
+                      <label className="ahm-label">Video File Path or External URL</label>
+                      <div className="ahm-input-with-action">
+                        <input
+                          type="text"
+                          className="ahm-input"
+                          placeholder="/images/This is what we will be.mp4 or https://..."
+                          value={formData.heroVideo}
+                          onChange={(e) => setFormData({ ...formData, heroVideo: e.target.value })}
+                        />
+                        <button
+                          type="button"
+                          className="ahm-action-mini-btn"
+                          onClick={() =>
+                            setFormData({
+                              ...formData,
+                              heroVideo: '/images/This is what we will be.mp4',
+                            })
+                          }
+                        >
+                          Use Public Video
+                        </button>
+                      </div>
+                      <p className="ahm-field-hint">
+                        Current public video: <code>/images/This is what we will be.mp4</code>. You can update this to any uploaded video file or URL.
+                      </p>
+                    </div>
+
+                    {/* Video Playback Options */}
+                    <div className="ahm-video-settings-grid">
+                      <label className="ahm-checkbox-card">
+                        <input
+                          type="checkbox"
+                          checked={formData.heroVideoAutoplay}
+                          onChange={(e) =>
+                            setFormData({ ...formData, heroVideoAutoplay: e.target.checked })
+                          }
+                        />
+                        <div>
+                          <strong>Autoplay Video</strong>
+                          <span>Automatically start playback when hero loads</span>
+                        </div>
+                      </label>
+
+                      <label className="ahm-checkbox-card">
+                        <input
+                          type="checkbox"
+                          checked={formData.heroVideoLoop}
+                          onChange={(e) =>
+                            setFormData({ ...formData, heroVideoLoop: e.target.checked })
+                          }
+                        />
+                        <div>
+                          <strong>Loop Continuously</strong>
+                          <span>Replay video seamlessly when it ends</span>
+                        </div>
+                      </label>
+
+                      <label className="ahm-checkbox-card">
+                        <input
+                          type="checkbox"
+                          checked={formData.heroVideoMuted}
+                          onChange={(e) =>
+                            setFormData({ ...formData, heroVideoMuted: e.target.checked })
+                          }
+                        />
+                        <div>
+                          <strong>Mute on Load</strong>
+                          <span>Required by Chrome & Safari for autoplay</span>
+                        </div>
+                      </label>
+                    </div>
                   </div>
-                  <div className="ahm-field">
-                    <label className="ahm-label">Image Alt Description</label>
+                )}
+
+                {/* ================= STATIC IMAGE SETTINGS PANEL ================= */}
+                {formData.heroMediaType === 'image' && (
+                  <div className="ahm-sub-section">
+                    <h4 className="ahm-sub-title">Hero Static Image Configuration</h4>
+
                     <input
-                      type="text"
-                      className="ahm-input"
-                      placeholder="e.g. Enterprise Cloud Software Architecture"
-                      value={formData.heroImageAlt}
-                      onChange={(e) => setFormData({ ...formData, heroImageAlt: e.target.value })}
+                      type="file"
+                      ref={fileInputRef}
+                      style={{ display: 'none' }}
+                      accept="image/*"
+                      onChange={(e) => {
+                        if (e.target.files && e.target.files[0]) {
+                          handleFileUpload(e.target.files[0]);
+                        }
+                      }}
                     />
+
+                    {formData.heroImage ? (
+                      <div className="ahm-image-preview-box">
+                        <div className="ahm-preview-img-wrap">
+                          <img src={formData.heroImage} alt={formData.heroImageAlt || 'Hero visual preview'} />
+                        </div>
+                        <div className="ahm-preview-controls">
+                          <span className="ahm-preview-url">{formData.heroImage}</span>
+                          <div className="ahm-preview-btn-row">
+                            <button
+                              type="button"
+                              className="ahm-btn-replace"
+                              onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                              disabled={uploadingImage}
+                            >
+                              <UploadCloud size={14} />
+                              <span>Replace Image</span>
+                            </button>
+                            <button
+                              type="button"
+                              className="ahm-btn-remove"
+                              onClick={() => setFormData({ ...formData, heroImage: '' })}
+                            >
+                              <Trash2 size={14} />
+                              <span>Remove Image</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        className="ahm-dropzone"
+                        onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                      >
+                        <UploadCloud size={32} className="ahm-dropzone-icon" />
+                        <p className="ahm-dropzone-title">
+                          {uploadingImage ? 'Uploading Image to Server...' : 'Click to Upload Hero Image from Computer'}
+                        </p>
+                        <p className="ahm-dropzone-subtitle">Supports WebP, PNG, JPG, or SVG up to 10MB</p>
+                      </div>
+                    )}
+
+                    <div className="ahm-grid-2 ahm-mt-16">
+                      <div className="ahm-field">
+                        <label className="ahm-label">Or Image URL</label>
+                        <input
+                          type="text"
+                          className="ahm-input"
+                          placeholder="https://... or /uploads/hero/..."
+                          value={formData.heroImage}
+                          onChange={(e) => setFormData({ ...formData, heroImage: e.target.value })}
+                        />
+                      </div>
+                      <div className="ahm-field">
+                        <label className="ahm-label">Image Alt Description</label>
+                        <input
+                          type="text"
+                          className="ahm-input"
+                          placeholder="e.g. Enterprise Cloud Software Architecture"
+                          value={formData.heroImageAlt}
+                          onChange={(e) => setFormData({ ...formData, heroImageAlt: e.target.value })}
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {/* ================= CODE ONLY NOTE ================= */}
+                {formData.heroMediaType === 'code' && (
+                  <div className="ahm-code-notice-box">
+                    <Code size={24} className="ahm-code-notice-icon" />
+                    <div>
+                      <strong>Code & Stats Only Mode Active</strong>
+                      <p>
+                        The Hero interactive window will display only the code architecture editor and stats cards, without an image or video header above them.
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             )}

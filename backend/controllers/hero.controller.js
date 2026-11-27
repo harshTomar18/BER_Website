@@ -32,6 +32,12 @@ export const seedDefaultHero = async () => {
         features: ['End-to-End Solutions', 'Advanced Technology', 'Tailored Strategies'],
         heroImage: '',
         heroImageAlt: 'BER Services Enterprise Architecture Platform',
+        heroVideo: '/images/This is what we will be.mp4',
+        heroVideoPoster: '',
+        heroMediaType: 'video',
+        heroVideoAutoplay: true,
+        heroVideoLoop: true,
+        heroVideoMuted: true,
         windowBadge: 'thebermedia.com/enterprise',
         windowLiveStatus: 'Active System',
         stats: [
@@ -67,6 +73,14 @@ export const seedDefaultHero = async () => {
 export const getPublicHero = async (req, res, next) => {
   try {
     const hero = await HeroSection.findOne({ isActive: true }).lean();
+    if (hero) {
+      if (!hero.heroVideo && !hero.heroImage) {
+        hero.heroVideo = '/images/This is what we will be.mp4';
+      }
+      if (!hero.heroMediaType) {
+        hero.heroMediaType = hero.heroVideo ? 'video' : (hero.heroImage ? 'image' : 'video');
+      }
+    }
     return apiResponse.success(res, { hero: hero || null }, 'Hero section fetched successfully');
   } catch (error) {
     next(error);
@@ -82,6 +96,14 @@ export const getAdminHero = async (req, res, next) => {
     let hero = await HeroSection.findOne({ isActive: true }).lean();
     if (!hero) {
       hero = await HeroSection.findOne().lean();
+    }
+    if (hero) {
+      if (!hero.heroVideo && !hero.heroImage) {
+        hero.heroVideo = '/images/This is what we will be.mp4';
+      }
+      if (!hero.heroMediaType) {
+        hero.heroMediaType = hero.heroVideo ? 'video' : (hero.heroImage ? 'image' : 'video');
+      }
     }
     return apiResponse.success(res, { hero: hero || null }, 'Admin hero section data fetched');
   } catch (error) {
@@ -134,6 +156,36 @@ export const uploadHeroImageHandler = async (req, res, next) => {
         mimetype: req.file.mimetype,
       },
       'Hero image uploaded successfully',
+      201
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Admin: Upload Hero Media (Video or Image)
+ * POST /api/v1/hero/admin/upload-media
+ */
+export const uploadHeroMediaHandler = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return apiResponse.error(res, 'No media file uploaded. Please attach a video or image file.', 400);
+    }
+
+    const fileUrl = `/uploads/hero/${req.file.filename}`;
+    const isVideo = req.file.mimetype.startsWith('video/') || /\.(mp4|webm|mov|ogg)$/i.test(req.file.originalname);
+
+    return apiResponse.success(
+      res,
+      {
+        url: fileUrl,
+        filename: req.file.filename,
+        size: req.file.size,
+        mimetype: req.file.mimetype,
+        mediaType: isVideo ? 'video' : 'image',
+      },
+      'Hero media file uploaded successfully',
       201
     );
   } catch (error) {

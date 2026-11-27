@@ -96,6 +96,31 @@ export const uploadHeroImage = multer({
   },
 }).single('image');
 
+const mediaFilter = (req, file, cb) => {
+  const allowedTypes = /jpeg|jpg|png|webp|gif|svg\+xml|svg|mp4|webm|ogg|quicktime|mov/;
+  const mimeMatch = allowedTypes.test(file.mimetype);
+  const extMatch = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+
+  if (mimeMatch || extMatch) {
+    cb(null, true);
+  } else {
+    cb(
+      new Error(
+        'Only valid media files (JPG, PNG, WebP, GIF, SVG, MP4, WebM, MOV) are permitted.'
+      ),
+      false
+    );
+  }
+};
+
+export const uploadHeroMedia = multer({
+  storage: heroStorage,
+  fileFilter: mediaFilter,
+  limits: {
+    fileSize: 100 * 1024 * 1024, // 100MB for hero videos/media
+  },
+}).single('file');
+
 export const uploadAboutImage = multer({
   storage: aboutStorage,
   fileFilter,

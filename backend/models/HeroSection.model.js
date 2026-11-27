@@ -71,6 +71,33 @@ const HeroSectionSchema = new mongoose.Schema(
       default: '',
       trim: true,
     },
+    heroVideo: {
+      type: String,
+      default: '/images/This is what we will be.mp4',
+      trim: true,
+    },
+    heroVideoPoster: {
+      type: String,
+      default: '',
+      trim: true,
+    },
+    heroMediaType: {
+      type: String,
+      enum: ['video', 'image', 'code', 'none'],
+      default: 'video',
+    },
+    heroVideoAutoplay: {
+      type: Boolean,
+      default: true,
+    },
+    heroVideoLoop: {
+      type: Boolean,
+      default: true,
+    },
+    heroVideoMuted: {
+      type: Boolean,
+      default: true,
+    },
     windowBadge: {
       type: String,
       default: '',

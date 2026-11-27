@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import Hero3DCanvas from '../components/Hero3DCanvas';
 import { useConsult } from '../context/ConsultContext';
 import { heroApi } from '../api';
@@ -11,6 +12,28 @@ export default function Hero() {
   const [loading, setLoading] = useState(true);
   const [wordIdx, setWordIdx] = useState(0);
   const cardRef = useRef(null);
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlayPause = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
 
   // 1. Fetch Dynamic Hero Section Configuration from Database
   useEffect(() => {
@@ -223,14 +246,58 @@ export default function Hero() {
             {/* Window Body */}
             <div className="hero__window-content">
 
-              {/* Uploaded Hero Image Showcase */}
-              {hero.heroImage && (
-                <div className="hero__window-image-showcase">
-                  <img
-                    src={hero.heroImage}
-                    alt={hero.heroImageAlt || hero.title || ''}
-                    className="hero__showcase-img"
-                  />
+              {/* Uploaded Hero Video / Image Showcase */}
+              {((hero.heroMediaType !== 'image' && hero.heroMediaType !== 'code' && (hero.heroVideo || '/images/This is what we will be.mp4')) || hero.heroImage) && (
+                <div className="hero__window-media-showcase">
+                  {hero.heroMediaType !== 'image' && hero.heroMediaType !== 'code' ? (
+                    <div className="hero__video-box">
+                      <video
+                        ref={videoRef}
+                        src={encodeURI(hero.heroVideo || '/images/This is what we will be.mp4')}
+                        autoPlay={hero.heroVideoAutoplay !== false}
+                        loop={hero.heroVideoLoop !== false}
+                        muted={isMuted}
+                        playsInline
+                        className="hero__showcase-video"
+                        onPlay={() => setIsPlaying(true)}
+                        onPause={() => setIsPlaying(false)}
+                      />
+                      <div className="hero__video-overlay-bar">
+                        <div className="hero__video-status">
+                          <span className="hero__video-dot"></span>
+                          <span className="hero__video-title">BER Live Reel</span>
+                        </div>
+                        <div className="hero__video-controls">
+                          <button
+                            type="button"
+                            className="hero__video-ctrl-btn"
+                            onClick={togglePlayPause}
+                            title={isPlaying ? 'Pause video' : 'Play video'}
+                            aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                          >
+                            {isPlaying ? <Pause size={11} /> : <Play size={11} />}
+                          </button>
+                          <button
+                            type="button"
+                            className="hero__video-ctrl-btn"
+                            onClick={toggleMute}
+                            title={isMuted ? 'Unmute video' : 'Mute video'}
+                            aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                          >
+                            {isMuted ? <VolumeX size={11} /> : <Volume2 size={11} />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : hero.heroImage ? (
+                    <div className="hero__window-image-showcase">
+                      <img
+                        src={hero.heroImage}
+                        alt={hero.heroImageAlt || hero.title || ''}
+                        className="hero__showcase-img"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               )}
 

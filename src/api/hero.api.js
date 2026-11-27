@@ -30,4 +30,12 @@ export const heroApi = {
   async uploadImage(formData) {
     return apiClient.upload('/api/v1/hero/admin/upload-image', formData);
   },
+
+  /**
+   * Upload Hero media (Video or Image) to server (Protected)
+   * @param {FormData} formData
+   */
+  async uploadMedia(formData) {
+    return apiClient.upload('/api/v1/hero/admin/upload-media', formData);
+  },
 };

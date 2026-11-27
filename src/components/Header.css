@@ -128,6 +128,7 @@
 .hd__social-link--fb:hover {
   color: #ffffff;
 }
+
 .hd__social-link--fb:hover .hd__social-icon {
   color: #1877f2;
   transform: translateY(-1px) scale(1.1);
@@ -136,6 +137,7 @@
 .hd__social-link--ig:hover {
   color: #ffffff;
 }
+
 .hd__social-link--ig:hover .hd__social-icon {
   color: #e1306c;
   transform: translateY(-1px) scale(1.1);
@@ -144,6 +146,7 @@
 .hd__social-link--li:hover {
   color: #ffffff;
 }
+
 .hd__social-link--li:hover .hd__social-icon {
   color: #0a66c2;
   transform: translateY(-1px) scale(1.1);
@@ -152,9 +155,11 @@
 .hd__contact-link--wa:hover {
   color: #ffffff;
 }
+
 .hd__contact-icon--wa {
   color: #25d366;
 }
+
 .hd__contact-link--wa:hover .hd__contact-icon--wa {
   color: #25d366;
   filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.6));
@@ -195,7 +200,7 @@
 }
 
 .hd__logo img {
-  height: 52px;
+  height: 72px;
   width: auto;
   max-width: 180px;
   object-fit: contain;
