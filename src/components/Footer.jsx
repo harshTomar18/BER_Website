@@ -124,20 +124,9 @@ export default function Footer() {
                 <MapPin size={15} />
               </span>
               <div className="ft__contact-meta">
-                <small>India HQ (Delhi NCR)</small>
-                <a href={company.offices?.[0]?.mapUrl || company.googleBusiness?.url || '#'} target="_blank" rel="noreferrer">
-                  Cloud 9 Towers, Vaishali, Ghaziabad
-                </a>
-              </div>
-            </li>
-            <li>
-              <span className="ft__contact-icon-tile ft__contact-icon-tile--top">
-                <Globe size={15} />
-              </span>
-              <div className="ft__contact-meta">
-                <small>Americas Office (USA)</small>
-                <a href={company.offices?.[1]?.mapUrl || '#'} target="_blank" rel="noreferrer">
-                  Newark, Delaware, United States
+                <small>Headquarters</small>
+                <a href={company.offices?.[0]?.mapUrl || company.googleBusiness?.url || 'https://share.google/6ojt2XBKe3kBFESxt'} target="_blank" rel="noreferrer">
+                  6th Floor, Cloud 9 Towers, 5A-62, Sector-1, Vaishali, Ghaziabad, Delhi NCR, UP
                 </a>
               </div>
             </li>

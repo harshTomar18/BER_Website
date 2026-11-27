@@ -44,17 +44,6 @@ export const seedDefaultHero = async () => {
           { icon: '⚡', value: '99.98%', label: 'Uptime & Scalability', color: 'cyan' },
           { icon: '🚀', value: '500+', label: 'Projects Delivered', color: 'orange' },
         ],
-        codeSnippet: {
-          fileName: 'BER_Architecture.ts',
-          language: 'Enterprise • TypeScript',
-          code: `export const DigitalSolution = {
-  core: 'Cloud ERP & Custom Software',
-  apps: 'Cross-Platform Mobile (iOS/Android)',
-  ai: 'Intelligent Workflow Automation',
-  uptime: true, security: 'Enterprise'
-};`,
-        },
-        techPills: ['React', 'Node.js', 'Python', 'Flutter', 'AI Automation'],
         isActive: true,
       };
 
@@ -123,9 +112,12 @@ export const updateAdminHero = async (req, res, next) => {
       return apiResponse.error(res, 'Hero section main title is required.', 400);
     }
 
+    delete payload.codeSnippet;
+    delete payload.techPills;
+
     const updatedHero = await HeroSection.findOneAndUpdate(
       { isActive: true },
-      { $set: payload },
+      { $set: payload, $unset: { codeSnippet: '', techPills: '' } },
       { upsert: true, new: true, runValidators: true }
     );
 

@@ -65,12 +65,6 @@ export default function AdminHeroManager() {
     windowBadge: '',
     windowLiveStatus: '',
     stats: [],
-    codeSnippet: {
-      fileName: '',
-      language: '',
-      code: '',
-    },
-    techPills: [],
     isActive: true,
   });
 
@@ -78,7 +72,6 @@ export default function AdminHeroManager() {
   const [newWordText, setNewWordText] = useState('');
   const [newWordColor, setNewWordColor] = useState('#16a1ce');
   const [newFeatureText, setNewFeatureText] = useState('');
-  const [newTechPill, setNewTechPill] = useState('');
 
   // Fetch Hero Configuration
   const fetchHeroData = async () => {
@@ -115,12 +108,6 @@ export default function AdminHeroManager() {
           windowBadge: h.windowBadge || '',
           windowLiveStatus: h.windowLiveStatus || '',
           stats: Array.isArray(h.stats) ? h.stats : [],
-          codeSnippet: {
-            fileName: h.codeSnippet?.fileName || '',
-            language: h.codeSnippet?.language || '',
-            code: h.codeSnippet?.code || '',
-          },
-          techPills: Array.isArray(h.techPills) ? h.techPills : [],
           isActive: h.isActive !== undefined ? h.isActive : true,
         });
       }
@@ -257,23 +244,6 @@ export default function AdminHeroManager() {
     }));
   };
 
-  // Add Tech Pill
-  const handleAddTechPill = () => {
-    if (!newTechPill.trim()) return;
-    setFormData((prev) => ({
-      ...prev,
-      techPills: [...prev.techPills, newTechPill.trim()],
-    }));
-    setNewTechPill('');
-  };
-
-  const handleRemoveTechPill = (index) => {
-    setFormData((prev) => ({
-      ...prev,
-      techPills: prev.techPills.filter((_, i) => i !== index),
-    }));
-  };
-
   // Update Stat item
   const handleStatChange = (index, field, value) => {
     setFormData((prev) => {
@@ -373,8 +343,8 @@ export default function AdminHeroManager() {
                   className={`ahm-tab-btn ${activeTab === 'platform' ? 'is-active' : ''}`}
                   onClick={() => setActiveTab('platform')}
                 >
-                  <Code size={16} />
-                  <span>4. 3D Platform & Mockup</span>
+                  <Sliders size={16} />
+                  <span>4. Platform Window & Stats</span>
                 </button>
               </nav>
             </div>
@@ -674,17 +644,6 @@ export default function AdminHeroManager() {
                         <span>Display a custom screenshot or graphic</span>
                       </div>
                     </button>
-                    <button
-                      type="button"
-                      className={`ahm-format-btn ${formData.heroMediaType === 'code' ? 'is-active' : ''}`}
-                      onClick={() => setFormData({ ...formData, heroMediaType: 'code' })}
-                    >
-                      <Code size={16} />
-                      <div>
-                        <strong>Code & Stats Only</strong>
-                        <span>Hide top media banner and display code card</span>
-                      </div>
-                    </button>
                   </div>
                 </div>
 
@@ -929,33 +888,20 @@ export default function AdminHeroManager() {
                     </div>
                   </div>
                 )}
-
-                {/* ================= CODE ONLY NOTE ================= */}
-                {formData.heroMediaType === 'code' && (
-                  <div className="ahm-code-notice-box">
-                    <Code size={24} className="ahm-code-notice-icon" />
-                    <div>
-                      <strong>Code & Stats Only Mode Active</strong>
-                      <p>
-                        The Hero interactive window will display only the code architecture editor and stats cards, without an image or video header above them.
-                      </p>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
             )}
 
             {/* =========================================================
-                CARD 4: 3D PLATFORM WINDOW, STATS & CODE MOCKUP
+                CARD 4: 3D PLATFORM WINDOW & STATS
                 ========================================================= */}
             {activeTab === 'platform' && (
             <div className="ahm-card">
               <div className="ahm-card-header">
-                <Code size={18} className="ahm-card-icon" />
+                <Sliders size={18} className="ahm-card-icon" />
                 <div>
-                  <h3 className="ahm-card-title">Interactive Software Platform Window & Code Mockup</h3>
-                  <p className="ahm-card-desc">Customize window bar labels, statistics counters, and code snippet.</p>
+                  <h3 className="ahm-card-title">Interactive Platform Window & Statistics</h3>
+                  <p className="ahm-card-desc">Customize window bar labels and live performance statistics counters.</p>
                 </div>
               </div>
 
@@ -1054,92 +1000,6 @@ export default function AdminHeroManager() {
                         />
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Code Architecture Card */}
-                <div className="ahm-field">
-                  <label className="ahm-label">Code Architecture Window</label>
-                  <div className="ahm-grid-2">
-                    <div className="ahm-field">
-                      <label className="ahm-label-sm">File Name</label>
-                      <input
-                        type="text"
-                        className="ahm-input"
-                        placeholder="e.g. BER_Architecture.ts"
-                        value={formData.codeSnippet.fileName}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            codeSnippet: { ...formData.codeSnippet, fileName: e.target.value },
-                          })
-                        }
-                      />
-                    </div>
-                    <div className="ahm-field">
-                      <label className="ahm-label-sm">Language Label</label>
-                      <input
-                        type="text"
-                        className="ahm-input"
-                        placeholder="e.g. Enterprise • TypeScript"
-                        value={formData.codeSnippet.language}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            codeSnippet: { ...formData.codeSnippet, language: e.target.value },
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="ahm-field">
-                    <label className="ahm-label-sm">Code Snippet Content</label>
-                    <textarea
-                      rows={5}
-                      className="ahm-textarea ahm-textarea--code"
-                      value={formData.codeSnippet.code}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          codeSnippet: { ...formData.codeSnippet, code: e.target.value },
-                        })
-                      }
-                    />
-                  </div>
-                </div>
-
-                {/* Tech Stack Pills */}
-                <div className="ahm-field">
-                  <label className="ahm-label">Technology Stack Pills</label>
-                  <div className="ahm-tech-pills-list">
-                    {formData.techPills.map((pill, i) => (
-                      <div key={i} className="ahm-tech-pill-chip">
-                        <span>{pill}</span>
-                        <button
-                          type="button"
-                          className="ahm-pill-delete-btn"
-                          onClick={() => handleRemoveTechPill(i)}
-                          title="Remove pill"
-                        >
-                          <Trash2 size={12} />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="ahm-add-row">
-                    <input
-                      type="text"
-                      className="ahm-input ahm-input--add"
-                      placeholder="Add tech pill e.g. Next.js, Docker, Kubernetes"
-                      value={newTechPill}
-                      onChange={(e) => setNewTechPill(e.target.value)}
-                    />
-                    <button type="button" className="ahm-btn-add" onClick={handleAddTechPill}>
-                      <Plus size={15} />
-                      <span>Add Pill</span>
-                    </button>
                   </div>
                 </div>
               </div>

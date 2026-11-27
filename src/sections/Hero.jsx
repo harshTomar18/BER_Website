@@ -247,9 +247,9 @@ export default function Hero() {
             <div className="hero__window-content">
 
               {/* Uploaded Hero Video / Image Showcase */}
-              {((hero.heroMediaType !== 'image' && hero.heroMediaType !== 'code' && (hero.heroVideo || '/images/This is what we will be.mp4')) || hero.heroImage) && (
+              {((hero.heroMediaType !== 'image' && (hero.heroVideo || '/images/This is what we will be.mp4')) || hero.heroImage) && (
                 <div className="hero__window-media-showcase">
-                  {hero.heroMediaType !== 'image' && hero.heroMediaType !== 'code' ? (
+                  {hero.heroMediaType !== 'image' ? (
                     <div className="hero__video-box">
                       <video
                         ref={videoRef}
@@ -314,32 +314,6 @@ export default function Hero() {
                         <div className="hero__stat-name">{st.label}</div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Code Architecture Box */}
-              {hero.codeSnippet?.code && (
-                <div className="hero__code-card">
-                  {(hero.codeSnippet.fileName || hero.codeSnippet.language) && (
-                    <div className="hero__code-top">
-                      <span>{hero.codeSnippet.fileName || ''}</span>
-                      <span className="hero__code-lang">{hero.codeSnippet.language || ''}</span>
-                    </div>
-                  )}
-                  <pre className="hero__code-editor">
-                    <code>{hero.codeSnippet.code}</code>
-                  </pre>
-                </div>
-              )}
-
-              {/* Tech Stack Pills */}
-              {hero.techPills && hero.techPills.length > 0 && (
-                <div className="hero__tech-pills">
-                  {hero.techPills.map((pill, i) => (
-                    <span key={i} className="tech-pill">
-                      {pill}
-                    </span>
                   ))}
                 </div>
               )}

@@ -822,6 +822,23 @@
     gap: 6px;
 }
 
+.inline-map-location-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f1f5f9;
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+}
+
+.inline-map-location-tag svg {
+    color: #1385ac;
+}
+
 .inline-map-tab {
     display: inline-flex;
     align-items: center;

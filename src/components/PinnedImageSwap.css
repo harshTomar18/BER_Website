@@ -148,16 +148,19 @@
 .pis-left-visuals {
   flex: 0 0 52%;
   width: 52%;
+  position: -webkit-sticky;
   position: sticky;
   top: 110px;
   align-self: flex-start;
   height: auto;
   min-width: 0;
-  z-index: 5;
+  z-index: 10;
 }
 
 .pis-sticky-box {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 110px;
   height: clamp(440px, 58vh, 540px);
   width: 100%;
   border-radius: 24px;
@@ -167,6 +170,7 @@
     0 4px 20px rgba(22, 161, 206, 0.12);
   border: 1.5px solid rgba(22, 161, 206, 0.3);
   background: #0b132b;
+  will-change: transform;
 }
 
 .pis-stack-media {

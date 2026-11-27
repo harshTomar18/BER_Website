@@ -83,7 +83,7 @@ const HeroSectionSchema = new mongoose.Schema(
     },
     heroMediaType: {
       type: String,
-      enum: ['video', 'image', 'code', 'none'],
+      enum: ['video', 'image', 'none'],
       default: 'video',
     },
     heroVideoAutoplay: {
@@ -110,15 +110,6 @@ const HeroSectionSchema = new mongoose.Schema(
     },
     stats: {
       type: [StatItemSchema],
-      default: [],
-    },
-    codeSnippet: {
-      fileName: { type: String, default: '', trim: true },
-      language: { type: String, default: '', trim: true },
-      code: { type: String, default: '' },
-    },
-    techPills: {
-      type: [String],
       default: [],
     },
     isActive: {

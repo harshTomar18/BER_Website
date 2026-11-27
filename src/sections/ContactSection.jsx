@@ -275,7 +275,7 @@ export default function ContactSection({
 
             {/* Office Location Card */}
             <a
-              href={company.addresses[1]?.map || '#'}
+              href={company.offices?.[0]?.mapUrl || company.googleBusiness?.url || 'https://share.google/6ojt2XBKe3kBFESxt'}
               target="_blank"
               rel="noreferrer"
               className="contact-card-item"
@@ -286,7 +286,7 @@ export default function ContactSection({
               </div>
               <div className="contact-card-meta">
                 <small>Headquarters</small>
-                <strong>Cloud 9, Vaishali</strong>
+                <strong>6th Floor, Cloud 9 Towers, Vaishali, UP</strong>
               </div>
             </a>
           </div>
@@ -312,18 +312,9 @@ export default function ContactSection({
               =================================================== */}
           <div className="contact-inline-map-card">
             <div className="inline-map-header">
-              <div className="inline-map-tabs">
-                {(company.offices || []).map((off) => (
-                  <button
-                    key={off.id}
-                    type="button"
-                    className={`inline-map-tab ${activeOffice === off.id ? 'is-active' : ''}`}
-                    onClick={() => setActiveOffice(off.id)}
-                  >
-                    <CountryFlag country={off.country} size={16} />
-                    <span>{off.country} {off.id === 'india' ? '(HQ)' : '(USA)'}</span>
-                  </button>
-                ))}
+              <div className="inline-map-location-tag">
+                <MapPin size={15} />
+                <span>Headquarters • Vaishali, Delhi NCR</span>
               </div>
 
               <a
@@ -516,7 +507,7 @@ export default function ContactSection({
                         id="contact-phone"
                         name="phone"
                         type="tel"
-                        placeholder="e.g. +91 98765 43210"
+                        placeholder="e.g. +91 85273 35977"
                         value={form.phone}
                         onChange={handleChange}
                         autoComplete="tel"
@@ -610,171 +601,6 @@ export default function ContactSection({
 
               </form>
             )}
-          </div>
-        </div>
-      </div>
-
-      {/* ===================================================
-          GLOBAL PRESENCE & INTERACTIVE MAP SECTION
-          Multiple Offices (India HQ & United States Office)
-          =================================================== */}
-      <div className="container contact-map-section">
-        <div className="contact-global-header">
-          <div className="contact-eyebrow">
-            <span className="eyebrow-dot" />
-            <span>GLOBAL PRESENCE & MULTIPLE LOCATIONS</span>
-          </div>
-
-          <h3 className="contact-global-heading">
-            Our Engineering Hubs in <span className="heading-gradient">India & the United States</span>
-          </h3>
-
-          <p className="contact-global-desc">
-            Serving global enterprises and fast-growing startups with dedicated delivery headquarters in Delhi NCR and strategic client advisory in the United States.
-          </p>
-        </div>
-
-        {/* Dual Office Cards Grid - Each with its own Direct Map & Details */}
-        <div className="offices-grid">
-          {(company.offices || []).map((office) => {
-            const isActive = activeOffice === office.id;
-            return (
-              <div
-                key={office.id}
-                className={`office-card ${isActive ? 'office-card--active' : ''}`}
-                onClick={() => setActiveOffice(office.id)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    setActiveOffice(office.id);
-                  }
-                }}
-              >
-                <div className="office-card-header">
-                  <div className="office-flag-pill">
-                    <CountryFlag country={office.country} size={20} />
-                    <span className="office-country">{office.country}</span>
-                  </div>
-                  <span className="office-badge-tag">{office.badge}</span>
-                </div>
-
-                <h4 className="office-title">{office.title}</h4>
-
-                {/* Direct Embedded Google Map for this specific country */}
-                <div className="office-card-map-box">
-                  <iframe
-                    title={`Google Map - ${office.country} - ${office.title}`}
-                    src={office.embedUrl}
-                    width="100%"
-                    height="230"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="office-card-iframe"
-                  />
-                </div>
-
-                <div className="office-info-list">
-                  <div className="office-info-item">
-                    <MapPin size={16} className="office-info-icon" />
-                    <span>{office.address}</span>
-                  </div>
-
-                  <div className="office-info-item">
-                    <Phone size={16} className="office-info-icon" />
-                    <a href={`tel:${office.phone.replace(/[^\d+]/g, '')}`}>{office.phone}</a>
-                  </div>
-
-                  <div className="office-info-item">
-                    <Mail size={16} className="office-info-icon" />
-                    <a href={`mailto:${office.email}`}>{office.email}</a>
-                  </div>
-
-                  <div className="office-info-item">
-                    <Clock size={16} className="office-info-icon" />
-                    <span>{office.hours}</span>
-                  </div>
-                </div>
-
-                <div className="office-card-footer">
-                  <a
-                    href={office.mapUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="office-directions-link"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <Navigation size={14} />
-                    <span>Open in Google Maps / Directions</span>
-                    <ExternalLink size={13} />
-                  </a>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Interactive Google Map with Overlay */}
-        <div className="contact-interactive-map-box">
-          <div className="map-tabs-bar">
-            <span className="map-tabs-label">Active Map View:</span>
-            <div className="map-tabs-group">
-              {(company.offices || []).map((office) => (
-                <button
-                  key={office.id}
-                  type="button"
-                  className={`map-tab-btn ${activeOffice === office.id ? 'is-active' : ''}`}
-                  onClick={() => setActiveOffice(office.id)}
-                >
-                  <CountryFlag country={office.country} size={16} />
-                  <span>{office.country} ({office.id === 'india' ? 'HQ' : 'Desk'})</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="map-iframe-container">
-            <iframe
-              title={`Google Map - ${currentOffice?.title || 'BER Services'}`}
-              src={currentOffice?.embedUrl}
-              width="100%"
-              height="440"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="map-iframe-element"
-            />
-
-            {/* Map Floating Floating Glass Overlay Badge */}
-            <div className="map-glass-badge">
-              <div className="map-glass-icon">
-                <MapPin size={18} />
-              </div>
-              <div className="map-glass-content">
-                <span className="map-glass-eyebrow">{currentOffice?.badge}</span>
-                <strong className="map-glass-title">{currentOffice?.title}</strong>
-                <p className="map-glass-address">{currentOffice?.address}</p>
-                <div className="map-glass-row">
-                  <span className="map-glass-hours">
-                    <Clock size={12} />
-                    {currentOffice?.hours}
-                  </span>
-                </div>
-              </div>
-              <a
-                href={currentOffice?.mapUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="map-glass-cta"
-              >
-                <Navigation size={13} />
-                <span>Open in Google Maps</span>
-                <ExternalLink size={12} />
-              </a>
-            </div>
           </div>
         </div>
       </div>

@@ -60,7 +60,10 @@ export default function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/terms-conditions" element={<Terms />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/privacy" element={<Privacy />} />
 
           {/* Dedicated Admin Portal Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

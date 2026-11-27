@@ -76,8 +76,12 @@ export default function PinnedImageSwap({ deliverablesData, items, onInquire }) 
     }
   };
 
+  const activeIdxRef = useRef(0);
+
   // Image swap executor
   const swapImage = (targetIdx) => {
+    if (targetIdx < 0 || targetIdx >= displayItems.length) return;
+    activeIdxRef.current = targetIdx;
     setActiveIdx(targetIdx);
 
     imageRefs.current.forEach((img, i) => {
@@ -86,7 +90,7 @@ export default function PinnedImageSwap({ deliverablesData, items, onInquire }) 
         gsap.to(img, {
           opacity: 1,
           scale: 1,
-          duration: 0.45,
+          duration: 0.4,
           ease: 'power2.out',
           zIndex: 10,
           overwrite: 'auto',
@@ -95,7 +99,7 @@ export default function PinnedImageSwap({ deliverablesData, items, onInquire }) 
         gsap.to(img, {
           opacity: 0,
           scale: 0.96,
-          duration: 0.45,
+          duration: 0.4,
           ease: 'power2.out',
           zIndex: 1,
           overwrite: 'auto',
@@ -118,48 +122,63 @@ export default function PinnedImageSwap({ deliverablesData, items, onInquire }) 
     }, 800);
   };
 
-  // Scroll detection to highlight active card & sync sticky image
+  // Synchronized scroll triggers using ScrollTrigger & IntersectionObserver
   useEffect(() => {
     if (!containerRef.current || displayItems.length === 0) return;
 
-    let ticking = false;
-    const onScroll = () => {
-      if (isUserClicking.current) return;
-
-      const viewportCenter = window.innerHeight * 0.45;
-      let closestIdx = activeIdx;
-      let closestDistance = Infinity;
-
-      blockRefs.current.forEach((el, index) => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height * 0.5;
-        const distance = Math.abs(elementCenter - viewportCenter);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIdx = index;
-        }
-      });
-
-      if (closestIdx !== activeIdx && closestIdx >= 0 && closestIdx < displayItems.length) {
-        swapImage(closestIdx);
-      }
-    };
-
-    const handleWindowScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          onScroll();
-          ticking = false;
+    // 1. GSAP ScrollTrigger per block (synchronized with Lenis ticker)
+    const ctx = gsap.context(() => {
+      blockRefs.current.forEach((block, idx) => {
+        if (!block) return;
+        ScrollTrigger.create({
+          trigger: block,
+          start: 'top 55%',
+          end: 'bottom 45%',
+          onEnter: () => {
+            if (!isUserClicking.current) swapImage(idx);
+          },
+          onEnterBack: () => {
+            if (!isUserClicking.current) swapImage(idx);
+          },
         });
-        ticking = true;
-      }
-    };
+      });
+    }, containerRef);
 
-    window.addEventListener('scroll', handleWindowScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleWindowScroll);
-  }, [activeIdx, displayItems]);
+    // 2. Hardware IntersectionObserver for viewport center detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isUserClicking.current) return;
+        let bestEntry = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+              bestEntry = entry;
+            }
+          }
+        });
+
+        if (bestEntry) {
+          const index = blockRefs.current.indexOf(bestEntry.target);
+          if (index !== -1 && index !== activeIdxRef.current) {
+            swapImage(index);
+          }
+        }
+      },
+      {
+        rootMargin: '-20% 0px -30% 0px',
+        threshold: [0.15, 0.4, 0.7],
+      }
+    );
+
+    blockRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      ctx.revert();
+      observer.disconnect();
+    };
+  }, [displayItems]);
 
   useEffect(() => {
     swapImage(0);
