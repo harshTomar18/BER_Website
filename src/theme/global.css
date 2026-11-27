@@ -12,6 +12,8 @@
 html {
   scroll-behavior: smooth;
   max-width: 100%;
+  width: 100%;
+  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -31,6 +33,7 @@ body {
   max-width: 100%;
   width: 100%;
   position: relative;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -42,18 +45,12 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-
-  html,
-  body {
-    overflow-x: hidden;
-  }
-}
-
 #root,
 main {
   max-width: 100%;
   width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 img,
@@ -139,6 +136,8 @@ h3 {
 
 .section {
   padding: var(--section-pad) 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .section--alt {

@@ -28,7 +28,7 @@ export default function Header() {
       if (isMounted && res?.success && Array.isArray(res?.data?.services) && res.data.services.length > 0) {
         setServicesList(res.data.services);
       }
-    }).catch(() => {});
+    }).catch(() => { });
     return () => {
       isMounted = false;
     };
@@ -119,9 +119,8 @@ export default function Header() {
       <div ref={sentinelRef} id="top-sentinel" className="hd-sentinel" />
 
       <header
-        className={`hd ${isScrolled ? 'hd--scrolled' : ''} ${
-          isHidden ? 'hd--hidden' : 'hd--visible'
-        }`}
+        className={`hd ${isScrolled ? 'hd--scrolled' : ''} ${isHidden ? 'hd--hidden' : 'hd--visible'
+          }`}
       >
         {/* Top Announcement & Quick Contact Bar */}
         <div className="hd__top">

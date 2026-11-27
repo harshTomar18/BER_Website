@@ -11,7 +11,7 @@
   background-position: center top;
   background-repeat: no-repeat;
   padding: 48px 0 56px;
-  overflow: visible;
+  overflow: hidden;
   z-index: 5;
   border-bottom: none;
 }
@@ -757,7 +757,7 @@
 @media (max-width: 1024px) {
   .tech-marquee-section {
     padding: 42px 0 240px;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .tm-track-capsule {
@@ -782,7 +782,7 @@
 @media (max-width: 680px) {
   .tech-marquee-section {
     padding: 36px 0 270px;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .tm-track-capsule {
