@@ -146,6 +146,7 @@ export default function AboutSection() {
                   src={overview.artworkImage}
                   alt={overview.artworkImageAlt || overview.headline?.line1 || ''}
                   className="ab-custom-artwork-img"
+                  loading="lazy"
                 />
               </div>
             ) : (

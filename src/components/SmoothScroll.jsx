@@ -7,47 +7,62 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * SmoothScroll - Buttery smooth momentum scrolling powered by Lenis
- * Synchronized with GSAP Ticker & ScrollTrigger
+ * SmoothScroll - High performance momentum scrolling
+ * Optimized for 60-120fps with zero initial thread-blocking
  */
 export default function SmoothScroll() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Disable smooth scrolling on admin routes
+    // Disable on admin routes or mobile/touch screens (use native smooth scrolling)
     if (pathname.startsWith('/admin')) {
       return;
     }
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
-    });
+    const isMobile =
+      typeof window !== 'undefined' &&
+      (window.innerWidth < 992 || window.matchMedia('(pointer: coarse)').matches);
 
-    // Synchronize Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+    if (isMobile) {
+      return;
+    }
 
-    const tickerCallback = (time) => {
-      lenis.raf(time * 1000);
-    };
+    let lenis = null;
+    let tickerCallback = null;
 
-    gsap.ticker.add(tickerCallback);
-    gsap.ticker.lagSmoothing(0);
+    // Defer initialization so initial paint is not blocked
+    const initTimer = setTimeout(() => {
+      lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 0.95,
+      });
 
-    // Scroll to top immediately on route change
-    lenis.scrollTo(0, { immediate: true });
-    setTimeout(() => {
-      ScrollTrigger.refresh();
+      lenis.on('scroll', ScrollTrigger.update);
+
+      tickerCallback = (time) => {
+        if (lenis) lenis.raf(time * 1000);
+      };
+
+      gsap.ticker.add(tickerCallback);
+      gsap.ticker.lagSmoothing(0);
+
+      lenis.scrollTo(0, { immediate: true });
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
     }, 100);
 
     return () => {
-      lenis.destroy();
-      gsap.ticker.remove(tickerCallback);
+      clearTimeout(initTimer);
+      if (lenis) {
+        lenis.destroy();
+      }
+      if (tickerCallback) {
+        gsap.ticker.remove(tickerCallback);
+      }
     };
   }, [pathname]);
 

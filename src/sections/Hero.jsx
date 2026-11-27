@@ -295,6 +295,7 @@ export default function Hero() {
                         src={hero.heroImage}
                         alt={hero.heroImageAlt || hero.title || ''}
                         className="hero__showcase-img"
+                        fetchPriority="high"
                       />
                     </div>
                   ) : null}

@@ -1,3 +1,4 @@
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -8,31 +9,47 @@ import PageTitleManager from './components/PageTitleManager';
 import SmoothScroll from './components/SmoothScroll';
 import GsapScrollManager from './components/GsapScrollManager';
 import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import ServiceDetail from './pages/ServiceDetail';
-import Portfolio from './pages/Portfolio';
-import News from './pages/News';
-import NewsDetail from './pages/NewsDetail';
-import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
-import { Terms, Privacy } from './pages/Legal';
-import NotFound from './pages/NotFound';
 
-// Admin Module
+// Lazy-Loaded Public Pages for Maximum Performance & Sub-Second FCP
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const News = lazy(() => import('./pages/News'));
+const NewsDetail = lazy(() => import('./pages/NewsDetail'));
+const Contact = lazy(() => import('./pages/Contact'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const Terms = lazy(() => import('./pages/Legal').then((m) => ({ default: m.Terms })));
+const Privacy = lazy(() => import('./pages/Legal').then((m) => ({ default: m.Privacy })));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Lazy-Loaded Admin Module (Completely isolated from public bundle)
 import { AdminAuthProvider } from './admin/context/AdminAuthContext';
-import ProtectedRoute from './admin/components/ProtectedRoute';
-import AdminLogin from './admin/pages/AdminLogin';
-import AdminDashboard from './admin/pages/AdminDashboard';
-import AdminInquiries from './admin/pages/AdminInquiries';
-import AdminBlogList from './admin/pages/AdminBlogList';
-import AdminBlogEditor from './admin/pages/AdminBlogEditor';
-import AdminCategories from './admin/pages/AdminCategories';
-import AdminHeroManager from './admin/pages/AdminHeroManager';
-import AdminAboutManager from './admin/pages/AdminAboutManager';
-import AdminServicesManager from './admin/pages/AdminServicesManager';
-import AdminShowcaseManager from './admin/pages/AdminShowcaseManager';
-import AdminFaqManager from './admin/pages/AdminFaqManager';
+const ProtectedRoute = lazy(() => import('./admin/components/ProtectedRoute'));
+const AdminLogin = lazy(() => import('./admin/pages/AdminLogin'));
+const AdminDashboard = lazy(() => import('./admin/pages/AdminDashboard'));
+const AdminInquiries = lazy(() => import('./admin/pages/AdminInquiries'));
+const AdminBlogList = lazy(() => import('./admin/pages/AdminBlogList'));
+const AdminBlogEditor = lazy(() => import('./admin/pages/AdminBlogEditor'));
+const AdminCategories = lazy(() => import('./admin/pages/AdminCategories'));
+const AdminHeroManager = lazy(() => import('./admin/pages/AdminHeroManager'));
+const AdminAboutManager = lazy(() => import('./admin/pages/AdminAboutManager'));
+const AdminServicesManager = lazy(() => import('./admin/pages/AdminServicesManager'));
+const AdminShowcaseManager = lazy(() => import('./admin/pages/AdminShowcaseManager'));
+const AdminFaqManager = lazy(() => import('./admin/pages/AdminFaqManager'));
+
+const PageLoader = () => (
+  <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{
+      width: '36px',
+      height: '36px',
+      border: '3px solid rgba(22, 161, 206, 0.2)',
+      borderTopColor: '#1385ac',
+      borderRadius: '50%',
+      animation: 'faqSpin 0.7s linear infinite'
+    }}></div>
+  </div>
+);
 
 export default function App() {
   const location = useLocation();
@@ -46,9 +63,10 @@ export default function App() {
       <GsapScrollManager />
       {!isAdminRoute && <Header />}
       <main className={isAdminRoute ? 'admin-main-wrap' : ''}>
-        <Routes>
-          {/* Public Website Routes */}
-          <Route path="/" element={<Home />} />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Public Website Routes */}
+            <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/services-we-provide" element={<Services />} />
           <Route path="/services-we-provide/:slug" element={<ServiceDetail />} />
@@ -170,6 +188,7 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+      </Suspense>
       </main>
       {!isAdminRoute && <Footer />}
       {!isAdminRoute && <ConsultModal />}
