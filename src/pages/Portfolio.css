@@ -1,5 +1,5 @@
 /* =====================================================
-   PORTFOLIO & WORK SHOWCASE - DIGISTREET SIGNATURE LAYOUT
+   PORTFOLIO & WORK SHOWCASE - CLEAN MINIMALIST AGENCY LAYOUT
    Brand: BER Services (#20285b Navy, #1385ac Teal, #16a1ce Electric Cyan)
    Dedicated CSS for Portfolio.jsx
    ===================================================== */
@@ -7,7 +7,7 @@
 .portfolio-page-wrap {
   position: relative;
   background: transparent;
-  padding: 50px 0 90px;
+  padding: 40px 0 80px;
 }
 
 /* Ambient Atmospheric Glows */
@@ -42,41 +42,26 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 32px;
 }
 
 /* =====================================================
-   1. SHOWCASE HEADER & MICRO-METRICS (DIGISTREET STYLE)
+   1. CLEAN SHOWCASE HEADER (MINIMALIST & PUNCHY)
    ===================================================== */
 .portfolio-header {
   text-align: center;
-  max-width: 860px;
+  max-width: 800px;
   margin: 0 auto;
-}
-
-.portfolio-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 18px;
-  background: #ffffff;
-  border: 1px solid rgba(22, 161, 206, 0.25);
-  border-radius: 9999px;
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: #1385ac;
-  box-shadow: 0 4px 16px rgba(11, 30, 74, 0.05);
-  margin-bottom: 16px;
 }
 
 .portfolio-heading {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
   font-weight: 800;
   color: #20285b;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  margin: 0 0 16px 0;
+  margin: 0;
 }
 
 .portfolio-heading-accent {
@@ -85,67 +70,13 @@
   -webkit-text-fill-color: transparent;
 }
 
-.portfolio-intro-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #50617e;
-  margin: 0;
-}
-
-/* Micro-Metrics Bar */
-.portfolio-stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1080px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.portfolio-stat-box {
-  background: #ffffff;
-  border: 1px solid rgba(22, 161, 206, 0.16);
-  border-radius: 16px;
-  padding: 20px 18px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(32, 40, 91, 0.04);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-stat-box:hover {
-  transform: translateY(-3px);
-  border-color: #16a1ce;
-  box-shadow: 0 12px 28px rgba(22, 161, 206, 0.1);
-}
-
-.portfolio-stat-val {
-  font-family: var(--font-heading);
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: #20285b;
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-
-.portfolio-stat-lbl {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #1385ac;
-  margin-bottom: 2px;
-}
-
-.portfolio-stat-sub {
-  font-size: 0.78rem;
-  color: #7b8ea8;
-}
-
 /* =====================================================
-   2. SEARCH & STICKY CATEGORY FILTER BAR
+   2. SEARCH & CATEGORY FILTER BAR
    ===================================================== */
 .portfolio-nav-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   max-width: 1140px;
   margin: 0 auto;
   width: 100%;
@@ -155,7 +86,7 @@
 .portfolio-search-box {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -170,11 +101,11 @@
 
 .portfolio-search-input {
   width: 100%;
-  padding: 13px 44px 13px 48px;
+  padding: 12px 42px 12px 46px;
   background: #ffffff;
-  border: 1px solid rgba(22, 161, 206, 0.22);
+  border: 1px solid rgba(22, 161, 206, 0.2);
   border-radius: 9999px;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: #20285b;
   box-shadow: 0 4px 16px rgba(32, 40, 91, 0.04);
   outline: none;
@@ -183,18 +114,18 @@
 
 .portfolio-search-input:focus {
   border-color: #16a1ce;
-  box-shadow: 0 6px 24px rgba(22, 161, 206, 0.14);
+  box-shadow: 0 6px 22px rgba(22, 161, 206, 0.12);
 }
 
 .portfolio-search-clear {
   position: absolute;
-  right: 16px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(32, 40, 91, 0.08);
   border: none;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -209,30 +140,30 @@
   color: #ffffff;
 }
 
-/* Category Filter Bar (DigiStreet Signature Tabs) */
+/* Category Filter Bar */
 .portfolio-filter-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   padding: 6px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(22, 161, 206, 0.16);
   border-radius: 9999px;
-  box-shadow: 0 6px 24px rgba(32, 40, 91, 0.04);
+  box-shadow: 0 4px 20px rgba(32, 40, 91, 0.03);
 }
 
 .portfolio-filter-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 18px;
+  padding: 8px 18px;
   background: transparent;
   border: 1px solid transparent;
   border-radius: 9999px;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: #50617e;
   cursor: pointer;
@@ -249,18 +180,18 @@
   background: #20285b;
   color: #ffffff;
   border-color: #20285b;
-  box-shadow: 0 6px 18px rgba(32, 40, 91, 0.2);
+  box-shadow: 0 4px 14px rgba(32, 40, 91, 0.2);
 }
 
 .portfolio-filter-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
   border-radius: 10px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   background: rgba(22, 161, 206, 0.14);
   color: #1385ac;
@@ -278,7 +209,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 4px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #64748b;
 }
 
@@ -289,61 +220,58 @@
 .portfolio-reset-btn {
   background: none;
   border: none;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: #1385ac;
   cursor: pointer;
   text-decoration: underline;
 }
 
-.portfolio-reset-btn:hover {
-  color: #20285b;
-}
-
 /* Empty State */
 .portfolio-empty-state {
   text-align: center;
-  padding: 70px 20px;
+  padding: 60px 20px;
   background: #ffffff;
   border: 1px dashed rgba(22, 161, 206, 0.3);
   border-radius: 20px;
-  max-width: 600px;
-  margin: 30px auto;
+  max-width: 500px;
+  margin: 20px auto;
 }
 
 .portfolio-empty-icon {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: rgba(22, 161, 206, 0.1);
   color: #1385ac;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 18px;
+  margin: 0 auto 16px;
 }
 
 .portfolio-empty-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #20285b;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .portfolio-empty-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #64748b;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .portfolio-empty-btn {
-  padding: 10px 24px;
+  padding: 9px 22px;
   background: #20285b;
   color: #ffffff;
   border: none;
   border-radius: 9999px;
   font-weight: 600;
+  font-size: 0.88rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -353,39 +281,39 @@
 }
 
 /* =====================================================
-   3. SIGNATURE SHOWCASE GRID (DIGISTREET STYLE)
-   Uniform 3-Column Grid with Rich Hover Animations
+   3. CLEAN VISUAL-FIRST SHOWCASE GRID (DIGISTREET STYLE)
+   Clean Artwork Image (No Floating Badges) + Bold Heading
    ===================================================== */
 .portfolio-showcase-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 30px;
   width: 100%;
 }
 
 .portfolio-showcase-card {
   position: relative;
   background: #ffffff;
-  border: 1px solid rgba(22, 161, 206, 0.16);
-  border-radius: 20px;
+  border: 1px solid rgba(22, 161, 206, 0.14);
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(32, 40, 91, 0.06);
+  box-shadow: 0 8px 24px rgba(32, 40, 91, 0.05);
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.38s ease;
 }
 
 .portfolio-showcase-card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
   border-color: rgba(22, 161, 206, 0.4);
-  box-shadow: 0 22px 50px rgba(32, 40, 91, 0.12),
-              0 0 30px rgba(22, 161, 206, 0.12);
+  box-shadow: 0 18px 45px rgba(32, 40, 91, 0.1),
+              0 0 25px rgba(22, 161, 206, 0.08);
 }
 
-/* Artwork Showcase Box (Top Media) */
+/* Clean Artwork Image Box (NO floating badges, 100% clean!) */
 .portfolio-card-artwork {
   position: relative;
   width: 100%;
@@ -399,132 +327,89 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portfolio-showcase-card:hover .portfolio-card-img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-/* Floating Badges on Image */
-.portfolio-card-badges {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.portfolio-badge-category {
-  padding: 5px 12px;
-  background: rgba(32, 40, 91, 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 210, 255, 0.3);
-  border-radius: 9999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #c9e0ff;
-}
-
-.portfolio-badge-industry {
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 9999px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #20285b;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Hover Frosted Glass Overlay (DigiStreet Signature) */
+/* Subtle Hover Overlay with Glowing Action Circle */
 .portfolio-card-hover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 17, 40, 0.25) 0%, rgba(14, 23, 56, 0.94) 100%);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: radial-gradient(circle at center, rgba(32, 40, 91, 0.25) 0%, rgba(8, 17, 40, 0.65) 100%);
   opacity: 0;
   display: flex;
-  align-items: flex-end;
-  padding: 24px;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.3s ease;
 }
 
 .portfolio-showcase-card:hover .portfolio-card-hover-overlay {
   opacity: 1;
 }
 
-.portfolio-card-hover-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  transform: translateY(12px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.portfolio-showcase-card:hover .portfolio-card-hover-content {
-  transform: translateY(0);
-}
-
-.portfolio-hover-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(22, 161, 206, 0.95);
+.portfolio-hover-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #16a1ce;
   color: #ffffff;
-  border-radius: 9999px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  width: fit-content;
-  box-shadow: 0 6px 18px rgba(22, 161, 206, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(22, 161, 206, 0.5);
+  transform: scale(0.8);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
 }
 
-.portfolio-hover-summary {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: #d1e2fc;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.portfolio-showcase-card:hover .portfolio-hover-circle {
+  transform: scale(1);
 }
 
-/* Card Information Body */
+.portfolio-hover-circle:hover {
+  background: #20285b;
+}
+
+/* Card Information Body (Clean: Only Client Brand, Category, & Heading) */
 .portfolio-card-info {
-  padding: 22px 24px;
+  padding: 18px 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  flex: 1;
+  gap: 8px;
   background: #ffffff;
 }
 
+.portfolio-card-meta-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .portfolio-card-client-brand {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #1385ac;
 }
 
+.portfolio-card-cat-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  background: #f1f6fc;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
 .portfolio-card-title {
   font-family: var(--font-heading);
-  font-size: 1.18rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #20285b;
   line-height: 1.35;
   margin: 0;
@@ -533,104 +418,6 @@
 
 .portfolio-showcase-card:hover .portfolio-card-title {
   color: #16a1ce;
-}
-
-.portfolio-card-desc {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Tech Chips */
-.portfolio-card-tech-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 2px;
-}
-
-.portfolio-tech-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 9px;
-  background: #f1f6fc;
-  border: 1px solid #e1ecf8;
-  border-radius: 6px;
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: #475569;
-}
-
-.portfolio-tech-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-/* Bottom Strip: Metric & Arrow Link */
-.portfolio-card-bottom-bar {
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid #edf3fa;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.portfolio-highlight-metric {
-  display: flex;
-  flex-direction: column;
-}
-
-.portfolio-hm-value {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #1385ac;
-  line-height: 1.1;
-}
-
-.portfolio-hm-label {
-  font-size: 0.72rem;
-  color: #64748b;
-}
-
-.portfolio-card-link-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #20285b;
-  transition: all 0.25s ease;
-}
-
-.portfolio-card-arrow-circle {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #f1f6fc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #20285b;
-  transition: all 0.25s ease;
-}
-
-.portfolio-showcase-card:hover .portfolio-card-link-action {
-  color: #16a1ce;
-}
-
-.portfolio-showcase-card:hover .portfolio-card-arrow-circle {
-  background: #16a1ce;
-  color: #ffffff;
-  transform: translateX(3px);
 }
 
 /* =====================================================
@@ -668,10 +455,10 @@
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-  padding: 40px;
+  padding: 38px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 26px;
   animation: pfModalSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -688,10 +475,10 @@
 
 .portfolio-modal-close {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
+  top: 22px;
+  right: 22px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #f1f5f9;
   border: none;
@@ -716,7 +503,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .portfolio-modal-pill {
@@ -741,15 +528,15 @@
 
 .portfolio-modal-title {
   font-family: var(--font-heading);
-  font-size: 1.85rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #20285b;
   line-height: 1.25;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 
 .portfolio-modal-tagline {
-  font-size: 1.02rem;
+  font-size: 1rem;
   color: #64748b;
   margin: 0;
   line-height: 1.6;
@@ -776,12 +563,12 @@
 .portfolio-modal-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 18px;
 }
 
 .portfolio-modal-comp-box {
-  padding: 22px;
-  border-radius: 16px;
+  padding: 20px;
+  border-radius: 14px;
   border: 1px solid transparent;
 }
 
@@ -799,11 +586,11 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .portfolio-modal-comp-box--challenge .portfolio-modal-comp-badge {
@@ -815,7 +602,7 @@
 }
 
 .portfolio-modal-comp-box p {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.65;
   color: #334155;
   margin: 0;
@@ -825,14 +612,14 @@
 .portfolio-modal-details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 26px;
 }
 
 .portfolio-modal-sec-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #20285b;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
 }
 
 .portfolio-modal-del-list {
@@ -848,7 +635,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #475569;
   line-height: 1.5;
 }
@@ -873,22 +660,22 @@
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 9999px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #334155;
 }
 
 .portfolio-modal-tech-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
 }
 
 /* Verified Metrics Banner */
 .portfolio-modal-metrics-banner {
   background: linear-gradient(135deg, #20285b 0%, #172b5c 60%, #1385ac 100%);
-  border-radius: 18px;
-  padding: 24px 28px;
+  border-radius: 16px;
+  padding: 22px 26px;
   color: #ffffff;
 }
 
@@ -896,36 +683,36 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #38bdf8;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .portfolio-modal-mb-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .portfolio-modal-mb-box {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   text-align: center;
 }
 
 .portfolio-modal-mb-val {
   font-family: var(--font-heading);
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 2px;
 }
 
 .portfolio-modal-mb-lbl {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: #c9e0ff;
 }
 
@@ -934,10 +721,10 @@
   background: #f8fafc;
   border-left: 4px solid #16a1ce;
   border-radius: 0 14px 14px 0;
-  padding: 22px 24px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .portfolio-modal-quote-icon {
@@ -946,7 +733,7 @@
 }
 
 .portfolio-modal-quote-text {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-style: italic;
   color: #334155;
   line-height: 1.6;
@@ -954,7 +741,7 @@
 }
 
 .portfolio-modal-quote-meta {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: #64748b;
 }
 
@@ -966,28 +753,28 @@
 .portfolio-modal-actions {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 .portfolio-modal-btn-cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 32px;
+  padding: 13px 30px;
   background: linear-gradient(135deg, #1385ac 0%, #20285b 100%);
   color: #ffffff;
   border: none;
   border-radius: 9999px;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(32, 40, 91, 0.25);
+  box-shadow: 0 8px 22px rgba(32, 40, 91, 0.22);
   transition: all 0.25s ease;
 }
 
 .portfolio-modal-btn-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(19, 133, 172, 0.35);
+  box-shadow: 0 12px 28px rgba(19, 133, 172, 0.32);
 }
 
 /* =====================================================
@@ -996,31 +783,22 @@
 @media (max-width: 1100px) {
   .portfolio-showcase-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .portfolio-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
   }
 }
 
 @media (max-width: 768px) {
   .portfolio-page-wrap {
-    padding: 35px 0 60px;
+    padding: 30px 0 50px;
   }
 
   .portfolio-showcase-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .portfolio-stats-bar {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 20px;
   }
 
   .portfolio-modal-container {
-    padding: 24px 20px;
+    padding: 22px 18px;
   }
 
   .portfolio-modal-comparison,
@@ -1034,12 +812,12 @@
   }
 
   .portfolio-filter-bar {
-    border-radius: 18px;
-    padding: 8px;
+    border-radius: 16px;
+    padding: 6px;
   }
 
   .portfolio-filter-btn {
-    padding: 7px 14px;
-    font-size: 0.82rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }

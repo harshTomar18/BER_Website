@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import {
-  Sparkles,
   Search,
   ArrowRight,
   ExternalLink,
@@ -10,7 +9,6 @@ import {
   TrendingUp,
   Briefcase,
   Quote,
-  Eye,
   SlidersHorizontal
 } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
@@ -19,7 +17,6 @@ import CtaBand from '../sections/CtaBand';
 import { useConsult } from '../context/ConsultContext';
 import {
   portfolioCategories,
-  portfolioStats,
   portfolioProjects
 } from '../data/portfolioData';
 import './Portfolio.css';
@@ -60,7 +57,7 @@ export default function Portfolio() {
   return (
     <>
       <PageBanner
-        title="Showcase & Case Studies"
+        title="Showcase"
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'Showcase' }
@@ -73,34 +70,14 @@ export default function Portfolio() {
         <div className="portfolio-bg-glow portfolio-bg-glow--bottom"></div>
 
         <div className="container portfolio-container">
-          {/* Top Showcase Hero Section (DigiStreet Signature Header) */}
+          {/* Clean Showcase Heading (No heavy paragraphs, no stat boxes) */}
           <div className="portfolio-header">
-            <div className="portfolio-badge-pill">
-              <Sparkles size={14} />
-              <span>Digital Engineering & Work Showcase</span>
-            </div>
             <h1 className="portfolio-heading">
-              Client Campaigns, Web Platforms &{' '}
-              <span className="portfolio-heading-accent">Digital Solutions Showcase</span>
+              Work <span className="portfolio-heading-accent">Showcase</span>
             </h1>
-            <p className="portfolio-intro-text">
-              Explore how BER Services powers market-leading enterprises, high-growth eCommerce brands,
-              and venture-backed platforms with bespoke technology, sub-second architectures, and measurable commercial results.
-            </p>
           </div>
 
-          {/* Micro-Metrics Bar */}
-          <div className="portfolio-stats-bar">
-            {portfolioStats.map((stat, i) => (
-              <div key={i} className="portfolio-stat-box">
-                <div className="portfolio-stat-val">{stat.value}</div>
-                <div className="portfolio-stat-lbl">{stat.label}</div>
-                <div className="portfolio-stat-sub">{stat.sub}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Interactive Search & Category Filter Navigation */}
+          {/* Search & Category Filter Navigation */}
           <div className="portfolio-nav-section">
             {/* Search Input Bar */}
             <div className="portfolio-search-box">
@@ -108,7 +85,7 @@ export default function Portfolio() {
               <input
                 type="text"
                 className="portfolio-search-input"
-                placeholder="Search by client, industry, or tech stack (e.g. ERP, Next.js, JBM, AI)..."
+                placeholder="Search projects by client, industry, or tech..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -124,11 +101,10 @@ export default function Portfolio() {
               )}
             </div>
 
-            {/* Category Filter Pills (DigiStreet Signature Tabs) */}
+            {/* Category Filter Pills */}
             <div className="portfolio-filter-bar">
               {portfolioCategories.map((cat) => {
                 const isActive = activeCategory === cat.id;
-                // Calculate count dynamically if filtered by search
                 const count =
                   cat.id === 'all'
                     ? portfolioProjects.length
@@ -149,14 +125,14 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Project Cards Counter Bar */}
-          <div className="portfolio-results-meta">
-            <span className="portfolio-results-text">
-              Showing <strong>{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
-              {activeCategory !== 'all' && ` in ${portfolioCategories.find((c) => c.id === activeCategory)?.label}`}
-              {searchQuery && ` matching "${searchQuery}"`}
-            </span>
-            {(activeCategory !== 'all' || searchQuery) && (
+          {/* Results Meta info when filtering */}
+          {(activeCategory !== 'all' || searchQuery) && (
+            <div className="portfolio-results-meta">
+              <span className="portfolio-results-text">
+                Showing <strong>{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
+                {activeCategory !== 'all' && ` in ${portfolioCategories.find((c) => c.id === activeCategory)?.label}`}
+                {searchQuery && ` matching "${searchQuery}"`}
+              </span>
               <button
                 type="button"
                 className="portfolio-reset-btn"
@@ -167,21 +143,21 @@ export default function Portfolio() {
               >
                 Reset Filters
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* =====================================================
-              SIGNATURE SHOWCASE GRID (DIGISTREET STYLE)
-              Uniform 3-Column Grid with Rich Hover Overlays
+              SIGNATURE SHOWCASE GRID (CLEAN VISUAL-FIRST)
+              Zero Text Over Image, Clean Heading & Category Below
               ===================================================== */}
           {filteredProjects.length === 0 ? (
             <div className="portfolio-empty-state">
               <div className="portfolio-empty-icon">
-                <SlidersHorizontal size={40} />
+                <SlidersHorizontal size={36} />
               </div>
-              <h3 className="portfolio-empty-title">No projects match your filter criteria</h3>
+              <h3 className="portfolio-empty-title">No projects found</h3>
               <p className="portfolio-empty-desc">
-                Try searching for another keyword or switch category tab to explore our full work showcase.
+                Try searching for another keyword or switch category to view all projects.
               </p>
               <button
                 type="button"
@@ -191,7 +167,7 @@ export default function Portfolio() {
                   setSearchQuery('');
                 }}
               >
-                View All Projects
+                View All Work
               </button>
             </div>
           ) : (
@@ -202,7 +178,7 @@ export default function Portfolio() {
                   className="portfolio-showcase-card"
                   onClick={() => openCaseStudyModal(project)}
                 >
-                  {/* Artwork / Showcase Visual Box */}
+                  {/* Clean Artwork Image Box (NO badges or text on image!) */}
                   <div className="portfolio-card-artwork">
                     <img
                       src={project.image}
@@ -212,81 +188,24 @@ export default function Portfolio() {
                       decoding="async"
                     />
 
-                    {/* Top Floating Badges */}
-                    <div className="portfolio-card-badges">
-                      <span className="portfolio-badge-category">
-                        {project.categoryLabel}
-                      </span>
-                      <span className="portfolio-badge-industry">
-                        {project.industry}
-                      </span>
-                    </div>
-
-                    {/* Sleek Hover Glassmorphic Overlay (DigiStreet Signature) */}
+                    {/* Subtle Hover Action Circle */}
                     <div className="portfolio-card-hover-overlay">
-                      <div className="portfolio-card-hover-content">
-                        <span className="portfolio-hover-pill">
-                          <Eye size={15} />
-                          <span>View Case Study</span>
-                          <ArrowRight size={15} />
-                        </span>
-                        <p className="portfolio-hover-summary">
-                          {project.tagline}
-                        </p>
-                      </div>
+                      <span className="portfolio-hover-circle" title="View Case Study">
+                        <ArrowRight size={18} />
+                      </span>
                     </div>
                   </div>
 
-                  {/* Card Information Body */}
+                  {/* Clean Card Information: Only Client Brand, Category, & Title */}
                   <div className="portfolio-card-info">
-                    {/* Client Name with Tracked Uppercase Typography */}
-                    <div className="portfolio-card-client-brand">
-                      {project.client}
+                    <div className="portfolio-card-meta-line">
+                      <span className="portfolio-card-client-brand">{project.client}</span>
+                      <span className="portfolio-card-cat-tag">{project.categoryLabel}</span>
                     </div>
 
-                    {/* Project Title */}
                     <h3 className="portfolio-card-title">
                       {project.title}
                     </h3>
-
-                    {/* Brief Tagline */}
-                    <p className="portfolio-card-desc">
-                      {project.overview}
-                    </p>
-
-                    {/* Technology Stack Tags */}
-                    {Array.isArray(project.techStack) && project.techStack.length > 0 && (
-                      <div className="portfolio-card-tech-chips">
-                        {project.techStack.slice(0, 4).map((tech, tIdx) => (
-                          <span key={tIdx} className="portfolio-tech-chip">
-                            <span
-                              className="portfolio-tech-dot"
-                              style={{ backgroundColor: tech.color || '#16a1ce' }}
-                            ></span>
-                            <span>{tech.name}</span>
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Bottom Action & Metric Strip */}
-                    <div className="portfolio-card-bottom-bar">
-                      {Array.isArray(project.metrics) && project.metrics.length > 0 ? (
-                        <div className="portfolio-highlight-metric">
-                          <span className="portfolio-hm-value">{project.metrics[0].value}</span>
-                          <span className="portfolio-hm-label">{project.metrics[0].label}</span>
-                        </div>
-                      ) : (
-                        <div />
-                      )}
-
-                      <div className="portfolio-card-link-action">
-                        <span>Case Study</span>
-                        <span className="portfolio-card-arrow-circle">
-                          <ArrowRight size={13} />
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               ))}
