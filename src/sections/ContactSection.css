@@ -789,3 +789,588 @@
         padding: 16px 14px;
     }
 }
+
+/* =====================================================
+   GOOGLE MY BUSINESS & VERIFIED REVIEWS CARD
+   ===================================================== */
+.contact-gmb-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px solid rgba(215, 232, 255, 0.95);
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 30px rgba(11, 30, 74, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.28s ease;
+}
+
+.contact-gmb-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%);
+}
+
+.contact-gmb-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 38px rgba(19, 133, 172, 0.12);
+    border-color: #a5c7f8;
+}
+
+.gmb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.gmb-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.gmb-logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.gmb-badge-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4285F4;
+    display: block;
+}
+
+.gmb-company-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b1e4a;
+    margin: 1px 0 0;
+    line-height: 1.2;
+}
+
+.gmb-rating-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-radius: 50px;
+}
+
+.gmb-score {
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: #b45309;
+}
+
+.gmb-stars-row {
+    display: flex;
+    gap: 2px;
+}
+
+.gmb-review-count {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #92400e;
+}
+
+.gmb-card-text {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: #556786;
+    margin: 0;
+}
+
+.gmb-card-actions {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.gmb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.22s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.gmb-btn--review {
+    background: linear-gradient(135deg, #1385ac 0%, #20285b 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(19, 133, 172, 0.25);
+}
+
+.gmb-btn--review:hover {
+    background: linear-gradient(135deg, #16a1ce 0%, #151d45 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(19, 133, 172, 0.35);
+}
+
+.gmb-btn--profile {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1.5px solid #d8e2f0;
+}
+
+.gmb-btn--profile:hover {
+    background: #f8fafc;
+    border-color: #1385ac;
+    color: #1385ac;
+}
+
+/* =====================================================
+   GLOBAL PRESENCE & MULTIPLE OFFICES SECTION
+   ===================================================== */
+.contact-map-section {
+    margin-top: 72px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-global-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-global-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    font-weight: 700;
+    color: #20285b;
+    line-height: 1.25;
+    margin: 0 0 12px;
+}
+
+.contact-global-desc {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #556786;
+    margin: 0;
+}
+
+/* Dual Office Cards Grid */
+.offices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 28px;
+}
+
+.office-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(215, 232, 255, 0.9);
+    border-radius: 20px;
+    padding: 24px 24px;
+    box-shadow: 0 10px 30px rgba(11, 30, 74, 0.05);
+    cursor: pointer;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.office-card:hover {
+    transform: translateY(-3px);
+    border-color: #1385ac;
+    box-shadow: 0 16px 40px rgba(19, 133, 172, 0.15);
+}
+
+.office-card--active {
+    border-color: #1385ac;
+    background: #ffffff;
+    box-shadow: 0 18px 46px rgba(19, 133, 172, 0.18);
+}
+
+.office-card--active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #1385ac, transparent);
+    border-radius: 2px;
+}
+
+.office-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.office-flag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    background: #f0f7fb;
+    border: 1px solid #d5ebf5;
+    border-radius: 50px;
+}
+
+.office-flag {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.office-country {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #1385ac;
+}
+
+.office-active-indicator {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+    background: #f1f5f9;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.office-active-indicator.is-active {
+    background: #10b981;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+}
+
+.office-badge-tag {
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1385ac;
+    margin-bottom: 4px;
+}
+
+.office-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0b1e4a;
+    margin: 0 0 14px;
+    line-height: 1.25;
+}
+
+.office-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.office-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    color: #4a5c7a;
+}
+
+.office-info-icon {
+    color: #1385ac;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.office-info-item a {
+    color: #1385ac;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.office-info-item a:hover {
+    color: #0c5670;
+    text-decoration: underline;
+}
+
+.office-card-footer {
+    padding-top: 14px;
+    border-top: 1px solid #eef3fb;
+}
+
+.office-directions-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #1385ac;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.office-directions-link:hover {
+    color: #0a4f68;
+    transform: translateX(3px);
+}
+
+/* =====================================================
+   INTERACTIVE MAP CONTAINER & FLOATING GLASS OVERLAY
+   ===================================================== */
+.contact-interactive-map-box {
+    background: #ffffff;
+    border-radius: 22px;
+    border: 1.5px solid rgba(215, 232, 255, 0.95);
+    box-shadow: 0 20px 50px -10px rgba(11, 30, 74, 0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.map-tabs-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 22px;
+    background: #f8fafc;
+    border-bottom: 1px solid #eef2f6;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.map-tabs-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+}
+
+.map-tabs-group {
+    display: flex;
+    gap: 8px;
+}
+
+.map-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 15px;
+    border-radius: 50px;
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    color: #334155;
+    font-size: 0.80rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.map-tab-btn:hover:not(.is-active) {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.map-tab-btn.is-active {
+    background: #0e1738;
+    color: #ffffff;
+    border-color: #0e1738;
+    box-shadow: 0 3px 10px rgba(14, 23, 56, 0.25);
+}
+
+.map-iframe-container {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    background: #eef2f6;
+}
+
+.map-iframe-element {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: contrast(1.02);
+}
+
+.map-glass-badge {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    max-width: 370px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    padding: 15px 18px;
+    box-shadow: 0 16px 36px rgba(11, 30, 74, 0.16);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10;
+}
+
+.map-glass-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #1385ac;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(19, 133, 172, 0.35);
+}
+
+.map-glass-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1385ac;
+    display: block;
+}
+
+.map-glass-title {
+    font-family: var(--font-heading);
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #0b1e4a;
+    display: block;
+    margin: 1px 0 2px;
+}
+
+.map-glass-address {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: #4a5c7a;
+    margin: 0;
+}
+
+.map-glass-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1px;
+}
+
+.map-glass-hours {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #10b981;
+}
+
+.map-glass-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 13px;
+    background: #0e1738;
+    color: #ffffff;
+    border-radius: 7px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: 3px;
+    width: fit-content;
+}
+
+.map-glass-cta:hover {
+    background: #1385ac;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(19, 133, 172, 0.3);
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE DESIGN ADDITIONS
+   ----------------------------------------------------- */
+@media (max-width: 1024px) {
+    .offices-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .map-glass-badge {
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-gmb-card {
+        padding: 16px 14px;
+    }
+
+    .gmb-card-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .map-tabs-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .map-tabs-group {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .map-tab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .map-iframe-container {
+        height: 340px;
+    }
+
+    .map-glass-badge {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0 0 20px 20px;
+        margin: 0;
+    }
+}

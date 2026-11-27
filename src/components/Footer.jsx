@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Star } from 'lucide-react';
 import { company, services, footerLinks } from '../config/siteConfig';
 import { images } from '../config/images';
 import './Footer.css';
@@ -135,11 +135,36 @@ export default function Footer() {
                 <MapPin size={15} />
               </span>
               <div className="ft__contact-meta">
-                <small>Headquarters</small>
-                <a href={company.addresses[1]?.map || '#'} target="_blank" rel="noreferrer">
+                <small>India HQ (Delhi NCR)</small>
+                <a href={company.offices?.[0]?.mapUrl || company.googleBusiness?.url || '#'} target="_blank" rel="noreferrer">
                   Cloud 9 Towers, Vaishali, Ghaziabad
                 </a>
               </div>
+            </li>
+            <li>
+              <span className="ft__contact-icon-tile ft__contact-icon-tile--top">
+                <Globe size={15} />
+              </span>
+              <div className="ft__contact-meta">
+                <small>Americas Office (USA)</small>
+                <a href={company.offices?.[1]?.mapUrl || '#'} target="_blank" rel="noreferrer">
+                  Newark, Delaware, United States
+                </a>
+              </div>
+            </li>
+            <li className="ft__gmb-item">
+              <a
+                href={company.googleBusiness?.url || 'https://share.google/6ojt2XBKe3kBFESxt'}
+                target="_blank"
+                rel="noreferrer"
+                className="ft__gmb-link"
+              >
+                <div className="ft__gmb-stars">
+                  <Star size={12} fill="#f59e0b" stroke="#f59e0b" />
+                  <span>4.9 / 5.0 Google Reviews</span>
+                </div>
+                <small>Verified Business Profile</small>
+              </a>
             </li>
           </ul>
         </div>

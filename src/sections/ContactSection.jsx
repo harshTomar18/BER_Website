@@ -18,6 +18,9 @@ import {
   Code2,
   Headphones,
   Check,
+  Star,
+  ExternalLink,
+  Navigation,
 } from 'lucide-react';
 import { company, formServices } from '../config/siteConfig';
 import { contactApi } from '../api';
@@ -29,6 +32,10 @@ export default function ContactSection({
   address = company.shortAddress,
   onSubmit,
 }) {
+  const [activeOffice, setActiveOffice] = useState('india');
+  const currentOffice =
+    (company.offices || []).find((o) => o.id === activeOffice) || company.offices?.[0];
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -211,8 +218,60 @@ export default function ContactSection({
             </div>
           </div>
 
+          {/* Google My Business & Verified Reviews Connect Card */}
+          <div className="contact-gmb-card">
+            <div className="gmb-card-header">
+              <div className="gmb-brand-wrap">
+                <div className="gmb-logo-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span className="gmb-badge-label">GOOGLE BUSINESS PROFILE</span>
+                  <h4 className="gmb-company-title">BER Services on Google</h4>
+                </div>
+              </div>
+              <div className="gmb-rating-pill">
+                <span className="gmb-score">4.9</span>
+                <div className="gmb-stars-row">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} fill="#f59e0b" stroke="#f59e0b" />
+                  ))}
+                </div>
+                <small className="gmb-review-count">(85+ Reviews)</small>
+              </div>
+            </div>
 
+            <p className="gmb-card-text">
+              Verified 4.9-star rating on Google by enterprise founders & tech leaders. Review our engineering services or browse client testimonials directly on Google.
+            </p>
 
+            <div className="gmb-card-actions">
+              <a
+                href={company.googleBusiness?.reviewUrl || 'https://share.google/6ojt2XBKe3kBFESxt'}
+                target="_blank"
+                rel="noreferrer"
+                className="gmb-btn gmb-btn--review"
+              >
+                <Star size={14} fill="#ffffff" />
+                <span>Write a Google Review</span>
+                <ExternalLink size={13} />
+              </a>
+              <a
+                href={company.googleBusiness?.url || 'https://share.google/6ojt2XBKe3kBFESxt'}
+                target="_blank"
+                rel="noreferrer"
+                className="gmb-btn gmb-btn--profile"
+              >
+                <span>View Google Business</span>
+                <ExternalLink size={13} />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* ===================================================
@@ -405,6 +464,159 @@ export default function ContactSection({
 
               </form>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* ===================================================
+          GLOBAL PRESENCE & INTERACTIVE MAP SECTION
+          Multiple Offices (India HQ & United States Office)
+          =================================================== */}
+      <div className="container contact-map-section">
+        <div className="contact-global-header">
+          <div className="contact-eyebrow">
+            <span className="eyebrow-dot" />
+            <span>GLOBAL PRESENCE & MULTIPLE LOCATIONS</span>
+          </div>
+
+          <h3 className="contact-global-heading">
+            Our Engineering Hubs in <span className="heading-gradient">India & the United States</span>
+          </h3>
+
+          <p className="contact-global-desc">
+            Serving global enterprises and fast-growing startups with dedicated delivery headquarters in Delhi NCR and strategic client advisory in the United States.
+          </p>
+        </div>
+
+        {/* Dual Office Cards Grid */}
+        <div className="offices-grid">
+          {(company.offices || []).map((office) => {
+            const isActive = activeOffice === office.id;
+            return (
+              <div
+                key={office.id}
+                className={`office-card ${isActive ? 'office-card--active' : ''}`}
+                onClick={() => setActiveOffice(office.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setActiveOffice(office.id);
+                  }
+                }}
+              >
+                <div className="office-card-header">
+                  <div className="office-flag-pill">
+                    <span className="office-flag">{office.flag}</span>
+                    <span className="office-country">{office.country}</span>
+                  </div>
+                  <span className={`office-active-indicator ${isActive ? 'is-active' : ''}`}>
+                    {isActive ? 'Showing on Map' : 'Click to View on Map'}
+                  </span>
+                </div>
+
+                <div className="office-badge-tag">{office.badge}</div>
+                <h4 className="office-title">{office.title}</h4>
+
+                <div className="office-info-list">
+                  <div className="office-info-item">
+                    <MapPin size={16} className="office-info-icon" />
+                    <span>{office.address}</span>
+                  </div>
+
+                  <div className="office-info-item">
+                    <Phone size={16} className="office-info-icon" />
+                    <a href={`tel:${office.phone.replace(/[^\d+]/g, '')}`}>{office.phone}</a>
+                  </div>
+
+                  <div className="office-info-item">
+                    <Mail size={16} className="office-info-icon" />
+                    <a href={`mailto:${office.email}`}>{office.email}</a>
+                  </div>
+
+                  <div className="office-info-item">
+                    <Clock size={16} className="office-info-icon" />
+                    <span>{office.hours}</span>
+                  </div>
+                </div>
+
+                <div className="office-card-footer">
+                  <a
+                    href={office.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="office-directions-link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Navigation size={14} />
+                    <span>Get Directions on Google Maps</span>
+                    <ExternalLink size={13} />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Interactive Google Map with Overlay */}
+        <div className="contact-interactive-map-box">
+          <div className="map-tabs-bar">
+            <span className="map-tabs-label">Active Map View:</span>
+            <div className="map-tabs-group">
+              {(company.offices || []).map((office) => (
+                <button
+                  key={office.id}
+                  type="button"
+                  className={`map-tab-btn ${activeOffice === office.id ? 'is-active' : ''}`}
+                  onClick={() => setActiveOffice(office.id)}
+                >
+                  <span>{office.flag}</span>
+                  <span>{office.country} ({office.id === 'india' ? 'HQ' : 'Desk'})</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="map-iframe-container">
+            <iframe
+              title={`Google Map - ${currentOffice?.title || 'BER Services'}`}
+              src={currentOffice?.embedUrl}
+              width="100%"
+              height="440"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="map-iframe-element"
+            />
+
+            {/* Map Floating Floating Glass Overlay Badge */}
+            <div className="map-glass-badge">
+              <div className="map-glass-icon">
+                <MapPin size={18} />
+              </div>
+              <div className="map-glass-content">
+                <span className="map-glass-eyebrow">{currentOffice?.badge}</span>
+                <strong className="map-glass-title">{currentOffice?.title}</strong>
+                <p className="map-glass-address">{currentOffice?.address}</p>
+                <div className="map-glass-row">
+                  <span className="map-glass-hours">
+                    <Clock size={12} />
+                    {currentOffice?.hours}
+                  </span>
+                </div>
+              </div>
+              <a
+                href={currentOffice?.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="map-glass-cta"
+              >
+                <Navigation size={13} />
+                <span>Open in Google Maps</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
           </div>
         </div>
       </div>

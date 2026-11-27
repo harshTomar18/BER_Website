@@ -202,6 +202,44 @@
   color: var(--color-accent);
 }
 
+/* Google Reviews pill in Reach Us */
+.ft__gmb-item {
+  margin-top: 4px !important;
+}
+
+.ft__gmb-link {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  width: fit-content;
+}
+
+.ft__gmb-link:hover {
+  background: rgba(19, 133, 172, 0.18);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.ft__gmb-stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ft__gmb-link small {
+  font-size: 0.68rem;
+  color: #9cb0d0;
+  margin-top: 1px;
+}
+
 /* =====================================================
    BOTTOM COPYRIGHT & LEGAL STRIP
    ===================================================== */
