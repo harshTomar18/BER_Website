@@ -218,57 +218,101 @@ export default function ContactSection({
             </div>
           </div>
 
-          {/* Google My Business & Verified Reviews Connect Card */}
-          <div className="contact-gmb-card">
-            <div className="gmb-card-header">
-              <div className="gmb-brand-wrap">
-                <div className="gmb-logo-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20">
+          {/* ===================================================
+              INLINE INTERACTIVE GOOGLE MAP & DUAL OFFICES
+              Directly visible in Left Column next to Contact Form
+              =================================================== */}
+          <div className="contact-inline-map-card">
+            <div className="inline-map-header">
+              <div className="inline-map-tabs">
+                {(company.offices || []).map((off) => (
+                  <button
+                    key={off.id}
+                    type="button"
+                    className={`inline-map-tab ${activeOffice === off.id ? 'is-active' : ''}`}
+                    onClick={() => setActiveOffice(off.id)}
+                  >
+                    <span>{off.flag}</span>
+                    <span>{off.country} {off.id === 'india' ? '(HQ)' : '(USA)'}</span>
+                  </button>
+                ))}
+              </div>
+
+              <a
+                href={currentOffice?.mapUrl || 'https://share.google/6ojt2XBKe3kBFESxt'}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-map-directions-btn"
+                title="Open in Google Maps"
+              >
+                <span>Google Maps</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className="inline-map-frame-box">
+              <iframe
+                title={`Map - ${currentOffice?.title || 'BER Services'}`}
+                src={currentOffice?.embedUrl}
+                width="100%"
+                height="260"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="inline-map-iframe"
+              />
+
+              <div className="inline-map-floating-info">
+                <div className="inline-map-pin-icon">
+                  <MapPin size={15} />
+                </div>
+                <div className="inline-map-meta">
+                  <strong>{currentOffice?.title}</strong>
+                  <p>{currentOffice?.address}</p>
+                </div>
+                <a
+                  href={currentOffice?.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-map-action-btn"
+                >
+                  <Navigation size={12} />
+                  <span>Directions</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Google My Business Rating & Review Bar */}
+            <div className="inline-gmb-strip">
+              <div className="inline-gmb-left">
+                <div className="inline-gmb-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18">
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
                     <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
                     <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
                     <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
                   </svg>
                 </div>
-                <div>
-                  <span className="gmb-badge-label">GOOGLE BUSINESS PROFILE</span>
-                  <h4 className="gmb-company-title">BER Services on Google</h4>
+                <div className="inline-gmb-rating">
+                  <div className="inline-stars">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={12} fill="#f59e0b" stroke="#f59e0b" />
+                    ))}
+                  </div>
+                  <span><strong>4.9 / 5.0</strong> on Google (85+ Reviews)</span>
                 </div>
               </div>
-              <div className="gmb-rating-pill">
-                <span className="gmb-score">4.9</span>
-                <div className="gmb-stars-row">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="#f59e0b" stroke="#f59e0b" />
-                  ))}
-                </div>
-                <small className="gmb-review-count">(85+ Reviews)</small>
-              </div>
-            </div>
 
-            <p className="gmb-card-text">
-              Verified 4.9-star rating on Google by enterprise founders & tech leaders. Review our engineering services or browse client testimonials directly on Google.
-            </p>
-
-            <div className="gmb-card-actions">
               <a
                 href={company.googleBusiness?.reviewUrl || 'https://share.google/6ojt2XBKe3kBFESxt'}
                 target="_blank"
                 rel="noreferrer"
-                className="gmb-btn gmb-btn--review"
+                className="inline-gmb-btn"
               >
-                <Star size={14} fill="#ffffff" />
-                <span>Write a Google Review</span>
-                <ExternalLink size={13} />
-              </a>
-              <a
-                href={company.googleBusiness?.url || 'https://share.google/6ojt2XBKe3kBFESxt'}
-                target="_blank"
-                rel="noreferrer"
-                className="gmb-btn gmb-btn--profile"
-              >
-                <span>View Google Business</span>
-                <ExternalLink size={13} />
+                <Star size={12} fill="#ffffff" />
+                <span>Review on Google</span>
+                <ExternalLink size={11} />
               </a>
             </div>
           </div>
