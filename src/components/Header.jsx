@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, MessageCircle, Mail } from 'lucide-react';
+import { ChevronDown, Mail } from 'lucide-react';
 import { company, nav, services } from '../config/siteConfig';
 import { images } from '../config/images';
 import { useConsult } from '../context/ConsultContext';
 import { serviceApi } from '../api';
+import { FacebookIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon } from './SocialIcons';
 import './Header.css';
 
 export default function Header() {
@@ -126,22 +127,52 @@ export default function Header() {
         <div className="hd__top">
           <div className="container hd__top-in">
             <div className="hd__social">
-              <a href={company.socials.facebook} target="_blank" rel="noreferrer">
-                Facebook
+              <a
+                href={company.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                title="Follow us on Facebook"
+                className="hd__social-link hd__social-link--fb"
+              >
+                <FacebookIcon size={14} className="hd__social-icon" />
+                <span>Facebook</span>
               </a>
-              <a href={company.socials.instagram} target="_blank" rel="noreferrer">
-                Instagram
+              <a
+                href={company.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                title="Follow us on Instagram"
+                className="hd__social-link hd__social-link--ig"
+              >
+                <InstagramIcon size={14} className="hd__social-icon" />
+                <span>Instagram</span>
               </a>
-              <a href={company.socials.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn
+              <a
+                href={company.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                title="Connect on LinkedIn"
+                className="hd__social-link hd__social-link--li"
+              >
+                <LinkedInIcon size={14} className="hd__social-icon" />
+                <span>LinkedIn</span>
               </a>
             </div>
             <div className="hd__contact">
-              <a href={company.whatsapp} target="_blank" rel="noreferrer">
-                <MessageCircle size={14} className="hd__contact-icon" />
+              <a
+                href={company.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="hd__contact-link hd__contact-link--wa"
+                title="Chat with us on WhatsApp"
+              >
+                <WhatsAppIcon size={14} className="hd__contact-icon hd__contact-icon--wa" />
                 <span>Chat with us</span>
               </a>
-              <a href={`mailto:${company.email}`}>
+              <a href={`mailto:${company.email}`} className="hd__contact-link" title="Email us directly">
                 <Mail size={14} className="hd__contact-icon" />
                 <span>Email us</span>
               </a>

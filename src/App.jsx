@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import ConsultModal from './components/ConsultModal';
 import FloatingButtons from './components/FloatingButtons';
 import ScrollToTop from './components/ScrollToTop';
+import PageTitleManager from './components/PageTitleManager';
 import SmoothScroll from './components/SmoothScroll';
 import GsapScrollManager from './components/GsapScrollManager';
 import Home from './pages/Home';
@@ -38,6 +39,7 @@ export default function App() {
   return (
     <AdminAuthProvider>
       <ScrollToTop />
+      <PageTitleManager />
       <SmoothScroll />
       <GsapScrollManager />
       {!isAdminRoute && <Header />}

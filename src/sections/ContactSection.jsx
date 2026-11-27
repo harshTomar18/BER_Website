@@ -26,6 +26,7 @@ import {
   Quote,
 } from 'lucide-react';
 import { company, formServices, googleReviews } from '../config/siteConfig';
+import { WhatsAppIcon } from '../components/SocialIcons';
 import { contactApi } from '../api';
 import './ContactSection.css';
 
@@ -260,7 +261,7 @@ export default function ContactSection({
               title="Chat on WhatsApp"
             >
               <div className="contact-card-icon-tile contact-card-icon-tile--whatsapp">
-                <MessageCircle size={20} />
+                <WhatsAppIcon size={20} color="#25D366" />
               </div>
               <div className="contact-card-meta">
                 <small>Instant WhatsApp</small>

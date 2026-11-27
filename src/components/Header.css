@@ -110,26 +110,60 @@
 .hd__contact a {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   color: #b0c0dc;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.25s ease;
+  font-size: 0.82rem;
+  transition: all 0.25s ease;
+}
+
+.hd__social-icon,
+.hd__contact-icon {
+  color: #1385ac;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.hd__social-link--fb:hover {
+  color: #ffffff;
+}
+.hd__social-link--fb:hover .hd__social-icon {
+  color: #1877f2;
+  transform: translateY(-1px) scale(1.1);
+}
+
+.hd__social-link--ig:hover {
+  color: #ffffff;
+}
+.hd__social-link--ig:hover .hd__social-icon {
+  color: #e1306c;
+  transform: translateY(-1px) scale(1.1);
+}
+
+.hd__social-link--li:hover {
+  color: #ffffff;
+}
+.hd__social-link--li:hover .hd__social-icon {
+  color: #0a66c2;
+  transform: translateY(-1px) scale(1.1);
+}
+
+.hd__contact-link--wa:hover {
+  color: #ffffff;
+}
+.hd__contact-icon--wa {
+  color: #25d366;
+}
+.hd__contact-link--wa:hover .hd__contact-icon--wa {
+  color: #25d366;
+  filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.6));
+  transform: scale(1.15);
 }
 
 .hd__social a:hover,
 .hd__contact a:hover {
-  color: #16a1ce;
-}
-
-.hd__contact-icon {
-  color: #1385ac;
-  transition: transform 0.25s ease;
-}
-
-.hd__contact a:hover .hd__contact-icon {
-  transform: scale(1.15);
-  color: #16a1ce;
+  color: #ffffff;
 }
 
 /* =====================================================

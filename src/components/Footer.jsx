@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Globe, Star } from 'lucide-react';
 import { company, services, footerLinks } from '../config/siteConfig';
 import { images } from '../config/images';
+import { FacebookIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon } from './SocialIcons';
 import './Footer.css';
 
 export default function Footer() {
@@ -21,13 +22,11 @@ export default function Footer() {
               href={company.socials.facebook}
               target="_blank"
               rel="noreferrer"
-              className="ft__social-icon-btn"
+              className="ft__social-icon-btn ft__social-icon-btn--fb"
               aria-label="Facebook"
               title="Follow us on Facebook"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
+              <FacebookIcon size={18} />
             </a>
 
             {/* Instagram */}
@@ -35,15 +34,11 @@ export default function Footer() {
               href={company.socials.instagram}
               target="_blank"
               rel="noreferrer"
-              className="ft__social-icon-btn"
+              className="ft__social-icon-btn ft__social-icon-btn--ig"
               aria-label="Instagram"
               title="Follow us on Instagram"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
+              <InstagramIcon size={18} />
             </a>
 
             {/* LinkedIn */}
@@ -51,15 +46,11 @@ export default function Footer() {
               href={company.socials.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="ft__social-icon-btn"
+              className="ft__social-icon-btn ft__social-icon-btn--li"
               aria-label="LinkedIn"
               title="Connect on LinkedIn"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
+              <LinkedInIcon size={18} />
             </a>
 
             {/* WhatsApp */}
@@ -69,11 +60,9 @@ export default function Footer() {
               rel="noreferrer"
               className="ft__social-icon-btn ft__social-icon-btn--wa"
               aria-label="WhatsApp"
-              title="Chat on WhatsApp"
+              title="Chat with us on WhatsApp"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg>
+              <WhatsAppIcon size={18} />
             </a>
           </div>
         </div>

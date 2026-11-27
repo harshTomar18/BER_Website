@@ -33,6 +33,7 @@ import { company } from '../config/siteConfig';
 import { useConsult } from '../context/ConsultContext';
 import { serviceApi } from '../api';
 import NotFound from './NotFound';
+import { WhatsAppIcon } from '../components/SocialIcons';
 import './ServiceDetail.css';
 
 export default function ServiceDetail() {
@@ -275,7 +276,7 @@ export default function ServiceDetail() {
                         rel="noreferrer"
                         className="sd-btn-wa"
                       >
-                        <MessageCircle size={17} />
+                        <WhatsAppIcon size={17} color="#25D366" />
                         <span>Chat on WhatsApp</span>
                       </a>
                     )}
@@ -470,7 +471,7 @@ export default function ServiceDetail() {
                   rel="noreferrer"
                   className="sd-final-btn-secondary"
                 >
-                  <MessageCircle size={18} />
+                  <WhatsAppIcon size={18} color="#25D366" />
                   <span>Chat on WhatsApp</span>
                 </a>
               )}
