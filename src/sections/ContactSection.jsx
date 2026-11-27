@@ -21,13 +21,10 @@ import {
   Star,
   ExternalLink,
   Navigation,
-  ChevronLeft,
-  ChevronRight,
-  Quote,
 } from 'lucide-react';
-import { company, formServices, googleReviews } from '../config/siteConfig';
+import { company, formServices } from '../config/siteConfig';
 import { WhatsAppIcon } from '../components/SocialIcons';
-import { contactApi } from '../api';
+import { contactApi, showcaseApi } from '../api';
 import './ContactSection.css';
 
 /* Vector SVG Country Flags to prevent ugly Windows text fallbacks like 'IN' / 'US' */
@@ -100,25 +97,32 @@ export default function ContactSection({
   const currentOffice =
     (company.offices || []).find((o) => o.id === activeOffice) || company.offices?.[0];
 
-  const [reviewIndex, setReviewIndex] = useState(0);
-  const [isReviewPaused, setIsReviewPaused] = useState(false);
-  const reviewsList = Array.isArray(googleReviews) && googleReviews.length > 0 ? googleReviews : [];
+  // Dynamic Google My Business Live Rating state
+  const [gmbData, setGmbData] = useState(
+    company.googleBusiness || {
+      name: 'BER Services Pvt Ltd',
+      url: 'https://share.google/6ojt2XBKe3kBFESxt',
+      reviewUrl: 'https://share.google/6ojt2XBKe3kBFESxt',
+      rating: 4.9,
+      reviewsCount: '85+',
+      status: 'Verified Business on Google',
+    }
+  );
 
   useEffect(() => {
-    if (isReviewPaused || reviewsList.length <= 1) return;
-    const timer = setInterval(() => {
-      setReviewIndex((prev) => (prev + 1) % reviewsList.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isReviewPaused, reviewsList.length]);
-
-  const handlePrevReview = () => {
-    setReviewIndex((prev) => (prev === 0 ? reviewsList.length - 1 : prev - 1));
-  };
-
-  const handleNextReview = () => {
-    setReviewIndex((prev) => (prev + 1) % reviewsList.length);
-  };
+    let isMounted = true;
+    showcaseApi
+      .getPublicShowcase()
+      .then((res) => {
+        if (isMounted && res?.data?.googleBusiness) {
+          setGmbData((prev) => ({ ...prev, ...res.data.googleBusiness }));
+        }
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const [form, setForm] = useState({
     name: '',
@@ -367,137 +371,51 @@ export default function ContactSection({
               </div>
             </div>
 
-            {/* Google My Business Verified Client Reviews Widget */}
-            <div
-              className="inline-gmb-widget"
-              onMouseEnter={() => setIsReviewPaused(true)}
-              onMouseLeave={() => setIsReviewPaused(false)}
-            >
-              {/* Google Verified Header Bar */}
-              <div className="inline-gmb-header">
-                <div className="inline-gmb-left">
-                  <div className="inline-gmb-icon">
-                    <svg viewBox="0 0 24 24" width="20" height="20">
-                      <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
-                      <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-                      <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                      <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                    </svg>
-                  </div>
-                  <div className="inline-gmb-rating">
-                    <div className="inline-stars-row">
-                      <div className="inline-stars">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={12} fill="#f59e0b" stroke="#f59e0b" />
-                        ))}
-                      </div>
-                      <span className="inline-gmb-score"><strong>4.9</strong> / 5.0</span>
-                    </div>
-                    <span className="inline-gmb-count">85+ Verified Client Reviews</span>
-                  </div>
+            {/* Google My Business Live Dynamic Rating Bar */}
+            <div className="inline-gmb-strip">
+              <div className="inline-gmb-left">
+                <div className="inline-gmb-icon" title="Google Verified Profile">
+                  <svg viewBox="0 0 24 24" width="22" height="22">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                  </svg>
                 </div>
 
+                <div className="inline-gmb-meta">
+                  <div className="inline-gmb-score-row">
+                    <span className="inline-gmb-score">{gmbData?.rating || 4.9}</span>
+                    <div className="inline-stars">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={13} fill="#f59e0b" stroke="#f59e0b" />
+                      ))}
+                    </div>
+                    <span className="inline-gmb-verified-badge">
+                      <CheckCircle2 size={11} /> Verified
+                    </span>
+                  </div>
+                  <div className="inline-gmb-count">
+                    <span>Google Business Rating</span>
+                    <span className="inline-gmb-dot">•</span>
+                    <span>{gmbData?.reviewsCount || '85+'} Verified Reviews</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="inline-gmb-actions">
                 <a
-                  href={company.googleBusiness?.reviewUrl || 'https://share.google/6ojt2XBKe3kBFESxt'}
+                  href={gmbData?.reviewUrl || 'https://share.google/6ojt2XBKe3kBFESxt'}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-gmb-btn"
+                  className="inline-gmb-btn inline-gmb-btn--review"
+                  title="Review on Google"
                 >
                   <Star size={12} fill="#ffffff" />
                   <span>Review on Google</span>
                   <ExternalLink size={11} />
                 </a>
               </div>
-
-              {/* Active Real Client Google Review Card */}
-              {reviewsList.length > 0 && (
-                <div className="inline-review-card">
-                  <div className="inline-review-top">
-                    <div className="inline-review-user">
-                      <div
-                        className="inline-review-avatar"
-                        style={{ background: reviewsList[reviewIndex]?.avatarBg || '#1385ac' }}
-                      >
-                        {reviewsList[reviewIndex]?.avatarInitials || 'CL'}
-                      </div>
-                      <div className="inline-review-user-info">
-                        <div className="inline-review-name-wrap">
-                          <strong className="inline-review-name">{reviewsList[reviewIndex]?.name}</strong>
-                          <span className="inline-review-badge">
-                            <CheckCircle2 size={11} /> Verified Review
-                          </span>
-                        </div>
-                        <span className="inline-review-meta">
-                          {reviewsList[reviewIndex]?.role} • {reviewsList[reviewIndex]?.date}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="inline-review-nav">
-                      <button
-                        type="button"
-                        onClick={handlePrevReview}
-                        className="inline-review-nav-btn"
-                        aria-label="Previous Google Review"
-                        title="Previous review"
-                      >
-                        <ChevronLeft size={14} />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handleNextReview}
-                        className="inline-review-nav-btn"
-                        aria-label="Next Google Review"
-                        title="Next review"
-                      >
-                        <ChevronRight size={14} />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="inline-review-rating-bar">
-                    <div className="inline-stars">
-                      {[...Array(reviewsList[reviewIndex]?.rating || 5)].map((_, i) => (
-                        <Star key={i} size={11} fill="#f59e0b" stroke="#f59e0b" />
-                      ))}
-                    </div>
-                    {reviewsList[reviewIndex]?.highlight && (
-                      <span className="inline-review-highlight">
-                        {reviewsList[reviewIndex].highlight}
-                      </span>
-                    )}
-                  </div>
-
-                  <p className="inline-review-text">
-                    "{reviewsList[reviewIndex]?.text}"
-                  </p>
-
-                  <div className="inline-review-footer">
-                    <div className="inline-review-dots">
-                      {reviewsList.map((rev, idx) => (
-                        <button
-                          key={rev.id}
-                          type="button"
-                          className={`inline-review-dot ${idx === reviewIndex ? 'is-active' : ''}`}
-                          onClick={() => setReviewIndex(idx)}
-                          aria-label={`Go to review by ${rev.name}`}
-                          title={`Review by ${rev.name}`}
-                        />
-                      ))}
-                    </div>
-
-                    <a
-                      href="https://share.google/6ojt2XBKe3kBFESxt"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-review-all-link"
-                    >
-                      <span>View all on Google</span>
-                      <ArrowUpRight size={12} />
-                    </a>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>

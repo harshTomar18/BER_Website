@@ -285,6 +285,15 @@ export const seedDefaultShowcase = async () => {
         nextGen: defaultNextGen,
         testimonials: defaultTestimonials,
         clients: defaultClients,
+        googleBusiness: {
+          name: 'BER Services Pvt Ltd',
+          url: 'https://share.google/6ojt2XBKe3kBFESxt',
+          reviewUrl: 'https://share.google/6ojt2XBKe3kBFESxt',
+          rating: 4.9,
+          reviewsCount: '85+',
+          status: 'Verified Business on Google',
+          isActive: true,
+        },
         isActive: true,
       });
       console.log('🌱 [Seeder] Seeded default Showcase Sections (TechSlider, NextGen, Testimonials, Clients).');
@@ -347,6 +356,15 @@ export const getPublicShowcase = async (req, res, next) => {
         items: (doc.clients?.items || []).filter((item) => item.isActive !== false),
         isActive: doc.clients?.isActive !== false,
       },
+      googleBusiness: {
+        name: doc.googleBusiness?.name || 'BER Services Pvt Ltd',
+        url: doc.googleBusiness?.url || 'https://share.google/6ojt2XBKe3kBFESxt',
+        reviewUrl: doc.googleBusiness?.reviewUrl || 'https://share.google/6ojt2XBKe3kBFESxt',
+        rating: doc.googleBusiness?.rating || 4.9,
+        reviewsCount: doc.googleBusiness?.reviewsCount || '85+',
+        status: doc.googleBusiness?.status || 'Verified Business on Google',
+        isActive: doc.googleBusiness?.isActive !== false,
+      },
     };
 
     return res.status(200).json({
@@ -387,7 +405,7 @@ export const getAdminShowcase = async (req, res, next) => {
  */
 export const updateAdminShowcase = async (req, res, next) => {
   try {
-    const { techSlider, nextGen, testimonials, clients, isActive } = req.body;
+    const { techSlider, nextGen, testimonials, clients, googleBusiness, isActive } = req.body;
 
     let doc = await Showcase.findOne();
     if (!doc) {
@@ -398,6 +416,7 @@ export const updateAdminShowcase = async (req, res, next) => {
     if (nextGen !== undefined) doc.nextGen = nextGen;
     if (testimonials !== undefined) doc.testimonials = testimonials;
     if (clients !== undefined) doc.clients = clients;
+    if (googleBusiness !== undefined) doc.googleBusiness = googleBusiness;
     if (isActive !== undefined) doc.isActive = isActive;
 
     await doc.save();

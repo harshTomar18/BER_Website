@@ -81,6 +81,17 @@ const ShowcaseSchema = new mongoose.Schema(
       isActive: { type: Boolean, default: true },
     },
 
+    // 5. Google My Business (GMB) Real Live Rating & Verification
+    googleBusiness: {
+      name: { type: String, default: 'BER Services Pvt Ltd', trim: true },
+      url: { type: String, default: 'https://share.google/6ojt2XBKe3kBFESxt', trim: true },
+      reviewUrl: { type: String, default: 'https://share.google/6ojt2XBKe3kBFESxt', trim: true },
+      rating: { type: Number, default: 4.9 },
+      reviewsCount: { type: String, default: '85+', trim: true },
+      status: { type: String, default: 'Verified Business on Google', trim: true },
+      isActive: { type: Boolean, default: true },
+    },
+
     isActive: { type: Boolean, default: true },
   },
   { timestamps: true }
