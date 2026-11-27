@@ -26,6 +26,66 @@ import { company, formServices } from '../config/siteConfig';
 import { contactApi } from '../api';
 import './ContactSection.css';
 
+/* Vector SVG Country Flags to prevent ugly Windows text fallbacks like 'IN' / 'US' */
+function CountryFlag({ country, size = 20, className = '' }) {
+  const isIndia = country === 'India' || country === 'IN' || country === 'india';
+  if (isIndia) {
+    return (
+      <svg
+        width={size}
+        height={Math.round((size * 2) / 3)}
+        viewBox="0 0 640 480"
+        className={className}
+        style={{ borderRadius: 2, display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}
+        aria-label="Flag of India"
+      >
+        <path fill="#f93" d="M0 0h640v160H0z" />
+        <path fill="#fff" d="M0 160h640v160H0z" />
+        <path fill="#128807" d="M0 320h640v160H0z" />
+        <g transform="matrix(3.2 0 0 3.2 320 240)">
+          <circle r="20" fill="none" stroke="#008" strokeWidth="2" />
+          <circle r="3.5" fill="#008" />
+          <g id="flag-in-d">
+            <g id="flag-in-c">
+              <g id="flag-in-b">
+                <g id="flag-in-a">
+                  <path fill="#008" d="M0-20l.8 4L0-5l-.8-11z" />
+                </g>
+                <use href="#flag-in-a" transform="rotate(15)" />
+              </g>
+              <use href="#flag-in-b" transform="rotate(30)" />
+            </g>
+            <use href="#flag-in-c" transform="rotate(60)" />
+          </g>
+          <use href="#flag-in-d" transform="rotate(120)" />
+          <use href="#flag-in-d" transform="rotate(240)" />
+        </g>
+      </svg>
+    );
+  }
+
+  // USA Flag
+  return (
+    <svg
+      width={size}
+      height={Math.round((size * 2) / 3)}
+      viewBox="0 0 640 480"
+      className={className}
+      style={{ borderRadius: 2, display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}
+      aria-label="Flag of United States"
+    >
+      <path fill="#bd3d44" d="M0 0h640v480H0z" />
+      <path stroke="#fff" strokeWidth="37" d="M0 55.5h640M0 129.5h640M0 203.5h640M0 277.5h640M0 351.5h640M0 425.5h640" />
+      <path fill="#192f5d" d="M0 0h260v260H0z" />
+      <circle cx="130" cy="130" r="80" fill="#fff" opacity="0.15" />
+      <path
+        fill="#fff"
+        d="M40 35l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zM67 75l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zM40 115l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zM67 155l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zM40 195l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9zm55 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z"
+      />
+    </svg>
+  );
+}
+
 export default function ContactSection({
   contactEmail = company.email,
   phone = company.phone,
@@ -232,7 +292,7 @@ export default function ContactSection({
                     className={`inline-map-tab ${activeOffice === off.id ? 'is-active' : ''}`}
                     onClick={() => setActiveOffice(off.id)}
                   >
-                    <span>{off.flag}</span>
+                    <CountryFlag country={off.country} size={16} />
                     <span>{off.country} {off.id === 'india' ? '(HQ)' : '(USA)'}</span>
                   </button>
                 ))}
@@ -532,7 +592,7 @@ export default function ContactSection({
           </p>
         </div>
 
-        {/* Dual Office Cards Grid */}
+        {/* Dual Office Cards Grid - Each with its own Direct Map & Details */}
         <div className="offices-grid">
           {(company.offices || []).map((office) => {
             const isActive = activeOffice === office.id;
@@ -551,16 +611,28 @@ export default function ContactSection({
               >
                 <div className="office-card-header">
                   <div className="office-flag-pill">
-                    <span className="office-flag">{office.flag}</span>
+                    <CountryFlag country={office.country} size={20} />
                     <span className="office-country">{office.country}</span>
                   </div>
-                  <span className={`office-active-indicator ${isActive ? 'is-active' : ''}`}>
-                    {isActive ? 'Showing on Map' : 'Click to View on Map'}
-                  </span>
+                  <span className="office-badge-tag">{office.badge}</span>
                 </div>
 
-                <div className="office-badge-tag">{office.badge}</div>
                 <h4 className="office-title">{office.title}</h4>
+
+                {/* Direct Embedded Google Map for this specific country */}
+                <div className="office-card-map-box">
+                  <iframe
+                    title={`Google Map - ${office.country} - ${office.title}`}
+                    src={office.embedUrl}
+                    width="100%"
+                    height="230"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="office-card-iframe"
+                  />
+                </div>
 
                 <div className="office-info-list">
                   <div className="office-info-item">
@@ -593,7 +665,7 @@ export default function ContactSection({
                     onClick={(e) => e.stopPropagation()}
                   >
                     <Navigation size={14} />
-                    <span>Get Directions on Google Maps</span>
+                    <span>Open in Google Maps / Directions</span>
                     <ExternalLink size={13} />
                   </a>
                 </div>
@@ -614,7 +686,7 @@ export default function ContactSection({
                   className={`map-tab-btn ${activeOffice === office.id ? 'is-active' : ''}`}
                   onClick={() => setActiveOffice(office.id)}
                 >
-                  <span>{office.flag}</span>
+                  <CountryFlag country={office.country} size={16} />
                   <span>{office.country} ({office.id === 'india' ? 'HQ' : 'Desk'})</span>
                 </button>
               ))}

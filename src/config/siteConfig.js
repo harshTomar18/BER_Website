@@ -31,7 +31,7 @@ export const company = {
       email: 'info@thebermedia.com',
       hours: 'Mon – Sat: 9:30 AM – 6:30 PM IST',
       mapUrl: 'https://share.google/6ojt2XBKe3kBFESxt',
-      embedUrl: 'https://maps.google.com/maps?q=Cloud+9+Towers+Sector+1+Vaishali+Ghaziabad&hl=en&z=15&output=embed',
+      embedUrl: 'https://maps.google.com/maps?q=Cloud%209%20Towers,%20Sector-1,%20Vaishali,%20Ghaziabad&t=&z=14&ie=UTF8&iwloc=&output=embed',
     },
     {
       id: 'usa',
@@ -45,7 +45,7 @@ export const company = {
       email: 'usa@thebermedia.com',
       hours: 'Mon – Fri: 9:00 AM – 5:00 PM EST',
       mapUrl: 'https://maps.google.com/?q=131+Continental+Dr,+Suite+305,+Newark,+DE+19713',
-      embedUrl: 'https://maps.google.com/maps?q=131+Continental+Dr+Suite+305+Newark+DE+19713&hl=en&z=15&output=embed',
+      embedUrl: 'https://maps.google.com/maps?q=131%20Continental%20Dr,%20Suite%20305,%20Newark,%20DE%2019713&t=&z=14&ie=UTF8&iwloc=&output=embed',
     },
   ],
   addresses: [
