@@ -1,22 +1,24 @@
 /**
- * BER Services - Enterprise Portfolio & Case Studies Dataset
- * Real-world commercial digital solutions engineered by BER Services PVT. LTD.
+ * BER Services - Enterprise Portfolio & Work Showcase Dataset
+ * Inspired by premium agency showcase layouts (DigiStreet style)
+ * Custom branded with BER Services (#20285b Navy, #1385ac Teal, #16a1ce Electric Cyan)
  */
 
 export const portfolioCategories = [
-  { id: 'all', label: 'All Projects', count: 8 },
-  { id: 'web', label: 'Web Architecture', count: 2 },
-  { id: 'ecommerce', label: 'eCommerce Platforms', count: 2 },
-  { id: 'mobile', label: 'Mobile Apps', count: 1 },
-  { id: 'software', label: 'Custom Enterprise Software', count: 1 },
-  { id: 'ai', label: 'AI & Automation', count: 1 },
+  { id: 'all', label: 'All Projects', count: 12 },
+  { id: 'web', label: 'Websites & Portals', count: 3 },
+  { id: 'software', label: 'B2B & Enterprise Software', count: 2 },
+  { id: 'ecommerce', label: 'eCommerce Stores', count: 2 },
+  { id: 'mobile', label: 'Mobile Applications', count: 2 },
+  { id: 'ai', label: 'AI & Automation', count: 2 },
   { id: 'marketing', label: 'Digital Marketing & SEO', count: 1 }
 ];
 
 export const portfolioStats = [
   { value: '500+', label: 'Commercial Projects Delivered', sub: 'Across 14+ Global Verticals' },
   { value: '99.98%', label: 'Platform Reliability & Uptime', sub: 'OWASP Bank-Grade Security' },
-  { value: '3.4x', label: 'Average Client ROI & Conversion', sub: 'Measurable Commercial Impact' }
+  { value: '3.4x', label: 'Average Client ROI & Conversion', sub: 'Measurable Commercial Impact' },
+  { value: '100%', label: 'On-Time Milestone Delivery', sub: 'Agile Two-Week Sprints' }
 ];
 
 export const portfolioProjects = [
@@ -25,16 +27,15 @@ export const portfolioProjects = [
     slug: 'nexus-enterprise-cloud-erp',
     title: 'Nexus Enterprise Cloud ERP & Operational Suite',
     category: 'software',
-    categoryLabel: 'Custom Enterprise Software',
+    categoryLabel: 'B2B Enterprise Software',
     client: 'Nexus Logistics Global',
-    industry: 'Supply Chain & Freight Logistics',
+    industry: 'Freight & Supply Chain Logistics',
     featured: true,
     tagline: 'High-Throughput Cloud Resource Management System Handling 1.2M+ Monthly Shipments.',
     overview: 'Engineered an end-to-end cloud ERP unifying warehousing, freight documentation, automated driver dispatching, and automated GST billing into a single sub-second dashboard.',
     challenge: 'The client was losing 200+ hours monthly due to fragmented legacy databases, manual dispatch dispatching spreadsheets, and catastrophic peak-hour system timeouts.',
     solution: 'BER Services architected an event-driven microservices ERP on Node.js and PostgreSQL with real-time WebSocket sync, role-based multi-tier RBAC, and automated invoice reconciliation.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85',
-    mobileImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=85',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
     metrics: [
       { value: '99.99%', label: 'System Uptime' },
       { value: '<250ms', label: 'Dashboard Latency' },
@@ -64,18 +65,17 @@ export const portfolioProjects = [
   {
     id: 'luxe-fashion-store',
     slug: 'luxe-couture-headless-ecommerce',
-    title: 'Luxe Couture Headless Omnichannel eCommerce',
+    title: 'Luxe Couture Headless Omnichannel eCommerce Flagship',
     category: 'ecommerce',
-    categoryLabel: 'eCommerce Platforms',
+    categoryLabel: 'eCommerce Stores',
     client: 'Luxe Apparel Inc.',
-    industry: 'Luxury Fashion & Direct-to-Consumer',
+    industry: 'Direct-to-Consumer Fashion',
     featured: true,
     tagline: 'Sub-Second Next.js Headless Storefront Delivering 185% YoY Mobile Sales Acceleration.',
     overview: 'A hyper-fast international storefront integrating custom 3D garment lookbooks, multi-currency checkout, and bi-directional Shopify Plus inventory automation.',
     challenge: 'A slow legacy monolithic theme caused 65% mobile drop-offs during flash drops and peak festival discount campaigns, with average load times exceeding 5.4 seconds.',
     solution: 'Designed an ultra-responsive headless frontend on Next.js 14 and Tailwind, hooked into Shopify GraphQL APIs with global edge caching across 280+ Cloudflare PoPs.',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=85',
-    mobileImage: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=85',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=75',
     metrics: [
       { value: '+185%', label: 'Mobile Revenue' },
       { value: '0.4s', label: 'Average FCP Speed' },
@@ -102,9 +102,123 @@ export const portfolioProjects = [
     liveUrl: 'https://thebermedia.com/'
   },
   {
+    id: 'videonetics-ai-vision',
+    slug: 'videonetics-ai-video-analytics',
+    title: 'Videonetics AI Video Computing & Security Architecture',
+    category: 'web',
+    categoryLabel: 'Websites & Portals',
+    client: 'Videonetics Technologies',
+    industry: 'AI Video Computing & Smart Cities',
+    featured: true,
+    tagline: 'Enterprise Showcase & Interactive Solution Matrix for AI Visual Intelligence.',
+    overview: 'Engineered an interactive product suite showcase presenting automated traffic management, facial recognition, and industrial surveillance computing across 80+ cities.',
+    challenge: 'Complex technical specifications and deep product matrices were difficult for global government and enterprise buyers to evaluate through standard PDFs.',
+    solution: 'Built an immersive interactive 3D WebGL product explorer, dynamic ROI calculators, and a searchable technical whitepaper repository with sub-second page transitions.',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=75',
+    metrics: [
+      { value: '80+ Cities', label: 'Deployed Scale' },
+      { value: '+210%', label: 'Enterprise Inquiries' },
+      { value: '0.5s', label: 'Page Load Speed' }
+    ],
+    techStack: [
+      { name: 'React 18', color: '#61dafb' },
+      { name: 'Three.js / WebGL', color: '#000000' },
+      { name: 'Node.js', color: '#339933' },
+      { name: 'Tailwind CSS', color: '#06b6d4' }
+    ],
+    deliverables: [
+      'Interactive 3D visual intelligence capability map',
+      'Enterprise government compliance certification portal',
+      'Multi-lingual localization support (English, Arabic, Spanish)',
+      'Sub-second Core Web Vitals optimization'
+    ],
+    testimonial: {
+      quote: 'BER Services captured the high-tech essence of our AI platforms with breathtaking digital execution.',
+      author: 'Avinash Trivedi',
+      role: 'VP Marketing, Videonetics'
+    },
+    liveUrl: 'https://thebermedia.com/'
+  },
+  {
+    id: 'metso-industrial-portal',
+    slug: 'metso-industrial-b2b-portal',
+    title: 'Metso Heavy Machinery & Mineral Processing Portal',
+    category: 'software',
+    categoryLabel: 'B2B Enterprise Software',
+    client: 'Metso Industrial Solutions',
+    industry: 'Heavy Machinery & Mining Tech',
+    featured: false,
+    tagline: 'Integrated B2B Equipment Catalog & Telemetric Maintenance Portal.',
+    overview: 'A digital engineering hub connecting mineral processing plants with real-time equipment telemetrics, spare parts order routing, and digital operating manuals.',
+    challenge: 'Plant managers faced extensive downtime ordering replacement crusher parts through legacy telephone and fragmented fax communication systems.',
+    solution: 'Engineered an integrated B2B customer self-service portal with serial-number lookup, 3D exploded parts diagrams, and automated logistics order routing.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=75',
+    metrics: [
+      { value: '-65%', label: 'Parts Order Time' },
+      { value: '10,000+', label: 'SKU Parts Catalog' },
+      { value: '99.9%', label: 'Portal Uptime' }
+    ],
+    techStack: [
+      { name: 'React 18', color: '#61dafb' },
+      { name: 'Node.js / Express', color: '#339933' },
+      { name: 'SAP ERP Integration', color: '#008fd3' },
+      { name: 'PostgreSQL', color: '#336791' }
+    ],
+    deliverables: [
+      'Interactive 3D exploded parts identification interface',
+      'Real-time SAP ERP bi-directional stock sync',
+      'Automated warranty and field service ticket routing',
+      'Offline-capable PWA for remote quarry workers'
+    ],
+    testimonial: {
+      quote: 'Parts dispatch accuracy rose to 99.4% in the first quarter. This portal revolutionized our customer service operations.',
+      author: 'Marcus Lindholm',
+      role: 'Director of Digital Services, Metso'
+    },
+    liveUrl: 'https://thebermedia.com/'
+  },
+  {
+    id: 'jbm-electric-mobility',
+    slug: 'jbm-green-transit-platform',
+    title: 'JBM Buses Clean Transit Operations & Telematics Platform',
+    category: 'mobile',
+    categoryLabel: 'Mobile Applications',
+    client: 'JBM Electric Vehicles',
+    industry: 'Automotive & Clean Energy Transit',
+    featured: true,
+    tagline: 'Real-Time EV Fleet Telematics & Depot Charging Orchestration App.',
+    overview: 'A cross-platform mobile ecosystem monitoring 1,500+ electric municipal buses with battery state-of-health tracking, depot fast-charging schedules, and driver telemetry.',
+    challenge: 'Depots were suffering peak grid power surcharges and unpredictable vehicle battery degradation due to manual charging schedules.',
+    solution: 'Developed an intelligent Flutter app backed by Go microservices and IoT MQTT streams calculating optimal vehicle charge cycles and route allocations.',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=75',
+    metrics: [
+      { value: '1,500+ Buses', label: 'Active Fleet Tracked' },
+      { value: '-32%', label: 'Depot Energy Bills' },
+      { value: '100ms', label: 'IoT Stream Frequency' }
+    ],
+    techStack: [
+      { name: 'Flutter 3', color: '#02569b' },
+      { name: 'Go Microservices', color: '#00add8' },
+      { name: 'MQTT / IoT', color: '#660066' },
+      { name: 'TimescaleDB', color: '#fdb515' }
+    ],
+    deliverables: [
+      'Native iOS & Android depot supervisor dashboards',
+      'Automated time-of-day charging grid optimization',
+      'Driver regenerative braking telemetry analysis',
+      'Predictive thermal anomaly and cell health alerts'
+    ],
+    testimonial: {
+      quote: 'BER Services delivered a rock-solid fleet telematics solution that saved millions in grid electricity costs.',
+      author: 'Nishant Arya',
+      role: 'Executive Director, JBM Group'
+    },
+    liveUrl: 'https://thebermedia.com/'
+  },
+  {
     id: 'fintech-neo-app',
     slug: 'zenith-wealth-mobile-app',
-    title: 'Zenith Wealth Cross-Platform Financial Mobile Suite',
+    title: 'Zenith Wealth Biometric Financial Investment App',
     category: 'mobile',
     categoryLabel: 'Mobile Applications',
     client: 'Zenith Capital Advisors',
@@ -114,7 +228,7 @@ export const portfolioProjects = [
     overview: 'A high-performance iOS and Android app providing real-time stock quotes, automated mutual fund SIP investments, and biometric facial authentication.',
     challenge: 'The client needed bank-level data encryption and low-latency financial chart updates on low-bandwidth 4G networks without UI stutter.',
     solution: 'Built with Flutter 3 and Go backend microservices, featuring local SQLite offline caching and WebSockets for real-time portfolio valuation updates.',
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=75',
     metrics: [
       { value: '50K+', label: 'Active App Users' },
       { value: '99.9%', label: 'Transaction Success' },
@@ -147,12 +261,12 @@ export const portfolioProjects = [
     categoryLabel: 'AI & Automation',
     client: 'HealthShield InsureTech',
     industry: 'Healthcare Insurance & Claims',
-    featured: false,
+    featured: true,
     tagline: 'Private Enterprise LLM Agent Deflecting 82% of Repetitive Insurance Claims Queries.',
     overview: 'An intelligent AI customer agent trained securely on 1,500+ private policy documents and medical claims SOPs, delivering instant human-like claim resolution.',
     challenge: 'Call centers were overwhelmed with 8,000+ daily repetitive queries about policy exclusions and hospital network lists, causing 45-minute customer wait times.',
     solution: 'Engineered a Retrieval-Augmented Generation (RAG) agent utilizing Claude 3.5 Sonnet and Pinecone vector database with strict zero-data-retention guardrails.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=75',
     metrics: [
       { value: '82%', label: 'Ticket Deflection' },
       { value: '<2.5s', label: 'Average Response Time' },
@@ -178,40 +292,154 @@ export const portfolioProjects = [
     liveUrl: 'https://thebermedia.com/'
   },
   {
-    id: 'apex-health-portal',
-    slug: 'apex-healthcare-web-platform',
-    title: 'Apex Multi-Hospital Patient & Telehealth Portal',
-    category: 'web',
-    categoryLabel: 'Web Architecture',
-    client: 'Apex Healthcare Network',
-    industry: 'Hospitality & Clinical Care',
+    id: 'ai-lead-automation',
+    slug: 'agentic-b2b-lead-pipeline',
+    title: 'Agentic B2B Lead Enrichment & Outreach Engine',
+    category: 'ai',
+    categoryLabel: 'AI & Automation',
+    client: 'Apex Scale Ventures',
+    industry: 'Venture Capital & SaaS Accelerators',
     featured: false,
-    tagline: 'HIPAA-Compliant Web Architecture Serving 12 Hospitals and 250+ Speciality Doctors.',
-    overview: 'A patient booking and medical record portal enabling teleconsultations, instant lab report downloads, and multi-branch doctor scheduling.',
-    challenge: 'Patients suffered frequent booking double-allocations and frustrating phone queues due to disconnected hospital clinic databases.',
-    solution: 'Developed an integrated React web application with automated SMS/WhatsApp appointment reminders and real-time doctor availability calendars.',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=85',
+    tagline: 'Autonomous AI Agent Scrapes, Validates, and Personalizes 5,000+ Weekly Enterprise Leads.',
+    overview: 'A serverless autonomous workflow extracting executive signals from LinkedIn and news publications to compose hyper-personalized cold outreach emails.',
+    challenge: 'Sales development reps spent 70% of their working hours manually copy-pasting data into HubSpot and writing generic outreach drafts.',
+    solution: 'Architected an automated agentic pipeline utilizing LangGraph, OpenAI GPT-4o, and Hunter APIs connected directly to HubSpot CRM via webhooks.',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=75',
     metrics: [
-      { value: '250K+', label: 'Monthly Appointments' },
-      { value: '100%', label: 'HIPAA Standard Security' },
-      { value: '4.9★', label: 'Patient Experience Score' }
+      { value: '4.2x', label: 'Outbound Reply Rate' },
+      { value: '35 hrs', label: 'SDR Weekly Hours Saved' },
+      { value: '100%', label: 'Automated CRM Sync' }
+    ],
+    techStack: [
+      { name: 'OpenAI GPT-4o', color: '#10a37f' },
+      { name: 'LangGraph Python', color: '#00d2ff' },
+      { name: 'HubSpot API', color: '#ff7a59' },
+      { name: 'AWS Lambda', color: '#ff9900' }
+    ],
+    deliverables: [
+      'Autonomous lead scraping and email verification mesh',
+      'Company trigger signal detection (fundraising, hiring, tech stack)',
+      'Automated personalized ice-breaker drafting',
+      'Bi-directional HubSpot contact and deal pipeline creation'
+    ],
+    testimonial: {
+      quote: 'Our sales pipeline quadrupled in 90 days. The level of personalization achieved by BER’s AI workflows is extraordinary.',
+      author: 'Karan Singhal',
+      role: 'Partner, Apex Scale'
+    },
+    liveUrl: 'https://thebermedia.com/'
+  },
+  {
+    id: 'aurum-luxury-realty',
+    slug: 'aurum-alumni-luxury-realty',
+    title: 'Aurum Alumni High-End Residential Property Platform',
+    category: 'web',
+    categoryLabel: 'Websites & Portals',
+    client: 'Aurum Real Estate Group',
+    industry: 'Luxury Residential & Commercial Realty',
+    featured: true,
+    tagline: 'Immersive Architectural Experience with Virtual 360° Penthouse Walkthroughs.',
+    overview: 'An ultra-luxury real estate web flagship featuring interactive floor plans, neighborhood lifestyle maps, and an instant VIP private showing booking calendar.',
+    challenge: 'High-net-worth buyers from London, Dubai, and Singapore demanded realistic digital walkthroughs of off-plan penthouses without downloading heavy apps.',
+    solution: 'Engineered an ultra-fast WebGL 360° virtual tour player directly in the browser, complete with real-time currency converters and WhatsApp private banker concierge.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=75',
+    metrics: [
+      { value: '₹140 Cr', label: 'Digital Property Sales' },
+      { value: '3.2 min', label: 'Avg Session Duration' },
+      { value: '0.4s', label: 'First Contentful Paint' }
+    ],
+    techStack: [
+      { name: 'React 18', color: '#61dafb' },
+      { name: 'Three.js / WebGL', color: '#000000' },
+      { name: 'GSAP Animations', color: '#88ce02' },
+      { name: 'Cloudflare CDN', color: '#f38020' }
+    ],
+    deliverables: [
+      'Interactive 360° virtual walkthrough engine',
+      'Multi-currency property EMI & tax calculation matrix',
+      'Direct WhatsApp VIP sales concierge routing',
+      'Sub-second mobile responsive performance'
+    ],
+    testimonial: {
+      quote: 'The website closed multiple 8-figure penthouse sales from international buyers before construction was even finished.',
+      author: 'Siddharth Varma',
+      role: 'Managing Director, Aurum Group'
+    },
+    liveUrl: 'https://thebermedia.com/'
+  },
+  {
+    id: 'amity-global-admissions',
+    slug: 'amity-university-admissions-portal',
+    title: 'Amity Global Student Admissions & Program Discovery Portal',
+    category: 'web',
+    categoryLabel: 'Websites & Portals',
+    client: 'Amity University Global',
+    industry: 'Higher Education & Academia',
+    featured: false,
+    tagline: 'Streamlined Course Discovery & Global Application Engine Handling 500K+ Annual Applicants.',
+    overview: 'A student-centric admissions web architecture guiding prospective applicants through scholarship eligibility calculators, campus virtual tours, and fee payments.',
+    challenge: 'Legacy forms resulted in high application drop-offs and administrative bottlenecks during annual exam result announcements.',
+    solution: 'Built a modular multi-step application funnel with auto-saving drafts, digital document verification, and instant fee gateway integration.',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=75',
+    metrics: [
+      { value: '500K+', label: 'Annual Applicants' },
+      { value: '-45%', label: 'Application Drop-off' },
+      { value: '100%', label: 'Mobile Compliance' }
     ],
     techStack: [
       { name: 'React 18', color: '#61dafb' },
       { name: 'Node.js', color: '#339933' },
-      { name: 'MongoDB Atlas', color: '#47a248' },
-      { name: 'WebRTC Video', color: '#333333' }
+      { name: 'PostgreSQL', color: '#336791' },
+      { name: 'Razorpay / Stripe', color: '#528ff0' }
     ],
     deliverables: [
-      'Telehealth video consultations via encrypted WebRTC',
-      'Automated doctor slot booking & cancellation engine',
-      'Instant encrypted PDF diagnostic report repository',
-      'Role-based doctor, nurse, and admin permission portals'
+      'Multi-step auto-saving student admissions pipeline',
+      'Smart scholarship eligibility assessment engine',
+      'Automated WhatsApp & SMS admission status updates',
+      'Instant digital offer letter generation'
     ],
     testimonial: {
-      quote: 'Patient bookings increased by 140% while reception call workload plummeted. BER Services executed our clinical vision with precision.',
-      author: 'Ananya Roy',
-      role: 'Director of Operations, Apex Health'
+      quote: 'Application completion rates jumped by 45%. The experience for students and parents has been smooth and modern.',
+      author: 'Dr. Meenakshi Sharma',
+      role: 'Dean of Admissions, Amity Global'
+    },
+    liveUrl: 'https://thebermedia.com/'
+  },
+  {
+    id: 'shivalik-fintech-bank',
+    slug: 'shivalik-digital-banking-storefront',
+    title: 'Shivalik Digital Banking & MSME Financial Platform',
+    category: 'ecommerce',
+    categoryLabel: 'eCommerce Stores',
+    client: 'Shivalik Bank',
+    industry: 'Banking & Financial Technology',
+    featured: false,
+    tagline: 'Instant Account Opening & Paperless MSME Loan Origination Portal.',
+    overview: 'A digital banking platform providing instant video-KYC account opening, paperless credit checks for small business owners, and fixed deposit booking in under 3 minutes.',
+    challenge: 'Traditional branch-based account opening required 3 to 5 business days, limiting customer acquisition among digitally savvy millennial entrepreneurs.',
+    solution: 'Designed a compliant digital onboarding architecture with Aadhaar e-Sign, automated CIBIL score checks, and instant UPI mandate integration.',
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=75',
+    metrics: [
+      { value: '<3 Min', label: 'Account Opening Time' },
+      { value: '₹350 Cr+', label: 'Digital Deposits' },
+      { value: 'RBI Ready', label: 'Bank-Grade Security' }
+    ],
+    techStack: [
+      { name: 'React 18', color: '#61dafb' },
+      { name: 'Go Backend', color: '#00add8' },
+      { name: 'Docker / K8s', color: '#2496ed' },
+      { name: 'Redis', color: '#dc382d' }
+    ],
+    deliverables: [
+      'Paperless Video-KYC verification pipeline',
+      'Instant UPI and NetBanking payment authorization',
+      'Real-time automated credit underwriting engine',
+      'Comprehensive audit logging conforming to RBI guidelines'
+    ],
+    testimonial: {
+      quote: 'Digital account opening transformed from a 4-day ordeal to a 3-minute delight. BER’s financial engineering is world-class.',
+      author: 'Harpreet Singh',
+      role: 'Chief Digital Officer, Shivalik'
     },
     liveUrl: 'https://thebermedia.com/'
   },
@@ -228,7 +456,7 @@ export const portfolioProjects = [
     overview: 'A data-driven technical SEO architecture paired with high-converting programmatic Meta & Google Ads campaigns for an organic wellness D2C brand.',
     challenge: 'Stagnant keyword rankings on page 4 of Google and skyrocketing Customer Acquisition Costs (CAC) from unoptimized paid ad campaigns.',
     solution: 'Audited technical schema markup, restructured programmatic collection silos, and launched localized hyper-targeted performance creative funnels.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75',
     metrics: [
       { value: '+420%', label: 'Organic Search Traffic' },
       { value: '3.8x', label: 'Blended Ad ROAS' },
@@ -248,84 +476,8 @@ export const portfolioProjects = [
     ],
     testimonial: {
       quote: 'Our brand went from obscurity to dominating Google search for all our primary wellness categories. BER is our growth engine.',
-      author: 'Karan Mehra',
-      role: 'Founder & CEO, Organica'
-    },
-    liveUrl: 'https://thebermedia.com/'
-  },
-  {
-    id: 'velocity-saas-website',
-    slug: 'velocity-developer-saas-platform',
-    title: 'Velocity Developer Platform & Cloud Documentation',
-    category: 'web',
-    categoryLabel: 'Web Architecture',
-    client: 'Velocity Cloud Labs',
-    industry: 'Developer Tools & SaaS',
-    featured: false,
-    tagline: 'Interactive 60 FPS Developer Hub with Interactive API Playgrounds and Code Sandboxes.',
-    overview: 'Engineered a dark-mode developer experience platform featuring real-time syntax highlighted API consoles, multi-SDK tabs, and sub-second documentation search.',
-    challenge: 'Developer onboarding drop-off was 48% due to sluggish, confusing documentation and poor code sample presentation.',
-    solution: 'Built an MDX-driven static-generated documentation suite with instantaneous Algolia search and live browser API test run environments.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85',
-    metrics: [
-      { value: '<150ms', label: 'Instant Search Latency' },
-      { value: '+92%', label: 'Developer Signups' },
-      { value: '100/100', label: 'Google Lighthouse Score' }
-    ],
-    techStack: [
-      { name: 'Next.js 14', color: '#000000' },
-      { name: 'TypeScript', color: '#3178c6' },
-      { name: 'Algolia Search', color: '#5468ff' },
-      { name: 'Tailwind CSS', color: '#06b6d4' }
-    ],
-    deliverables: [
-      'Interactive TypeScript & Python code sandbox runner',
-      'Instantaneous client-side Algolia documentation search',
-      'Dark/Light theme switching with zero layout flash',
-      'GitHub pull-request driven automated doc preview deployment'
-    ],
-    testimonial: {
-      quote: 'Engineers love using our documentation. Our signup conversion rate doubled within three weeks of launch.',
-      author: 'David Chen',
-      role: 'VP of Product, Velocity Labs'
-    },
-    liveUrl: 'https://thebermedia.com/'
-  },
-  {
-    id: 'artisan-crafts-b2b',
-    slug: 'artisan-global-b2b-wholesale',
-    title: 'Artisan Global Export & B2B Wholesale Marketplace',
-    category: 'ecommerce',
-    categoryLabel: 'eCommerce Platforms',
-    client: 'Artisan Heritage Exports',
-    industry: 'Handicrafts & B2B Global Trade',
-    featured: false,
-    tagline: 'B2B Wholesale eCommerce with Tiered Volume Pricing and Custom Quote Generators.',
-    overview: 'A specialized wholesale platform designed for overseas buyers featuring minimum order quantity (MOQ) logic, custom shipping container calculations, and RFQ workflows.',
-    challenge: 'B2B international buyers were burdened by manual email back-and-forth for container volume calculations and trade quotes.',
-    solution: 'Designed an enterprise B2B portal with live container load calculators, dynamic bulk tiered pricing tiers, and automated multi-currency proforma invoicing.',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1400&q=85',
-    metrics: [
-      { value: '+260%', label: 'International Inquiries' },
-      { value: '60%', label: 'Faster Quote Turnaround' },
-      { value: '$4.2M+', label: 'Wholesale GMV Processed' }
-    ],
-    techStack: [
-      { name: 'Shopify Plus B2B', color: '#96bf48' },
-      { name: 'React 18', color: '#61dafb' },
-      { name: 'Node.js', color: '#339933' },
-      { name: 'GraphQL', color: '#e10098' }
-    ],
-    deliverables: [
-      'Live sea freight container volume fill calculator',
-      'Automated digital Request for Quotation (RFQ) pipelines',
-      'Custom B2B buyer accounts with approved credit terms',
-      'Automated proforma and commercial export invoice generation'
-    ],
-    testimonial: {
-      quote: 'Our European and US buyers can now configure bulk orders in minutes. It completely revolutionized our export business.',
-      author: 'Sunil Aggarwal',
-      role: 'Managing Director, Artisan Heritage'
+      author: 'Rohit Bansal',
+      role: 'Founder & CEO, Organica Foods'
     },
     liveUrl: 'https://thebermedia.com/'
   }

@@ -1,18 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import {
   Sparkles,
-  Layers,
+  Search,
   ArrowRight,
   ExternalLink,
   CheckCircle2,
   X,
-  Monitor,
-  Smartphone,
-  Quote,
   ShieldCheck,
   TrendingUp,
-  Clock,
-  Briefcase
+  Briefcase,
+  Quote,
+  Eye,
+  SlidersHorizontal
 } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 import FaqSection from '../sections/FaqSection';
@@ -28,21 +27,25 @@ import './Portfolio.css';
 export default function Portfolio() {
   const { openModal } = useConsult();
   const [activeCategory, setActiveCategory] = useState('all');
-  const [deviceViews, setDeviceViews] = useState({}); // { [projectId]: 'desktop' | 'mobile' }
+  const [searchQuery, setSearchQuery] = useState('');
   const [activeModalProject, setActiveModalProject] = useState(null);
 
-  // Filter projects by active category
+  // Filter projects by active category and search query
   const filteredProjects = useMemo(() => {
-    if (activeCategory === 'all') return portfolioProjects;
-    return portfolioProjects.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
+    return portfolioProjects.filter((p) => {
+      const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
+      const q = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !q ||
+        p.title.toLowerCase().includes(q) ||
+        p.client.toLowerCase().includes(q) ||
+        p.industry.toLowerCase().includes(q) ||
+        p.categoryLabel.toLowerCase().includes(q) ||
+        (Array.isArray(p.techStack) && p.techStack.some((t) => t.name.toLowerCase().includes(q)));
 
-  const toggleDeviceView = (projectId, mode) => {
-    setDeviceViews((prev) => ({
-      ...prev,
-      [projectId]: mode
-    }));
-  };
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchQuery]);
 
   const openCaseStudyModal = (project) => {
     setActiveModalProject(project);
@@ -57,10 +60,10 @@ export default function Portfolio() {
   return (
     <>
       <PageBanner
-        title="Portfolio & Case Studies"
+        title="Showcase & Case Studies"
         crumbs={[
           { label: 'Home', to: '/' },
-          { label: 'Portfolio & Case Studies' }
+          { label: 'Showcase' }
         ]}
       />
 
@@ -70,18 +73,19 @@ export default function Portfolio() {
         <div className="portfolio-bg-glow portfolio-bg-glow--bottom"></div>
 
         <div className="container portfolio-container">
-          {/* Top Header Section */}
+          {/* Top Showcase Hero Section (DigiStreet Signature Header) */}
           <div className="portfolio-header">
             <div className="portfolio-badge-pill">
               <Sparkles size={14} />
-              <span>Proven Commercial Deliveries</span>
+              <span>Digital Engineering & Work Showcase</span>
             </div>
             <h1 className="portfolio-heading">
-              Engineering Digital Solutions That{' '}
-              <span className="portfolio-heading-accent">Drive Real Growth</span>
+              Client Campaigns, Web Platforms &{' '}
+              <span className="portfolio-heading-accent">Digital Solutions Showcase</span>
             </h1>
             <p className="portfolio-intro-text">
-              Explore our cross-industry portfolio of custom enterprise software, high-conversion eCommerce flagships, mobile applications, and intelligent AI automation systems.
+              Explore how BER Services powers market-leading enterprises, high-growth eCommerce brands,
+              and venture-backed platforms with bespoke technology, sub-second architectures, and measurable commercial results.
             </p>
           </div>
 
@@ -96,11 +100,40 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Sticky Category Filter Bar */}
-          <div className="portfolio-filter-wrapper">
+          {/* Interactive Search & Category Filter Navigation */}
+          <div className="portfolio-nav-section">
+            {/* Search Input Bar */}
+            <div className="portfolio-search-box">
+              <Search size={18} className="portfolio-search-icon" />
+              <input
+                type="text"
+                className="portfolio-search-input"
+                placeholder="Search by client, industry, or tech stack (e.g. ERP, Next.js, JBM, AI)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  className="portfolio-search-clear"
+                  onClick={() => setSearchQuery('')}
+                  title="Clear search"
+                >
+                  <X size={15} />
+                </button>
+              )}
+            </div>
+
+            {/* Category Filter Pills (DigiStreet Signature Tabs) */}
             <div className="portfolio-filter-bar">
               {portfolioCategories.map((cat) => {
                 const isActive = activeCategory === cat.id;
+                // Calculate count dynamically if filtered by search
+                const count =
+                  cat.id === 'all'
+                    ? portfolioProjects.length
+                    : portfolioProjects.filter((p) => p.category === cat.id).length;
+
                 return (
                   <button
                     key={cat.id}
@@ -109,111 +142,122 @@ export default function Portfolio() {
                     onClick={() => setActiveCategory(cat.id)}
                   >
                     <span>{cat.label}</span>
-                    <span className="portfolio-filter-count">{cat.count}</span>
+                    <span className="portfolio-filter-count">{count}</span>
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* Interactive Bento Showcase Grid */}
-          <div className="portfolio-bento-grid">
-            {filteredProjects.map((project, index) => {
-              const isFlagship = project.featured;
-              const currentDevice = deviceViews[project.id] || 'desktop';
-              const displayImg =
-                currentDevice === 'mobile' && project.mobileImage
-                  ? project.mobileImage
-                  : project.image;
+          {/* Project Cards Counter Bar */}
+          <div className="portfolio-results-meta">
+            <span className="portfolio-results-text">
+              Showing <strong>{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
+              {activeCategory !== 'all' && ` in ${portfolioCategories.find((c) => c.id === activeCategory)?.label}`}
+              {searchQuery && ` matching "${searchQuery}"`}
+            </span>
+            {(activeCategory !== 'all' || searchQuery) && (
+              <button
+                type="button"
+                className="portfolio-reset-btn"
+                onClick={() => {
+                  setActiveCategory('all');
+                  setSearchQuery('');
+                }}
+              >
+                Reset Filters
+              </button>
+            )}
+          </div>
 
-              return (
+          {/* =====================================================
+              SIGNATURE SHOWCASE GRID (DIGISTREET STYLE)
+              Uniform 3-Column Grid with Rich Hover Overlays
+              ===================================================== */}
+          {filteredProjects.length === 0 ? (
+            <div className="portfolio-empty-state">
+              <div className="portfolio-empty-icon">
+                <SlidersHorizontal size={40} />
+              </div>
+              <h3 className="portfolio-empty-title">No projects match your filter criteria</h3>
+              <p className="portfolio-empty-desc">
+                Try searching for another keyword or switch category tab to explore our full work showcase.
+              </p>
+              <button
+                type="button"
+                className="portfolio-empty-btn"
+                onClick={() => {
+                  setActiveCategory('all');
+                  setSearchQuery('');
+                }}
+              >
+                View All Projects
+              </button>
+            </div>
+          ) : (
+            <div className="portfolio-showcase-grid">
+              {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className={`portfolio-card ${isFlagship ? 'portfolio-card--flagship' : ''}`}
+                  className="portfolio-showcase-card"
+                  onClick={() => openCaseStudyModal(project)}
                 >
-                  {/* Top Meta Bar */}
-                  <div className="portfolio-card-top">
-                    <div className="portfolio-card-category-wrap">
-                      <span className="portfolio-card-cat-pill">{project.categoryLabel}</span>
-                      <span className="portfolio-card-client-pill">{project.industry}</span>
+                  {/* Artwork / Showcase Visual Box */}
+                  <div className="portfolio-card-artwork">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="portfolio-card-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    {/* Top Floating Badges */}
+                    <div className="portfolio-card-badges">
+                      <span className="portfolio-badge-category">
+                        {project.categoryLabel}
+                      </span>
+                      <span className="portfolio-badge-industry">
+                        {project.industry}
+                      </span>
                     </div>
 
-                    {/* Multi-Device Viewport Switcher for Flagships */}
-                    {isFlagship && project.mobileImage && (
-                      <div className="portfolio-device-toggle">
-                        <button
-                          type="button"
-                          className={`portfolio-dev-btn ${currentDevice === 'desktop' ? 'is-active' : ''}`}
-                          onClick={() => toggleDeviceView(project.id, 'desktop')}
-                          title="Desktop View"
-                        >
-                          <Monitor size={14} />
-                          <span>Desktop</span>
-                        </button>
-                        <button
-                          type="button"
-                          className={`portfolio-dev-btn ${currentDevice === 'mobile' ? 'is-active' : ''}`}
-                          onClick={() => toggleDeviceView(project.id, 'mobile')}
-                          title="Mobile App View"
-                        >
-                          <Smartphone size={14} />
-                          <span>Mobile</span>
-                        </button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Visual Artwork / Mockup Window */}
-                  <div
-                    className={`portfolio-card-media ${
-                      currentDevice === 'mobile' ? 'is-mobile-view' : ''
-                    }`}
-                    onClick={() => openCaseStudyModal(project)}
-                  >
-                    <div className="portfolio-card-frame">
-                      <img
-                        src={displayImg}
-                        alt={project.title}
-                        className="portfolio-card-img"
-                        loading="lazy"
-                      />
-                      <div className="portfolio-card-overlay">
-                        <span className="portfolio-card-zoom-pill">
-                          <span>Inspect Architecture</span>
-                          <ArrowRight size={14} />
+                    {/* Sleek Hover Glassmorphic Overlay (DigiStreet Signature) */}
+                    <div className="portfolio-card-hover-overlay">
+                      <div className="portfolio-card-hover-content">
+                        <span className="portfolio-hover-pill">
+                          <Eye size={15} />
+                          <span>View Case Study</span>
+                          <ArrowRight size={15} />
                         </span>
+                        <p className="portfolio-hover-summary">
+                          {project.tagline}
+                        </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Content & Narrative */}
-                  <div className="portfolio-card-body">
-                    <div className="portfolio-card-client-name">{project.client}</div>
-                    <h3
-                      className="portfolio-card-title"
-                      onClick={() => openCaseStudyModal(project)}
-                    >
+                  {/* Card Information Body */}
+                  <div className="portfolio-card-info">
+                    {/* Client Name with Tracked Uppercase Typography */}
+                    <div className="portfolio-card-client-brand">
+                      {project.client}
+                    </div>
+
+                    {/* Project Title */}
+                    <h3 className="portfolio-card-title">
                       {project.title}
                     </h3>
-                    <p className="portfolio-card-tagline">{project.tagline}</p>
-                    <p className="portfolio-card-overview">{project.overview}</p>
 
-                    {/* Key Deliverables Highlights */}
-                    {Array.isArray(project.deliverables) && project.deliverables.length > 0 && (
-                      <div className="portfolio-card-deliverables">
-                        {project.deliverables.slice(0, 3).map((del, dIdx) => (
-                          <div key={dIdx} className="portfolio-card-del-item">
-                            <CheckCircle2 size={13} className="portfolio-card-del-icon" />
-                            <span>{del}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                    {/* Brief Tagline */}
+                    <p className="portfolio-card-desc">
+                      {project.overview}
+                    </p>
 
-                    {/* Tech Stack Chips */}
+                    {/* Technology Stack Tags */}
                     {Array.isArray(project.techStack) && project.techStack.length > 0 && (
-                      <div className="portfolio-card-tech">
-                        {project.techStack.map((tech, tIdx) => (
+                      <div className="portfolio-card-tech-chips">
+                        {project.techStack.slice(0, 4).map((tech, tIdx) => (
                           <span key={tIdx} className="portfolio-tech-chip">
                             <span
                               className="portfolio-tech-dot"
@@ -225,42 +269,29 @@ export default function Portfolio() {
                       </div>
                     )}
 
-                    {/* ROI Micro-Metrics Strip */}
-                    {Array.isArray(project.metrics) && project.metrics.length > 0 && (
-                      <div className="portfolio-card-metrics">
-                        {project.metrics.map((m, mIdx) => (
-                          <div key={mIdx} className="portfolio-metric-box">
-                            <div className="portfolio-metric-val">{m.value}</div>
-                            <div className="portfolio-metric-lbl">{m.label}</div>
-                          </div>
-                        ))}
+                    {/* Bottom Action & Metric Strip */}
+                    <div className="portfolio-card-bottom-bar">
+                      {Array.isArray(project.metrics) && project.metrics.length > 0 ? (
+                        <div className="portfolio-highlight-metric">
+                          <span className="portfolio-hm-value">{project.metrics[0].value}</span>
+                          <span className="portfolio-hm-label">{project.metrics[0].label}</span>
+                        </div>
+                      ) : (
+                        <div />
+                      )}
+
+                      <div className="portfolio-card-link-action">
+                        <span>Case Study</span>
+                        <span className="portfolio-card-arrow-circle">
+                          <ArrowRight size={13} />
+                        </span>
                       </div>
-                    )}
-
-                    {/* Action Buttons */}
-                    <div className="portfolio-card-actions">
-                      <button
-                        type="button"
-                        className="portfolio-btn-primary"
-                        onClick={() => openCaseStudyModal(project)}
-                      >
-                        <span>Deep-Dive Case Study</span>
-                        <ArrowRight size={15} />
-                      </button>
-
-                      <button
-                        type="button"
-                        className="portfolio-btn-secondary"
-                        onClick={openModal}
-                      >
-                        <span>Request Architecture</span>
-                      </button>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
