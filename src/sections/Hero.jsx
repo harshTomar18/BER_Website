@@ -6,10 +6,49 @@ import { useConsult } from '../context/ConsultContext';
 import { heroApi } from '../api';
 import './Hero.css';
 
+const defaultHeroConfig = {
+  badge: 'Enterprise Technology Flagship',
+  title: 'Custom Website Development &',
+  titleSub: 'Digital Solutions That',
+  dynamicWords: [
+    { text: 'Deliver Results', color: '#1385ac' },
+    { text: 'Accelerate Growth', color: '#16a1ce' },
+    { text: 'Perform at Scale', color: '#00d2ff' },
+    { text: 'Power Enterprise', color: '#1497c2' },
+  ],
+  description:
+    'Professional web development services with custom, responsive, and SEO-ready websites built for business growth.',
+  primaryCta: {
+    text: 'Get a Free Consultation',
+    url: '',
+    action: 'modal',
+  },
+  secondaryCta: {
+    text: 'Explore Services',
+    url: '/services-we-provide',
+  },
+  features: ['End-to-End Solutions', 'Advanced Technology', 'Tailored Strategies'],
+  heroImage: '',
+  heroImageAlt: 'BER Services Enterprise Architecture Platform',
+  heroVideo: '/images/This is what we will be.mp4',
+  heroVideoPoster: '',
+  heroMediaType: 'video',
+  heroVideoAutoplay: true,
+  heroVideoLoop: true,
+  heroVideoMuted: true,
+  windowBadge: 'thebermedia.com/enterprise',
+  windowLiveStatus: 'Active System',
+  stats: [
+    { icon: '⚡', value: '99.98%', label: 'Uptime & Scalability', color: 'cyan' },
+    { icon: '🚀', value: '500+', label: 'Projects Delivered', color: 'orange' },
+  ],
+  isActive: true,
+};
+
 export default function Hero() {
   const { openModal } = useConsult();
-  const [hero, setHero] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [hero, setHero] = useState(defaultHeroConfig);
+  const [loading, setLoading] = useState(false);
   const [wordIdx, setWordIdx] = useState(0);
   const cardRef = useRef(null);
   const videoRef = useRef(null);
@@ -258,6 +297,7 @@ export default function Hero() {
                         loop={hero.heroVideoLoop !== false}
                         muted={isMuted}
                         playsInline
+                        preload="metadata"
                         className="hero__showcase-video"
                         onPlay={() => setIsPlaying(true)}
                         onPause={() => setIsPlaying(false)}

@@ -1,0 +1,22 @@
+# BER Services - Enterprise Digital Engineering & Technology Solutions
+
+> BER Services Private Limited is a full-service technology company engineering bespoke websites, scalable eCommerce architectures, custom software, cross-platform mobile applications, and AI workflow automations.
+
+## Core Capabilities & Services
+
+- [Website Designing & Development](https://thebermedia.com/services-we-provide/website-designing-development): Enterprise web architectures, custom responsive UI/UX, and sub-second Core Web Vitals optimization.
+- [eCommerce Website Development](https://thebermedia.com/services-we-provide/ecommerce-website-development): High-converting digital storefronts, Shopify Plus, WooCommerce, and secure multi-currency payment gateways.
+- [Mobile App Development](https://thebermedia.com/services-we-provide/mobile-app-development): Native iOS & Android applications and cross-platform React Native / Flutter engineering.
+- [Custom Software Development](https://thebermedia.com/services-we-provide/custom-software-development): Bespoke SaaS platforms, internal enterprise tools, and cloud infrastructure.
+- [Digital Marketing & SEO](https://thebermedia.com/services-we-provide/digital-marketing): Data-driven search engine optimization, technical audits, and performance marketing.
+- [AI Automation Services](https://thebermedia.com/services-we-provide/ai-automation): Conversational AI chatbots, enterprise RAG systems, and automated workflow orchestrations.
+
+## Company Information & Case Studies
+
+- [About BER Services](https://thebermedia.com/about-us): Corporate overview, engineering values, mission, and leadership.
+- [Portfolio & Case Studies](https://thebermedia.com/portfolio): Verified client deployments, technology stacks, and ROI benchmarks.
+- [Technical News & Articles](https://thebermedia.com/news-and-article): Engineering publications, architectural patterns, and industry analysis.
+- [Frequently Asked Questions](https://thebermedia.com/faq): Scoping questions, agile development sprints, IP ownership, and SLA support.
+- [Contact & Consultation](https://thebermedia.com/contact-us): Discovery calls, enterprise inquiries, and quotation requests.
+- [Terms & Conditions](https://thebermedia.com/terms-conditions): Engagement terms, SLAs, IP rights, and project governing agreements.
+- [Privacy Policy](https://thebermedia.com/privacy-policy): Data protection standards, privacy compliance, and confidential handling.

@@ -19,7 +19,7 @@ export default function GsapScrollManager() {
       return;
     }
 
-    // Allow time for dynamic MongoDB content and route DOM to mount cleanly
+    // Allow time for dynamic content and initial FCP paint to settle cleanly
     const timer = setTimeout(() => {
       const ctx = gsap.context(() => {
         // -----------------------------------------------------------------
@@ -356,7 +356,7 @@ export default function GsapScrollManager() {
       return () => {
         ctx.revert();
       };
-    }, 120);
+    }, 400);
 
     return () => {
       clearTimeout(timer);

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://agentic-resource-discovery.org/schemas/v1/ard.json",
+  "name": "BER Services",
+  "description": "Enterprise digital solutions, custom website development, eCommerce platforms, software engineering, and AI automations.",
+  "url": "https://thebermedia.com",
+  "version": "1.0.0",
+  "provider": {
+    "name": "BER Services Private Limited",
+    "url": "https://thebermedia.com",
+    "email": "info@thebermedia.com"
+  },
+  "resources": [
+    {
+      "type": "documentation",
+      "name": "Services & Solutions",
+      "url": "https://thebermedia.com/services-we-provide",
+      "description": "Comprehensive index of digital engineering practices."
+    },
+    {
+      "type": "documentation",
+      "name": "LLMs Knowledge Base",
+      "url": "https://thebermedia.com/llms.txt",
+      "description": "Curated markdown guide for AI language models and autonomous agents."
+    },
+    {
+      "type": "sitemap",
+      "name": "XML Sitemap",
+      "url": "https://thebermedia.com/sitemap.xml",
+      "description": "Canonical sitemap index of all pages."
+    }
+  ]
+}
