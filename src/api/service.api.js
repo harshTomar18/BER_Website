@@ -1,11 +1,34 @@
 import { apiClient } from './client';
 
+let servicesPromise = null;
+let servicesData = null;
+let servicesCacheTime = 0;
+const SERVICES_CACHE_TTL = 30000;
+
 export const serviceApi = {
   /**
    * Fetch all active services for public website
    */
-  async getPublicServices() {
-    return apiClient.get('/api/v1/services');
+  async getPublicServices(forceFresh = false) {
+    const now = Date.now();
+    if (!forceFresh && servicesData && now - servicesCacheTime < SERVICES_CACHE_TTL) {
+      return servicesData;
+    }
+    if (!forceFresh && servicesPromise) {
+      return servicesPromise;
+    }
+    servicesPromise = apiClient.get('/api/v1/services')
+      .then((res) => {
+        servicesData = res;
+        servicesCacheTime = Date.now();
+        servicesPromise = null;
+        return res;
+      })
+      .catch((err) => {
+        servicesPromise = null;
+        throw err;
+      });
+    return servicesPromise;
   },
 
   /**

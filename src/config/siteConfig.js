@@ -67,8 +67,8 @@ export const services = [
     badge: 'Modern Web Engineering',
     tagline: 'Enterprise Web Engineering That Converts Visitors Into Long-Term Brand Advocates.',
     short: 'Websites that are modern, responsive, and actually built to grow your brand — not just look good sitting there.',
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'Website Development',
     image: images.services.website,
     overview: [
@@ -136,8 +136,8 @@ export const services = [
     badge: 'Omnichannel Retail & Commerce',
     tagline: 'High-Converting Digital Storefronts Built for Scalable Global Transactions.',
     short: 'Online stores that make shopping simple for your customers, with secure integrations that just work in the background.',
-    heroImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'eCommerce Stores',
     image: images.services.ecommerce,
     overview: [
@@ -205,8 +205,8 @@ export const services = [
     badge: 'Cross-Platform & Native Mobile',
     tagline: 'Feature-Rich iOS & Android Applications That Keep Users Actively Engaged.',
     short: 'Mobile apps that are easy for customers to use and built to genuinely connect them with your business.',
-    heroImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'Mobile Apps',
     image: images.services.mobile,
     overview: [
@@ -274,8 +274,8 @@ export const services = [
     badge: 'Enterprise Cloud Architecture',
     tagline: 'Tailor-Made Software Systems Engineered to Automate Complex Workflows and Scale Effortlessly.',
     short: "Software built around how your business actually operates, so day-to-day work gets simpler and growth doesn't feel like a struggle.",
-    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'Custom Software',
     image: images.services.software,
     overview: [
@@ -343,8 +343,8 @@ export const services = [
     badge: 'Performance Growth & SEO',
     tagline: 'Data-Driven Performance Campaigns That Maximize Qualified Traffic and Measurable ROI.',
     short: 'Strategies backed by real data — more visibility, more engagement, more leads, and conversions that actually move the needle.',
-    heroImage: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'Digital Marketing',
     image: images.services.marketing,
     overview: [
@@ -412,8 +412,8 @@ export const services = [
     badge: 'Creative Identity & Design Systems',
     tagline: 'Distinctive Visual Identities That Command Authority and Foster Customer Trust.',
     short: 'A brand identity your business can be proud of — logos, brand guidelines, brochures, catalogues, marketing material and digital creatives.',
-    heroImage: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'Branding & Design',
     image: images.services.branding,
     overview: [
@@ -480,8 +480,8 @@ export const services = [
     badge: 'Intelligent Workflows & AI Agents',
     tagline: 'Intelligent AI Agents and Automated Workflows That Eliminate Repetitive Tasks and Multiply Team Output.',
     short: 'Smart automation and AI tools that save time, cut repetitive work and help your team focus on what matters.',
-    heroImage: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1400&q=80',
-    galleryImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1000&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=75&auto=format',
+    galleryImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=70&auto=format',
     galleryLabel: 'AI Automation',
     image: images.services.seo,
     overview: [
@@ -684,7 +684,7 @@ export const marqueeServices = [
     pillTitle: 'React',
     title: 'React.js Architecture',
     slug: 'website-designing-development',
-    iconImg: '/images/suppliers/React.png',
+    iconImg: '/images/suppliers/React.webp',
     iconType: 'code',
     description: 'High-performance reactive frontend architectures, component-driven design systems, and fast Next.js SSR web applications.',
     techs: [
@@ -699,7 +699,7 @@ export const marqueeServices = [
     pillTitle: 'Node.js',
     title: 'Node.js Backend & APIs',
     slug: 'custom-software-development',
-    iconImg: '/images/suppliers/Nodejs.png',
+    iconImg: '/images/suppliers/Nodejs.webp',
     iconType: 'code',
     description: 'Event-driven, asynchronous backend runtimes for building scalable microservices, REST APIs, and real-time streaming architectures.',
     techs: [
@@ -714,7 +714,7 @@ export const marqueeServices = [
     pillTitle: 'Angular',
     title: 'Angular Enterprise Solutions',
     slug: 'custom-software-development',
-    iconImg: '/images/suppliers/Angular.png',
+    iconImg: '/images/suppliers/Angular.webp',
     iconType: 'code',
     description: 'Robust, enterprise-scale single page applications with type-safe dependency injection, RxJS reactive patterns, and modular architecture.',
     techs: [
@@ -729,7 +729,7 @@ export const marqueeServices = [
     pillTitle: 'Vue.js',
     title: 'Vue.js Progressive Framework',
     slug: 'website-designing-development',
-    iconImg: '/images/suppliers/vue-js.png',
+    iconImg: '/images/suppliers/vue-js.webp',
     iconType: 'code',
     description: 'Progressive, lightweight and performant frontend development with reactive data-binding, Nuxt 3 rendering, and clean composables.',
     techs: [
@@ -744,7 +744,7 @@ export const marqueeServices = [
     pillTitle: 'WordPress',
     title: 'WordPress & WooCommerce CMS',
     slug: 'ecommerce-website-development',
-    iconImg: '/images/suppliers/Wordpress.png',
+    iconImg: '/images/suppliers/Wordpress.webp',
     iconType: 'cart',
     description: 'Bespoke WordPress theme engineering, headless CMS setups, enterprise WooCommerce stores, and high-security maintenance.',
     techs: [
@@ -759,7 +759,7 @@ export const marqueeServices = [
     pillTitle: 'PHP',
     title: 'PHP & Laravel Development',
     slug: 'custom-software-development',
-    iconImg: '/images/suppliers/php.png',
+    iconImg: '/images/suppliers/php.webp',
     iconType: 'code',
     description: 'Secure, battle-tested server architectures, Laravel enterprise web portals, automated job queues, and robust relational database systems.',
     techs: [
@@ -774,7 +774,7 @@ export const marqueeServices = [
     pillTitle: 'JavaScript',
     title: 'Modern JavaScript (ES6+)',
     slug: 'website-designing-development',
-    iconImg: '/images/suppliers/Java-script.png',
+    iconImg: '/images/suppliers/Java-script.webp',
     iconType: 'code',
     description: 'Dynamic interactive client-side scripting, asynchronous browser architectures, DOM performance tuning, and WebSocket integrations.',
     techs: [
@@ -789,7 +789,7 @@ export const marqueeServices = [
     pillTitle: 'HTML5',
     title: 'Semantic HTML5 Architecture',
     slug: 'website-designing-development',
-    iconImg: '/images/suppliers/Html.png',
+    iconImg: '/images/suppliers/Html.webp',
     iconType: 'code',
     description: 'Accessible, W3C-valid, SEO-optimized semantic markup structures ensuring cross-platform browser compliance and top Lighthouse scores.',
     techs: [
@@ -804,7 +804,7 @@ export const marqueeServices = [
     pillTitle: 'CSS3',
     title: 'Modern CSS3 Styling',
     slug: 'website-designing-development',
-    iconImg: '/images/suppliers/CSS.png',
+    iconImg: '/images/suppliers/CSS.webp',
     iconType: 'design',
     description: 'Advanced CSS Grid, Flexbox, custom keyframe animations, glassmorphic styling, and fluid responsive design systems.',
     techs: [
@@ -819,7 +819,7 @@ export const marqueeServices = [
     pillTitle: 'Tailwind CSS',
     title: 'Tailwind CSS Design Systems',
     slug: 'website-designing-development',
-    iconImg: '/images/suppliers/Tailwind-CSS.png',
+    iconImg: '/images/suppliers/Tailwind-CSS.webp',
     iconType: 'design',
     description: 'Utility-first modern CSS framework enabling bespoke responsive UI systems with zero bloat and lightning-fast page loading speeds.',
     techs: [

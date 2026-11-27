@@ -75,16 +75,42 @@ async function optimizeImages() {
     console.log(`Created hero-poster.webp: ${(fs.statSync(posterWebpPath).size / 1024).toFixed(1)} KB`);
   }
 
-  // 5. Optimize logo final.png
-  const logoPath = path.resolve('public/images/logo final.png');
-  const logoWebpPath = path.resolve('public/images/logo final.webp');
-  if (fs.existsSync(logoPath)) {
-    console.log(`Original logo final.png: ${(fs.statSync(logoPath).size / 1024).toFixed(1)} KB`);
-    await sharp(logoPath)
-      .resize({ width: 400, withoutEnlargement: true })
-      .webp({ quality: 85 })
-      .toFile(logoWebpPath);
-    console.log(`Created logo final.webp: ${(fs.statSync(logoWebpPath).size / 1024).toFixed(1)} KB`);
+  // 5. Optimize logo files
+  for (const lName of ['logo.png', 'logo-white.png', 'logo final.png', 'logo-final.png', 'logo-web.png']) {
+    const lPath = path.resolve('public/images', lName);
+    if (fs.existsSync(lPath)) {
+      const baseName = lName.replace(/\.png$/, '');
+      const outWebp = path.resolve('public/images', `${baseName}.webp`);
+      await sharp(lPath)
+        .resize({ width: 300, withoutEnlargement: true })
+        .webp({ quality: 85 })
+        .toFile(outWebp);
+      console.log(`Created ${baseName}.webp: ${(fs.statSync(outWebp).size / 1024).toFixed(1)} KB`);
+    }
+  }
+
+  // 6. Optimize all suppliers icons to compact webp (max 70px)
+  const suppDir = path.resolve('public/images/suppliers');
+  if (fs.existsSync(suppDir)) {
+    const files = fs.readdirSync(suppDir);
+    for (const file of files) {
+      if (file.endsWith('.png')) {
+        const full = path.join(suppDir, file);
+        const webpOut = path.join(suppDir, file.replace(/\.png$/, '.webp'));
+        await sharp(full)
+          .resize({ width: 80, height: 80, fit: 'inside', withoutEnlargement: true })
+          .webp({ quality: 85 })
+          .toFile(webpOut);
+        // Also compress the png
+        const tmp = full + '.tmp';
+        await sharp(full)
+          .resize({ width: 80, height: 80, fit: 'inside', withoutEnlargement: true })
+          .png({ compressionLevel: 9 })
+          .toFile(tmp);
+        fs.renameSync(tmp, full);
+        console.log(`Optimized supplier ${file}: webp=${(fs.statSync(webpOut).size / 1024).toFixed(1)} KB, png=${(fs.statSync(full).size / 1024).toFixed(1)} KB`);
+      }
+    }
   }
 
   console.log('--- Image Optimization Finished ---');

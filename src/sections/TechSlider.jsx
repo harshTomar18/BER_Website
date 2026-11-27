@@ -149,6 +149,9 @@ export default function TechSlider() {
                         alt={label}
                         className="tm-item-supplier-img"
                         loading="lazy"
+                        decoding="async"
+                        width="35"
+                        height="35"
                       />
                     ) : (
                       renderServiceIcon(service.iconType, 20)

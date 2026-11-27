@@ -183,7 +183,7 @@ export default function Header() {
         <div className="hd__main">
           <div className="container hd__main-in">
             <Link to="/" className="hd__logo" onClick={close} aria-label="BER Services Home">
-              <img src={images.logo} alt={company.name} />
+              <img src="/images/logo.webp" alt={company.name} width="116" height="40" />
             </Link>
 
             {/* Modern Animated Burger Button */}

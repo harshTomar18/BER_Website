@@ -96,10 +96,11 @@ export default function FaqSection({
       }
     };
 
-    fetchFaqs();
+    const timer = setTimeout(fetchFaqs, 1200);
 
     return () => {
       isMounted = false;
+      clearTimeout(timer);
     };
   }, [isLanding, effectiveLimit]);
 

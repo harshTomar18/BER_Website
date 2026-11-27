@@ -26,6 +26,8 @@
   pointer-events: none;
   mix-blend-mode: screen;
   z-index: 1;
+  contain: layout paint;
+  transform: translateZ(0);
 }
 
 .hero__aurora--cyan {

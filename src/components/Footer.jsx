@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Column 1: Brand & Socials */}
         <div className="ft__col ft__col--brand">
           <Link to="/" className="ft__logo-link" aria-label="BER Services Home">
-            <img src={images.logoWhite} alt={company.name} className="ft__logo-img" />
+            <img src="/images/logo-white.webp" alt={company.name} className="ft__logo-img" width="116" height="40" loading="lazy" decoding="async" />
           </Link>
           <p className="ft__tagline">{company.tagline}</p>
           <div className="ft__social">

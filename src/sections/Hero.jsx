@@ -52,7 +52,8 @@ export default function Hero() {
   const [wordIdx, setWordIdx] = useState(0);
   const cardRef = useRef(null);
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+  const [isPlaying, setIsPlaying] = useState(!isMobile);
   const [isMuted, setIsMuted] = useState(true);
 
   const togglePlayPause = (e) => {
@@ -294,11 +295,11 @@ export default function Hero() {
                         ref={videoRef}
                         src={encodeURI(hero.heroVideo || '/images/This is what we will be.mp4')}
                         poster={hero.heroVideoPoster || '/images/hero-poster.webp'}
-                        autoPlay={hero.heroVideoAutoplay !== false}
+                        autoPlay={!isMobile && hero.heroVideoAutoplay !== false}
                         loop={hero.heroVideoLoop !== false}
                         muted={isMuted}
                         playsInline
-                        preload="metadata"
+                        preload={isMobile ? 'none' : 'metadata'}
                         className="hero__showcase-video"
                         onPlay={() => setIsPlaying(true)}
                         onPause={() => setIsPlaying(false)}

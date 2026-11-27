@@ -24,13 +24,7 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.88);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
-    url('/images/Background.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(19, 133, 172, 0.12);
@@ -56,12 +50,7 @@
 
 /* Scrolled State: Premium Frosted Glassmorphism with Branded Texture */
 .hd.hd--scrolled {
-  background-color: rgba(255, 255, 255, 0.92);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84)),
-    url('/images/Background.png');
-  background-size: cover;
-  background-position: center top;
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(32, 40, 91, 0.08);
@@ -464,12 +453,7 @@
     top: 82px;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.96);
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
-      url('/images/Background.png');
-    background-size: cover;
-    background-position: center;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;

@@ -76,7 +76,8 @@ export default function NewsSection() {
       }
     };
 
-    fetchLatest();
+    const timer = setTimeout(fetchLatest, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (

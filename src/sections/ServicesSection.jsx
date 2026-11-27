@@ -145,6 +145,9 @@ export default function ServicesSection({
                             src={item.image}
                             alt={item.text || item.title || ''}
                             loading="lazy"
+                            decoding="async"
+                            width="450"
+                            height="280"
                           />
                         ) : (
                           <div className="svc-card-placeholder" />

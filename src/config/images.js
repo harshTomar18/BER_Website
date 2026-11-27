@@ -3,7 +3,7 @@
 export const images = {
   logo: '/images/logo.png',
   logoWhite: '/images/logo-white.png',
-  bg: '/images/Background.png',
+  bg: '/images/Background.webp',
   hero: '/images/hero.svg',
   about: '/images/about.svg',
   about3D: '/images/ber-neo-glass-clean.png',

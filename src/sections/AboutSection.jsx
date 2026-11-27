@@ -41,9 +41,10 @@ export default function AboutSection() {
       }
     };
 
-    fetchAboutData();
+    const timer = setTimeout(fetchAboutData, 600);
     return () => {
       isMounted = false;
+      clearTimeout(timer);
     };
   }, []);
 
